@@ -38,9 +38,14 @@ btnUndo.addComponent();
 var btnRedo = new Button(302, 0, 100, 100, imgBtnRedo);
 btnRedo.addComponent();
 
+var drawCanvas = new drawingCanvas(102, 100, 1090, 425);
+drawCanvas.addComponent();
+
 //Define customized behaviour for components
 btnBlackPencil.onClick = function(){
     console.log("Black Pencil selected");
+    drawCanvas.toolSelected = drawingCanvasTools.BRUSH;
+    drawCanvas.colourSelected = hexColour.BLACK;
 }
 
 btnRedPencil.onClick = function(){

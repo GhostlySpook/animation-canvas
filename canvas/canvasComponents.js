@@ -26,6 +26,7 @@ var myCanvasArea = {
     //Define event handlers
     //this.canvas.onclick = onClickEventHandler();
     this.canvas.addEventListener("click", function(e){onClickEventHandler(e);});
+    this.canvas.addEventListener("mousedown", function(e){onMouseDownEventHandler(e);});
 
     this.context = this.canvas.getContext("2d");
     document.body.insertBefore(this.canvas, document.body.childNodes[0]);

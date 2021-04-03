@@ -22,17 +22,25 @@ function drawingCanvas(x, y, width, height){
 };
 
 drawingCanvas.prototype.brushRadius = 0;
-drawingCanvas.prototype.toolSelected = drawingCanvasTools.NONE; 
+drawingCanvas.prototype.toolSelected = drawingCanvasTools.BRUSH;
+drawingCanvas.prototype.colourSelected = drawingCanvasTools.BLACK;
 
-drawingCanvas.prototype.onClick = function(e) {
+//Events handling
+drawingCanvas.prototype.onMouseDown = function(e) {
+    console.log("Drawing Canvas selected");
+
     let px = e.pageX;
     let py = e.pageY;
     //console.log("Canvas clicked");
     switch(this.toolSelected){
         case drawingCanvasTools.NONE:
+            console.log("Drawing Canvas- Tool: Nothing");
             break;
         case drawingCanvasTools.BRUSH:
-            this.ctx.fillRect(px, py, 1, 1);
+            console.log("Drawing Canvas- Tool: Brush");
+            ctx.fillStyle = this.colourSelected;
+            console.log(this.colourSelected);
+            ctx.fillRect(px, py, 10, 10);
             break;
     }
 }

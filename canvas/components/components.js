@@ -56,4 +56,6 @@ function Component(width, height, x, y, image) {
     this.onClick = function(){
         console.log("Component clicked");
     }
+
+    this.onMouseDown = function() {};
 }
