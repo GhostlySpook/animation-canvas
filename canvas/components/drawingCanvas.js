@@ -35,6 +35,7 @@ function drawingCanvas(x, y, width, height){
     this.image = null;
 
     this.brushRadius = 5;
+    this.eraserRadius = 10;
     this.toolSelected = drawingCanvasTools.BRUSH;
     this.colourSelected = hexColour.BLACK;
     console.log(this.toolSelected);
@@ -43,8 +44,8 @@ function drawingCanvas(x, y, width, height){
 
 //Drawing methods
 drawingCanvas.prototype.draw = function(px, py){
-    let radio;// = this.brushRadius;
-    let size;// = radio*2;
+    /*let radio;// = this.brushRadius;
+    let size;// = radio*2;*/
     //console.log("Canvas clicked");
     switch(this.toolSelected){
         case drawingCanvasTools.NONE:
@@ -52,21 +53,29 @@ drawingCanvas.prototype.draw = function(px, py){
             break;
         case drawingCanvasTools.BRUSH:
             //console.log("Drawing Canvas- Tool: Brush");
-            radio = this.brushRadius;
-            size = radio*2;
-            ctx.fillStyle = this.colourSelected;
+            /*radio = this.brushRadius;
+            size = radio*2;*/
+            /*ctx.strokeStyle = this.colourSelected;
+            ctx.lineCap = "round";
+            ctx.lineWidth = this.brushRadius * 2;*/
             //console.log(this.colourSelected);
-            px = px-radio;
-            py = py-radio;
-            ctx.fillRect(px, py, size, size);
+            /*px = px-radio;
+            py = py-radio;*/
+            //ctx.fillRect(px, py, size, size);
+
+            ctx.lineTo(px, py);
+            ctx.stroke();
             break;
         case drawingCanvasTools.ERASER:
-            radio = this.eraserRadius;
-            size = radio*2;
-            ctx.fillStyle = this.backgroundColour;
-            px = px-radio;
-            py = py-radio;
-            ctx.fillRect(px, py, size, size);
+            /*radio = this.eraserRadius;
+            size = radio*2;*/
+            /*ctx.strokeStyle = this.backgroundColour;
+            ctx.lineCap = "square";*/
+            ctx.lineTo(px, py);
+            ctx.stroke();
+            /*px = px-radio;
+            py = py-radio;*/
+           // ctx.fillRect(px, py, size, size);
             break;
     }
 }
@@ -89,6 +98,8 @@ drawingCanvas.prototype.onMouseDown = function(e) {
     let py = e.pageY;
 
     if(this.checkPointCollision(px, py)){
+        ctx.beginPath();
+        ctx.moveTo(px, py);
         this.draw(px, py);
         this.isDrawing = true;
     }

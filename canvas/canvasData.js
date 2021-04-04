@@ -44,21 +44,32 @@ drawCanvas.addComponent();
 //Define customized behaviour for components
 btnBlackPencil.onClick = function(){
     console.log("Black Pencil selected");
-    drawCanvas.brushRadius = 5;
     drawCanvas.toolSelected = drawingCanvasTools.BRUSH;
     drawCanvas.colourSelected = hexColour.BLACK;
+
+    ctx.strokeStyle = hexColour.BLACK;
+    ctx.lineCap = "round";
+    ctx.lineWidth = drawCanvas.brushRadius * 2;
 }
 
 btnRedPencil.onClick = function(){
     console.log("Red Pencil selected");
     drawCanvas.toolSelected = drawingCanvasTools.BRUSH;
     drawCanvas.colourSelected = hexColour.RED;
+
+    ctx.strokeStyle = hexColour.RED;
+    ctx.lineCap = "round";
+    ctx.lineWidth = drawCanvas.brushRadius * 2;
 }
 
 btnEraser.onClick = function(){
     console.log("Eraser selected");
+    //drawCanvas.eraserRadius = 10;
     drawCanvas.toolSelected = drawingCanvasTools.ERASER;
-    //drawCanvas.toolSelected = drawingCanvasTools.ERASER;
+
+    ctx.strokeStyle = drawCanvas.backgroundColour;
+    ctx.lineCap = "square";
+    ctx.lineWidth = drawCanvas.eraserRadius * 2;
 }
 
 btnBlackBucket.onClick = function(){
