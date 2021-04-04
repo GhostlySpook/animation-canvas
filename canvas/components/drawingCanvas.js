@@ -16,7 +16,11 @@ const hexColour = {
 }
 
 //New properties!
-drawingCanvas.prototype.brushRadius = 0;
+drawingCanvas.prototype.backgroundColour = hexColour.WHITE;
+
+drawingCanvas.prototype.brushRadius = 5;
+drawingCanvas.prototype.eraserRadius = 10;
+
 drawingCanvas.prototype.toolSelected = null;
 drawingCanvas.prototype.colourSelected = null;
 
@@ -30,13 +34,17 @@ function drawingCanvas(x, y, width, height){
     this.height = height;
     this.image = null;
 
-    this.brushRadius = 0;
+    this.brushRadius = 5;
     this.toolSelected = drawingCanvasTools.BRUSH;
-    this.colourSelected = drawingCanvasTools.BLACK;
+    this.colourSelected = hexColour.BLACK;
+    console.log(this.toolSelected);
+    console.log(this.colourSelected);
 };
 
 //Drawing methods
 drawingCanvas.prototype.draw = function(px, py){
+    let radio;// = this.brushRadius;
+    let size;// = radio*2;
     //console.log("Canvas clicked");
     switch(this.toolSelected){
         case drawingCanvasTools.NONE:
@@ -44,11 +52,28 @@ drawingCanvas.prototype.draw = function(px, py){
             break;
         case drawingCanvasTools.BRUSH:
             //console.log("Drawing Canvas- Tool: Brush");
+            radio = this.brushRadius;
+            size = radio*2;
             ctx.fillStyle = this.colourSelected;
             //console.log(this.colourSelected);
-            ctx.fillRect(px, py, 10, 10);
+            px = px-radio;
+            py = py-radio;
+            ctx.fillRect(px, py, size, size);
+            break;
+        case drawingCanvasTools.ERASER:
+            radio = this.eraserRadius;
+            size = radio*2;
+            ctx.fillStyle = this.backgroundColour;
+            px = px-radio;
+            py = py-radio;
+            ctx.fillRect(px, py, size, size);
             break;
     }
+}
+
+drawingCanvas.prototype.clear = function(){
+    ctx.fillStyle = this.backgroundColour;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
 }
 
 drawingCanvas.prototype.update = function(){

@@ -44,6 +44,7 @@ drawCanvas.addComponent();
 //Define customized behaviour for components
 btnBlackPencil.onClick = function(){
     console.log("Black Pencil selected");
+    drawCanvas.brushRadius = 5;
     drawCanvas.toolSelected = drawingCanvasTools.BRUSH;
     drawCanvas.colourSelected = hexColour.BLACK;
 }
@@ -56,6 +57,8 @@ btnRedPencil.onClick = function(){
 
 btnEraser.onClick = function(){
     console.log("Eraser selected");
+    drawCanvas.toolSelected = drawingCanvasTools.ERASER;
+    //drawCanvas.toolSelected = drawingCanvasTools.ERASER;
 }
 
 btnBlackBucket.onClick = function(){
@@ -88,6 +91,7 @@ btnPasteFrame.onClick = function(){
 
 btnDeleteFrame.onClick = function(){
     console.log("Delete Frame Button selected");
+    drawCanvas.clear();
 }
 
 btnUndo.onClick = function(){
