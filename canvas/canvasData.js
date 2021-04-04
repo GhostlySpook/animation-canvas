@@ -50,6 +50,8 @@ btnBlackPencil.onClick = function(){
 
 btnRedPencil.onClick = function(){
     console.log("Red Pencil selected");
+    drawCanvas.toolSelected = drawingCanvasTools.BRUSH;
+    drawCanvas.colourSelected = hexColour.RED;
 }
 
 btnEraser.onClick = function(){
