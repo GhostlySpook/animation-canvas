@@ -49,7 +49,7 @@ btnBlackPencil.onClick = function(){
 
     ctx.strokeStyle = hexColour.BLACK;
     ctx.lineCap = "round";
-    ctx.lineWidth = drawCanvas.brushRadius * 2;
+    ctx.lineWidth = drawCanvas.brushRadius;
 }
 
 btnRedPencil.onClick = function(){
@@ -59,7 +59,7 @@ btnRedPencil.onClick = function(){
 
     ctx.strokeStyle = hexColour.RED;
     ctx.lineCap = "round";
-    ctx.lineWidth = drawCanvas.brushRadius * 2;
+    ctx.lineWidth = drawCanvas.brushRadius;
 }
 
 btnEraser.onClick = function(){
@@ -68,11 +68,14 @@ btnEraser.onClick = function(){
     drawCanvas.toolSelected = drawingCanvasTools.ERASER;
 
     ctx.strokeStyle = drawCanvas.backgroundColour;
-    ctx.lineCap = "square";
+    ctx.lineCap = "round";
     ctx.lineWidth = drawCanvas.eraserRadius * 2;
 }
 
 btnBlackBucket.onClick = function(){
+    drawCanvas.toolSelected = drawingCanvasTools.BUCKET;
+    drawCanvas.colourSelected = hexColour.BLACK;
+    ctx.fillStyle = hexColour.BLACK;
     console.log("Black Bucket selected");
 }
 
