@@ -99,9 +99,11 @@ drawingCanvas.prototype.bucketFill = function(x, y, colour){
     //1. Get the pixel of the background pixel
     console.log("Step one");
     let pixelData = ctx.getImageData((x + this.x), (y + this.y), 1, 1);
+    let canvasData = ctx.getImageData(this.x, this.y, this.width, this.height);
 
     let canvasX = this.x;
     let canvasY = this.y;
+    let canvasWidth = this.width;
 
     //2. Get the colour of the pixel from the background
     let backData = {
@@ -110,15 +112,23 @@ drawingCanvas.prototype.bucketFill = function(x, y, colour){
         b: pixelData.data[2]
     };
 
+    //3. Get colour of the one selected
+    let fillData = hexToRgb(this.colourSelected);
+
     //4. Create queue array
     queue = []
 
+    //Return if the pixel is inside the area to be filled, relative to drawing canvas
     inside = function(x,y){
-        let pixelData = ctx.getImageData((x + canvasX), (y + canvasY), 1, 1)
+        p = (x + y*canvasWidth) * 4;
+
+        return (canvasData.data[p] == backData.r && canvasData.data[(p+1)] == backData.g && canvasData.data[(p+2)] == backData.b)
+        /*let pixelData = ctx.getImageData((x + canvasX), (y + canvasY), 1, 1)
         
-        return (pixelData.data[0] == backData.r && pixelData.data[1] == backData.g && pixelData.data[2] == backData.b)
+        return (pixelData.data[0] == backData.r && pixelData.data[1] == backData.g && pixelData.data[2] == backData.b)*/
     }
 
+    //Scan for new seeds
     scan = function(lx, rx, y){
         let added = false;
         for(let x = lx; x <= rx; x++){
@@ -136,8 +146,14 @@ drawingCanvas.prototype.bucketFill = function(x, y, colour){
         }
     }
 
+    //Change the colour of that pixel
     set = function(x, y){
-        ctx.fillRect((canvasX + x), (canvasY + y), 1, 1);
+        //ctx.fillRect((canvasX + x), (canvasY + y), 1, 1);
+        p = (x + y*canvasWidth) * 4;
+
+        canvasData.data[p] = fillData.r;
+        canvasData.data[(p+1)] = fillData.g;
+        canvasData.data[(p+2)] = fillData.b;
     }
 
     let s = {
@@ -175,8 +191,8 @@ drawingCanvas.prototype.bucketFill = function(x, y, colour){
         scan(lx, (x-1), (y+1));
         scan(lx, (x-1), (y-1));
     }
-
     console.log("Step seven");
+    ctx.putImageData(canvasData, this.x, this.y);
 }
 
 drawingCanvas.prototype.clear = function(){
