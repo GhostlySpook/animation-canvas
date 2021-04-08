@@ -1,11 +1,52 @@
 * {
     margin: 0;
     padding: 0;
+    user-select: none;
  }
+
+body{
+    height:100vh;
+}
+
+ .sidebar-left {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 10vw; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+
+  .sidebar-right {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 10vw; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+
+  input {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
 
 canvas {
     display: block;
-    background-color: #f1f1f1;
+    position:absolute;
+    background-color: white;
+    height: 100%;
+    width: 80vw;
+    left: 10vw;
     margin: 0;
     padding: 0;
 }

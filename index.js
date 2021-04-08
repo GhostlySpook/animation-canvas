@@ -12,6 +12,7 @@ function include(file) {
     
 /* Include Many js files */
     include('resources.js')
+    include ('elementsData.js');
     include('canvas/canvasComponents.js');
 
 //startCanvas();
