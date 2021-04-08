@@ -6,10 +6,12 @@ function include(file) {
     script.defer = true;
     
     document.getElementsByTagName('head').item(0).appendChild(script);
+
+    return true
 }
     
 /* Include Many js files */
-include('resources.js');
-include('canvas/canvasComponents.js');
+    include('resources.js')
+    include('canvas/canvasComponents.js');
 
 //startCanvas();

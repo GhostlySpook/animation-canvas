@@ -202,6 +202,7 @@ drawingCanvas.prototype.clear = function(){
 
 drawingCanvas.prototype.update = function(){
     ctx.fillStyle = hexColour.WHITE;
+    //ctx.getImageData(this.x, this.y, this.width, this.height);
     ctx.fillRect(this.x, this.y, this.width, this.height);
 }
 

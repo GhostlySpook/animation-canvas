@@ -75,11 +75,14 @@ btnEraser.onClick = function(){
 btnBlackBucket.onClick = function(){
     drawCanvas.toolSelected = drawingCanvasTools.BUCKET;
     drawCanvas.colourSelected = hexColour.BLACK;
-    ctx.fillStyle = hexColour.BLACK;
+    //ctx.fillStyle = hexColour.BLACK;
     console.log("Black Bucket selected");
 }
 
 btnRedBucket.onClick = function(){
+    drawCanvas.toolSelected = drawingCanvasTools.BUCKET;
+    drawCanvas.colourSelected = hexColour.RED;
+    //ctx.fillStyle = hexColour.RED;
     console.log("Red Bucket selected");
 }
 

@@ -52,7 +52,7 @@ var componentId = 0;
 var ctx = undefined;
 
 /* Objects to be used */
-include('canvas/components/components.js')
+include('canvas/components/components.js');
 include('canvas/components/buttons.js');
 include('canvas/components/drawingCanvas.js');
 
