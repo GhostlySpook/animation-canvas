@@ -49,6 +49,7 @@ btnBlackPencil.onClick = function(){
 
     ctx.strokeStyle = hexColour.BLACK;
     ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.lineWidth = drawCanvas.brushRadius;
 }
 
@@ -59,6 +60,7 @@ btnRedPencil.onClick = function(){
 
     ctx.strokeStyle = hexColour.RED;
     ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.lineWidth = drawCanvas.brushRadius;
 }
 
@@ -69,6 +71,7 @@ btnEraser.onClick = function(){
 
     ctx.strokeStyle = drawCanvas.backgroundColour;
     ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.lineWidth = drawCanvas.eraserRadius * 2;
 }
 
