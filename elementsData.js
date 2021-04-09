@@ -10,27 +10,23 @@ var btnBlackBucket = document.getElementById("btnBlackBucket");
 var btnRedBucket = document.getElementById("btnRedBucket");
 
 /*var btnPreviousFrame = new Button(900, 550, 100, 100, imgBtnPreviousFrame);
-btnPreviousFrame.addComponent();
+btnPreviousFrame.addComponent();*/
 
-var btnNextFrame = new Button(1002, 550, 100, 100, imgBtnNextFrame);
-btnNextFrame.addComponent();
+/*var btnNextFrame = new Button(1002, 550, 100, 100, imgBtnNextFrame);
+btnNextFrame.addComponent();*/
 
-var btnNewFrame = new Button(1200, 100, 100, 100, imgBtnNewFrame);
-btnNewFrame.addComponent();
+var btnNewFrame = document.getElementById("btnNewFrame");
 
-var btnCopyFrame = new Button(1200, 202, 100, 100, imgBtnCopyFrame);
-btnCopyFrame.addComponent();
+var btnCopyFrame = document.getElementById("btnCopyFrame");
 
-var btnPasteFrame = new Button(1200, 304, 100, 100, imgBtnPasteFrame);
-btnPasteFrame.addComponent();
+var btnPasteFrame = document.getElementById("btnPasteFrame");
 
-var btnDeleteFrame = new Button(1200, 406, 100, 100, imgBtnDeleteFrame);
-btnDeleteFrame.addComponent();
+var btnDeleteFrame = document.getElementById("btnDeleteFrame");
 
-var btnUndo = new Button(200, 0, 100, 100, imgBtnUndo);
-btnUndo.addComponent();
+/*var btnUndo = new Button(200, 0, 100, 100, imgBtnUndo);
+btnUndo.addComponent();*/
 
-var btnRedo = new Button(302, 0, 100, 100, imgBtnRedo);
+/*var btnRedo = new Button(302, 0, 100, 100, imgBtnRedo);
 btnRedo.addComponent();*/
 
 /*var drawCanvas = new drawingCanvas(102, 100, 1090, 425);
@@ -103,14 +99,14 @@ btnCopyFrame.onclick = function(){
 
 btnPasteFrame.onclick = function(){
     console.log("Paste Frame Button selected");
-}
+}*/
 
 btnDeleteFrame.onclick = function(){
-    console.log("Delete Frame Button selected");
-    drawCanvas.clear();
+    //console.log("Delete Frame Button selected");
+    myCanvasArea.clearCanvas();
 }
 
-btnUndo.onclick = function(){
+/*btnUndo.onclick = function(){
     console.log("Undo Button selected");
 }
 
