@@ -32,6 +32,16 @@ body{
     padding-top: 20px;
   }
 
+  .toolButton{
+    padding: 6px 8px 6px 36px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    cursor: pointer;
+    width: 50%;
+  }
+
   input {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
@@ -49,4 +59,5 @@ canvas {
     left: 10vw;
     margin: 0;
     padding: 0;
+    cursor: crosshair;
 }

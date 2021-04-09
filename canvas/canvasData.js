@@ -181,7 +181,7 @@ myCanvasArea.canvas.onmouseup = function(e){
 }
 
 myCanvasArea.canvas.onmouseout = function(e){
-    myCanvasArea.isDrawing = false;
+    //myCanvasArea.isDrawing = false;
 }
 
 myCanvasArea.canvas.onmousemove = function(e){
