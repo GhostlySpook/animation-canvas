@@ -1,22 +1,12 @@
 //Define components to appear and add make them to appear
-/*var btnBlackPencil = new Button(0, 0, 100, 100, imgBtnBlackPencil);
-btnBlackPencil.addComponent();*/
 var btnBlackPencil = document.getElementById("btnBlackPencil");
 
-/*var btnRedPencil = new Button(0, 102, 100, 100, imgBtnRedPencil);
-btnRedPencil.addComponent();*/
 var btnRedPencil = document.getElementById("btnRedPencil");
 
-/*var btnEraser = new Button(0, 204, 100, 100, imgBtnEraser);
-btnEraser.addComponent();*/
 var btnEraser = document.getElementById("btnEraser");
 
-/*var btnBlackBucket = new Button(0, 306, 100, 100, imgBtnBlackBucket);
-btnBlackBucket.addComponent();*/
 var btnBlackBucket = document.getElementById("btnBlackBucket");
 
-/*var btnRedBucket = new Button(0, 408, 100, 100, imgBtnRedBucket);
-btnRedBucket.addComponent();*/
 var btnRedBucket = document.getElementById("btnRedBucket");
 
 /*var btnPreviousFrame = new Button(900, 550, 100, 100, imgBtnPreviousFrame);

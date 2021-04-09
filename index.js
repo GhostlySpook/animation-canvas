@@ -14,5 +14,3 @@ function include(file) {
     include('resources.js')
     include ('elementsData.js');
     include('canvas/canvasComponents.js');
-
-//startCanvas();
