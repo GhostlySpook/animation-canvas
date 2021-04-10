@@ -30,5 +30,8 @@ function startCanvas(){
   //Starting canvas config
   ctx.lineWidth = 10;
 
+  framesList.push(ctx.getImageData(0, 0, myCanvasArea.canvas.width, myCanvasArea.canvas.height));
+  txtFrames.update();
+
   include('canvas/canvasData.js');
 }

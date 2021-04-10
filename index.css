@@ -8,28 +8,32 @@ body{
     height:100vh;
 }
 
- .sidebar-left {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 10vw; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+.sidebar{
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 10vw; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+.sidebar p{
+  position:relative;
+  font-size: 64px;
+  font-family:sans-serif;
+  top: 5%;
+  left: 10%;
+  color: white;
+}
+
+ .sidebar.left {
     left: 0;
-    background-color: #111; /* Black */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
   }
 
-  .sidebar-right {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 10vw; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+  .sidebar.right {
     right: 0;
-    background-color: #111; /* Black */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
   }
 
   .toolButton{
@@ -39,7 +43,12 @@ body{
     color: #818181;
     display: block;
     cursor: pointer;
-    width: 50%;
+    height: 10%;
+  }
+
+  .toolButton.last{
+    bottom: 50px;
+    position:absolute;
   }
 
   input {

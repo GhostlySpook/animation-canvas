@@ -9,11 +9,9 @@ var btnBlackBucket = document.getElementById("btnBlackBucket");
 
 var btnRedBucket = document.getElementById("btnRedBucket");
 
-/*var btnPreviousFrame = new Button(900, 550, 100, 100, imgBtnPreviousFrame);
-btnPreviousFrame.addComponent();*/
+var btnPreviousFrame = document.getElementById("btnPreviousFrame");
 
-/*var btnNextFrame = new Button(1002, 550, 100, 100, imgBtnNextFrame);
-btnNextFrame.addComponent();*/
+var btnNextFrame = document.getElementById("btnNextFrame");
 
 var btnNewFrame = document.getElementById("btnNewFrame");
 
@@ -32,6 +30,8 @@ btnRedo.addComponent();*/
 /*var drawCanvas = new drawingCanvas(102, 100, 1090, 425);
 drawCanvas.addComponent();*/
 //var drawCanvas = document.getElementById("myCanvasArea");
+
+var txtFrames = document.getElementById("txtFrames");
 
 //Define customized behaviour for components
 btnBlackPencil.onclick = function(){
@@ -58,7 +58,6 @@ btnRedPencil.onclick = function(){
 
 btnEraser.onclick = function(){
     console.log("Eraser selected");
-    //drawCanvas.eraserRadius = 10;
     myCanvasArea.toolSelected = drawingCanvasTools.ERASER;
 
     ctx.strokeStyle = myCanvasArea.backgroundColour;
@@ -70,18 +69,16 @@ btnEraser.onclick = function(){
 btnBlackBucket.onclick = function(){
     myCanvasArea.toolSelected = drawingCanvasTools.BUCKET;
     myCanvasArea.colourSelected = hexColour.BLACK;
-    //ctx.fillStyle = hexColour.BLACK;
     console.log("Black Bucket selected");
 }
 
 btnRedBucket.onclick = function(){
     myCanvasArea.toolSelected = drawingCanvasTools.BUCKET;
     myCanvasArea.colourSelected = hexColour.RED;
-    //ctx.fillStyle = hexColour.RED;
     console.log("Red Bucket selected");
 }
 
-/*btnPreviousFrame.onclick = function(){
+btnPreviousFrame.onclick = function(){
     console.log("Previous Frame Button selected");
 }
 
@@ -89,7 +86,7 @@ btnNextFrame.onclick = function(){
     console.log("Next Frame Button selected");
 }
 
-btnNewFrame.onclick = function(){
+/*btnNewFrame.onclick = function(){
     console.log("New Frame Button selected");
 }
 
@@ -113,3 +110,8 @@ btnDeleteFrame.onclick = function(){
 btnRedo.onclick = function(){
     console.log("Redo Button selected");
 }*/
+
+txtFrames.update = function(){
+    let textFrames = (framePointer + 1) + "/" + framesList.length;
+    txtFrames.textContent = textFrames;
+}

@@ -7,12 +7,14 @@
     </head>
     <body onload="startCanvas()">
         <!--Left Sidebar!-->
-        <div class="sidebar-left">
+        <div class="sidebar left">
             <input type="image" src="src/images/btnBlackPencil.png" class="toolButton" id="btnBlackPencil"/>
             <input type="image" src="src/images/btnRedPencil.png" class="toolButton" id="btnRedPencil"/>
             <input type="image" src="src/images/btnEraser.png" class="toolButton" id="btnEraser"/>
             <input type="image" src="src/images/btnBlackBucket.png" class="toolButton" id="btnBlackBucket"/>
             <input type="image" src="src/images/btnRedBucket.png" class="toolButton" id="btnRedBucket"/>
+
+            <input type="image" src="src/images/btnPreviousFrame.png" class="toolButton last" id="btnPreviousFrame"/>
             <!--Pen size-->
             <div>
                 <!--To be done-->
@@ -20,11 +22,14 @@
         </div>
         <canvas id = "myCanvasArea"></canvas>
         <!--Right Sidebar-->
-        <div class="sidebar-right">
+        <div class="sidebar right">
             <input type="image" src="src/images/btnNewFrame.png" class="toolButton" id="btnNewFrame"/>
             <input type="image" src="src/images/btnCopyFrame.png" class="toolButton" id="btnCopyFrame"/>
             <input type="image" src="src/images/btnPasteFrame.png" class="toolButton" id="btnPasteFrame"/>
             <input type="image" src="src/images/btnDeleteFrame.png" class="toolButton" id="btnDeleteFrame"/>
+            <p id="txtFrames">--/--</p>
+
+            <input type="image" src="src/images/btnNextFrame.png" class="toolButton last" id="btnNextFrame"/>
             <!--Pen size-->
             <div>
                 <!--To be done-->
