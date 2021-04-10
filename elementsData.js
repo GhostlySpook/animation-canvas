@@ -79,28 +79,51 @@ btnRedBucket.onclick = function(){
 }
 
 btnPreviousFrame.onclick = function(){
+    if(framePointer == 0){
+        return false;
+    }
     console.log("Previous Frame Button selected");
+    saveFrame(getCanvasData());
+    framePointer--;
+    ctx.putImageData(framesList[framePointer], 0, 0);
+    txtFrames.update();
 }
 
 btnNextFrame.onclick = function(){
     console.log("Next Frame Button selected");
+    if(framePointer == (framesList.length - 1)){
+        return false;
+    }
+    saveFrame(getCanvasData());
+    framePointer++;
+    ctx.putImageData(framesList[framePointer], 0, 0);
+    txtFrames.update();
 }
 
-/*btnNewFrame.onclick = function(){
+btnNewFrame.onclick = function(){
     console.log("New Frame Button selected");
+    saveFrame(getCanvasData());
+    framePointer++;
+    myCanvasArea.clearCanvas();
+    framesList.splice(framePointer, 0, getCanvasData());
+    txtFrames.update();
 }
 
 btnCopyFrame.onclick = function(){
     console.log("Copy Frame Button selected");
+    frameClipboard = getCanvasData();
 }
 
 btnPasteFrame.onclick = function(){
     console.log("Paste Frame Button selected");
-}*/
+    if(frameClipboard == null)
+        return
+    ctx.putImageData(frameClipboard, 0, 0);
+}
 
 btnDeleteFrame.onclick = function(){
-    //console.log("Delete Frame Button selected");
     myCanvasArea.clearCanvas();
+    console.log("Delete Frame Button selected");
 }
 
 /*btnUndo.onclick = function(){
