@@ -123,6 +123,13 @@ btnPasteFrame.onclick = function(){
 
 btnDeleteFrame.onclick = function(){
     myCanvasArea.clearCanvas();
+    if(framesList.length == 1)
+        return
+    framesList.splice(framePointer, 1);
+    if(framePointer > 0)
+        framePointer--;
+    ctx.putImageData(framesList[framePointer], 0, 0);
+    txtFrames.update();
     console.log("Delete Frame Button selected");
 }
 
