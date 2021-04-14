@@ -184,7 +184,19 @@ myCanvasArea.canvas.onmouseout = function(e){
     //myCanvasArea.isDrawing = false;
 }
 
-myCanvasArea.canvas.onmousemove = function(e){
+/*myCanvasArea.canvas.onmousemove = function(e){
+    var rect = e.target.getBoundingClientRect();
+
+    let px = e.pageX - rect.left;
+    let py = e.pageY - rect.top;
+
+    if(myCanvasArea.isDrawing){
+        myCanvasArea.draw(px, py);
+    }
+}*/
+
+myCanvasArea.canvas.onpointermove = function(e){
+    console.log("Pointer move!");
     var rect = e.target.getBoundingClientRect();
 
     let px = e.pageX - rect.left;
