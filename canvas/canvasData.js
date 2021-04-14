@@ -192,6 +192,7 @@ myCanvasArea.canvas.onpointerdown = function(e) {
     myCanvasArea.isDrawing = false;
 }*/
 myCanvasArea.canvas.onpointerup = function(e){
+    console.log("Pointer up!");
     myCanvasArea.isDrawing = false;
 }
 
@@ -211,7 +212,7 @@ myCanvasArea.canvas.onmouseout = function(e){
 }*/
 
 myCanvasArea.canvas.onpointermove = function(e){
-    console.log("Pointer move!");
+    //console.log("Pointer move!");
     var rect = e.target.getBoundingClientRect();
 
     let px = e.pageX - rect.left;
