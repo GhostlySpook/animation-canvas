@@ -176,6 +176,7 @@ myCanvasArea.clearCanvas = function(){
 
 }*/
 myCanvasArea.canvas.onpointerdown = function(e) {
+    console.log("Pointer down!");
     var rect = e.target.getBoundingClientRect();
 
     let px = e.pageX - rect.left;
