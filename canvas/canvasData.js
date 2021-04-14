@@ -163,7 +163,19 @@ myCanvasArea.clearCanvas = function(){
 }
 
 //Events handling
-myCanvasArea.canvas.onmousedown = function(e) {
+/*myCanvasArea.canvas.onmousedown = function(e) {
+    var rect = e.target.getBoundingClientRect();
+
+    let px = e.pageX - rect.left;
+    let py = e.pageY - rect.top;
+    
+    ctx.beginPath();
+    ctx.moveTo(px, py);
+    myCanvasArea.draw(px, py);
+    myCanvasArea.isDrawing = true;
+
+}*/
+myCanvasArea.canvas.onpointerdown = function(e) {
     var rect = e.target.getBoundingClientRect();
 
     let px = e.pageX - rect.left;
