@@ -3,7 +3,11 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="index.css">
-        <script src="index.js"></script>
+        <script src="js/gifjs/LZWEncoder.js"></script>
+        <script src="js/gifjs/NeuQuant.js"></script>
+        <script src="js/gifjs/GIFEncoder.js"></script>
+        <script type="text/javascript" src="js/gifjs/b64.js"></script>
+        <script src="js/index.js"></script>
     </head>
     <body onload="startCanvas()">
         <!--Left Sidebar!-->
@@ -27,6 +31,7 @@
             <input type="image" src="src/images/btnCopyFrame.png" class="toolButton" id="btnCopyFrame"/>
             <input type="image" src="src/images/btnPasteFrame.png" class="toolButton" id="btnPasteFrame"/>
             <input type="image" src="src/images/btnDeleteFrame.png" class="toolButton" id="btnDeleteFrame"/>
+            <input type="image" src="src/images/btnGenerate.png" class="toolButton" id="btnGenerate"/>
             <p id="txtFrames">--/--</p>
 
             <input type="image" src="src/images/btnNextFrame.png" class="toolButton last" id="btnNextFrame"/>

@@ -33,5 +33,5 @@ function startCanvas(){
   framesList.push(ctx.getImageData(0, 0, myCanvasArea.canvas.width, myCanvasArea.canvas.height));
   txtFrames.update();
 
-  include('canvas/canvasData.js');
+  include('js/canvas/canvasData.js');
 }

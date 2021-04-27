@@ -11,7 +11,7 @@ function include(file) {
 }
     
 /* Include Many js files */
-    include('resources.js')
-    include ('animation.js');
-    include('canvas/canvasComponents.js');
-    include ('elementsData.js');
+    include('js/resources.js')
+    include ('js/canvas/animation.js');
+    include('js/canvas/canvasComponents.js');
+    include ('js/elementsData.js');

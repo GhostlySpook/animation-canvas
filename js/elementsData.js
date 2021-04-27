@@ -21,6 +21,8 @@ var btnPasteFrame = document.getElementById("btnPasteFrame");
 
 var btnDeleteFrame = document.getElementById("btnDeleteFrame");
 
+var btnGenerate = document.getElementById("btnGenerate");
+
 /*var btnUndo = new Button(200, 0, 100, 100, imgBtnUndo);
 btnUndo.addComponent();*/
 
@@ -131,6 +133,43 @@ btnDeleteFrame.onclick = function(){
     ctx.putImageData(framesList[framePointer], 0, 0);
     txtFrames.update();
     console.log("Delete Frame Button selected");
+}
+
+btnGenerate.onclick = function(){
+    saveFrame(getCanvasData());
+
+    var encoder = new GIFEncoder();
+    console.log("Finished Initiliazing encoder");
+    console.log(Date.now());
+
+    encoder.setRepeat(0);
+    console.log("Finished Set repeat");
+    console.log(Date.now());
+
+    encoder.setDelay(500);
+    console.log("Finished Set delay");
+    console.log(Date.now());
+
+    encoder.start();
+    console.log("Finished start");
+    console.log(Date.now());
+
+    encoder.setSize(myCanvasArea.canvas.width, myCanvasArea.canvas.height);
+    console.log("Finished setting size");
+    console.log(Date.now());
+
+    let length = framesList.length;
+    for(let i = 0; i < length; i++){
+        encoder.addFrame(framesList[i].data, true);
+        console.log("Finished frame");
+        console.log(Date.now());
+    }
+
+    encoder.finish();
+    console.log("Finished finish");
+    console.log(Date.now());
+    
+    encoder.download("download.gif");
 }
 
 /*btnUndo.onclick = function(){

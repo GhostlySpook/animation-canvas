@@ -17,3 +17,4 @@ var imgBtnPasteFrame = loadImage("src/images/btnPasteFrame.png");
 var imgBtnDeleteFrame = loadImage("src/images/btnDeleteFrame.png");
 var imgBtnUndo = loadImage("src/images/btnUndo.png");
 var imgBtnRedo = loadImage("src/images/btnRedo.png");
+var imgBtnGenerate = loadImage("src/images/btnGenerate.png");
