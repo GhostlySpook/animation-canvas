@@ -10,21 +10,21 @@ body{
 
 .sidebar{
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 10vw; /* Set the width of the sidebar */
+  width: 10%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   background-color: #111; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .sidebar p{
   position:relative;
-  font-size: 64px;
+  font-size: 150%;
   font-family:sans-serif;
   top: 5%;
-  left: 10%;
+  left: 20%;
   color: white;
 }
 
@@ -37,13 +37,13 @@ body{
   }
 
   .toolButton{
-    padding: 6px 8px 6px 36px;
+    padding: 6px 8px 6px 25%;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
     cursor: pointer;
-    height: 10%;
+    width: 50%;
   }
 
   .toolButton.last{
@@ -64,7 +64,7 @@ canvas {
     position:absolute;
     background-color: white;
     height: 100%;
-    width: 80vw;
+    width: 80%;
     left: 10vw;
     margin: 0;
     padding: 0;
