@@ -176,7 +176,7 @@ myCanvasArea.clearCanvas = function(){
 
 }*/
 myCanvasArea.canvas.onpointerdown = function(e) {
-    console.log("Pointer down!");
+    //console.log("Pointer down!");
     var rect = e.target.getBoundingClientRect();
 
     let px = e.pageX - rect.left;
@@ -193,7 +193,7 @@ myCanvasArea.canvas.onpointerdown = function(e) {
     myCanvasArea.isDrawing = false;
 }*/
 myCanvasArea.canvas.onpointerup = function(e){
-    console.log("Pointer up!");
+    //console.log("Pointer up!");
     myCanvasArea.isDrawing = false;
 }
 
@@ -220,6 +220,21 @@ myCanvasArea.canvas.onpointermove = function(e){
     let py = e.pageY - rect.top;
 
     if(myCanvasArea.isDrawing){
+        //console.log("Drawing");
         myCanvasArea.draw(px, py);
     }
+}
+
+myCanvasArea.canvas.ontouchmove = function(e){
+    var rect = e.target.getBoundingClientRect();
+
+    let px = e.touches[0].pageX - rect.left;
+    let py = e.touches[0].pageY - rect.top;
+    //console.log(px);
+
+    //var message = "Touch move" + px + " " + py;
+    //console.log(message);
+
+    myCanvasArea.draw(px, py);
+    
 }
