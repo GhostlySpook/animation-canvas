@@ -9,6 +9,8 @@ var btnBlackBucket = document.getElementById("btnBlackBucket");
 
 var btnRedBucket = document.getElementById("btnRedBucket");
 
+var btnBomb = document.getElementById("btnBomb");
+
 var btnPreviousFrame = document.getElementById("btnPreviousFrame");
 
 var btnNextFrame = document.getElementById("btnNextFrame");
@@ -78,6 +80,10 @@ btnRedBucket.onclick = function(){
     myCanvasArea.toolSelected = drawingCanvasTools.BUCKET;
     myCanvasArea.colourSelected = hexColour.RED;
     console.log("Red Bucket selected");
+}
+
+btnBomb.onclick = function(){
+    myCanvasArea.clearCanvas();
 }
 
 btnPreviousFrame.onclick = function(){

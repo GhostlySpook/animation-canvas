@@ -10,7 +10,7 @@ body{
 
 .sidebar{
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 10%; /* Set the width of the sidebar */
+  width: 7%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -64,8 +64,8 @@ canvas {
     position:absolute;
     background-color: white;
     height: 100%;
-    width: 80%;
-    left: 10vw;
+    width: 86%;
+    left: 7%;
     margin: 0;
     padding: 0;
     cursor: crosshair;
