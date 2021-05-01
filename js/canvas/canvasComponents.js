@@ -1,14 +1,19 @@
 var myCanvasArea = {
   canvas: document.getElementById("myCanvasArea"),
+  topCanvas: document.getElementById("topCanvas"),
   start: function () {
 
     //Define size
     this.canvas.width = this.canvas.clientWidth;
     this.canvas.height = this.canvas.clientHeight;
+    this.topCanvas.width = this.canvas.width;
+    this.topCanvas.height = this.canvas.height;
 
     this.context = this.canvas.getContext("2d");
+    this.topContext = this.topCanvas.getContext("2d");
+
     this.context.fillStyle = "#ffffff";
-    this.context.fillRect(0,0,this.canvas.width,this.canvas.height);
+    //this.context.fillRect(0,0,this.canvas.width,this.canvas.height);
     this.frameNo = 0;
   },
   //Stops the game
@@ -22,10 +27,12 @@ var myCanvasArea = {
 }
 
 var ctx = undefined;
+var topCtx = undefined;
 
 function startCanvas(){
   myCanvasArea.start();
   ctx = myCanvasArea.context;
+  topCtx = myCanvasArea.topContext;
 
   //Starting canvas config
   ctx.lineWidth = 10;
@@ -34,4 +41,5 @@ function startCanvas(){
   txtFrames.update();
 
   include('js/canvas/canvasData.js');
+  include('js/canvas/topCanvas.js');
 }

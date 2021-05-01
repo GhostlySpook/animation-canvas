@@ -87,25 +87,43 @@ btnBomb.onclick = function(){
 }
 
 btnPreviousFrame.onclick = function(){
+    console.log("Previous Frame Button selected");
+
+    //If it is the first frame, don't do anything
     if(framePointer == 0){
         return false;
     }
-    console.log("Previous Frame Button selected");
+
+    //Show previous frame
     saveFrame(getCanvasData());
     framePointer--;
     ctx.putImageData(framesList[framePointer], 0, 0);
+
+    //Update text numbers
     txtFrames.update();
+
+    //Update frame before new one
+    topCanvas.showPrevious();
 }
 
 btnNextFrame.onclick = function(){
     console.log("Next Frame Button selected");
+
+    //If it is the last frame, don't do anything
     if(framePointer == (framesList.length - 1)){
         return false;
     }
+
+    //Show next frame
     saveFrame(getCanvasData());
     framePointer++;
     ctx.putImageData(framesList[framePointer], 0, 0);
+
+    //Update text numbers
     txtFrames.update();
+
+    //Update frame before new one
+    topCanvas.showPrevious();
 }
 
 btnNewFrame.onclick = function(){
@@ -115,6 +133,9 @@ btnNewFrame.onclick = function(){
     myCanvasArea.clearCanvas();
     framesList.splice(framePointer, 0, getCanvasData());
     txtFrames.update();
+
+    //Update frame before new one
+    topCanvas.showPrevious();
 }
 
 btnCopyFrame.onclick = function(){
@@ -139,6 +160,9 @@ btnDeleteFrame.onclick = function(){
     ctx.putImageData(framesList[framePointer], 0, 0);
     txtFrames.update();
     console.log("Delete Frame Button selected");
+
+    //Update frame before new one
+    topCanvas.showPrevious();
 }
 
 btnGenerate.onclick = function(){
@@ -166,7 +190,9 @@ btnGenerate.onclick = function(){
 
     let length = framesList.length;
     for(let i = 0; i < length; i++){
-        encoder.addFrame(framesList[i].data, true);
+        //encoder.addFrame(framesList[i].data, true);
+        let frame = frameBackgroundColoured(i);
+        encoder.addFrame(frame.data, true);
         console.log("Finished frame");
         console.log(Date.now());
     }

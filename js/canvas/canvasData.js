@@ -8,23 +8,6 @@ const drawingCanvasTools = {
     ERASER: 3
 }
 
-//Constants refering to hex codes for colours
-const hexColour = {
-    BLACK: "#000000",
-    RED: "#ff0000",
-    WHITE: "#ffffff"
-}
-
-//Returns an object containing the RGB from a hex colour value
-function hexToRgb(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-      r: parseInt(result[1], 16),
-      g: parseInt(result[2], 16),
-      b: parseInt(result[3], 16)
-    } : null;
-}  
-
 //New properties!
 myCanvasArea.backgroundColour = hexColour.WHITE;
 
@@ -40,6 +23,8 @@ myCanvasArea.isDrawing = false;
 myCanvasArea.draw = function(px, py){
     px = Math.floor(px);
     py = Math.floor(py);
+
+    let pastCompositeOperation = ctx.globalCompositeOperation;
     switch(this.toolSelected){
         case drawingCanvasTools.NONE:
             break;
@@ -48,8 +33,11 @@ myCanvasArea.draw = function(px, py){
             this.context.stroke();
             break;
         case drawingCanvasTools.ERASER:
+            //ctx.clearRect(px, py, this.eraserRadius, this.eraserRadius);
             ctx.lineTo(px, py);
+            ctx.globalCompositeOperation = 'destination-out';
             ctx.stroke();
+            ctx.globalCompositeOperation = pastCompositeOperation;
             break;
         case drawingCanvasTools.BUCKET:
             this.bucketFill(px, py, this.colourSelected);
@@ -72,7 +60,8 @@ myCanvasArea.bucketFill = function(x, y, colour){
     let backData = {
         r: pixelData.data[0],
         g: pixelData.data[1],
-        b: pixelData.data[2]
+        b: pixelData.data[2],
+        a: pixelData.data[3]
     };
 
     //3. Get colour of the one selected
@@ -85,7 +74,7 @@ myCanvasArea.bucketFill = function(x, y, colour){
     inside = function(x,y){
         p = (x + y*canvasWidth) * 4;
         
-        let result = (canvasData.data[p] == backData.r && canvasData.data[(p+1)] == backData.g && canvasData.data[(p+2)] == backData.b);
+        let result = (canvasData.data[p] == backData.r && canvasData.data[(p+1)] == backData.g && canvasData.data[(p+2)] == backData.b && canvasData.data[(p+3)] == backData.a);
 
         return result;
     }
@@ -115,6 +104,7 @@ myCanvasArea.bucketFill = function(x, y, colour){
         canvasData.data[p] = fillData.r;
         canvasData.data[(p+1)] = fillData.g;
         canvasData.data[(p+2)] = fillData.b;
+        canvasData.data[(p+3)] = fillData.a;
     }
 
     let s = {
@@ -124,7 +114,7 @@ myCanvasArea.bucketFill = function(x, y, colour){
 
     //4. Filling loop
     console.log("Step five");
-    let isSameColour = (backData.r == fillData.r && backData.g == fillData.g && backData.b == fillData.b)
+    let isSameColour = (backData.r == fillData.r && backData.g == fillData.g && backData.b == fillData.b && backData.a == fillData.a)
 
     if((!(inside(s.x,s.y))) || isSameColour){
         console.log("Already done");
@@ -158,8 +148,9 @@ myCanvasArea.bucketFill = function(x, y, colour){
 }
 
 myCanvasArea.clearCanvas = function(){
-    ctx.fillStyle = this.backgroundColour;
-    ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    /*ctx.fillStyle = this.backgroundColour;
+    ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);*/
 }
 
 //Events handling
@@ -198,7 +189,7 @@ myCanvasArea.canvas.onpointerup = function(e){
 }
 
 myCanvasArea.canvas.onmouseout = function(e){
-    //myCanvasArea.isDrawing = false;
+    myCanvasArea.isDrawing = false;
 }
 
 /*myCanvasArea.canvas.onmousemove = function(e){
