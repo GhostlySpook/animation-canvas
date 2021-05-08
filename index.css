@@ -6,7 +6,7 @@
 
 body{
     height:100vh;
-    background-color:gray;
+    background-color:white;
 }
 
 .sidebar{
@@ -61,16 +61,17 @@ body{
   }
 
 canvas {
+    resize: none;
     display: block;
     position:absolute;
     /*background-color: white;*/
-    background-color: white;
-    height: 100%;
-    width: 86%;
+    /*height: 100%;
+    width: 86%;*/
     left: 7%;
     margin: 0;
     padding: 0;
     cursor: crosshair;
+    z-index: 2;
 }
 
 .top{

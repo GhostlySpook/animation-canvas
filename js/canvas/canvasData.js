@@ -168,10 +168,15 @@ myCanvasArea.clearCanvas = function(){
 }*/
 myCanvasArea.canvas.onpointerdown = function(e) {
     //console.log("Pointer down!");
-    var rect = e.target.getBoundingClientRect();
+    /*var rect = e.target.getBoundingClientRect();
+    console.log(rect);
 
     let px = e.pageX - rect.left;
-    let py = e.pageY - rect.top;
+    let py = e.pageY - rect.top;*/
+    let coordinates = getLocationOnCanvas(e);
+
+    let px = coordinates.x;
+    let py = coordinates.y;
     
     ctx.beginPath();
     ctx.moveTo(px, py);
@@ -205,10 +210,10 @@ myCanvasArea.canvas.onmouseout = function(e){
 
 myCanvasArea.canvas.onpointermove = function(e){
     //console.log("Pointer move!");
-    var rect = e.target.getBoundingClientRect();
+    let coordinates = getLocationOnCanvas(e);
 
-    let px = e.pageX - rect.left;
-    let py = e.pageY - rect.top;
+    let px = coordinates.x;
+    let py = coordinates.y;
 
     if(myCanvasArea.isDrawing){
         //console.log("Drawing");
@@ -217,10 +222,10 @@ myCanvasArea.canvas.onpointermove = function(e){
 }
 
 myCanvasArea.canvas.ontouchmove = function(e){
-    var rect = e.target.getBoundingClientRect();
+    let coordinates = getLocationOnCanvas(e);
 
-    let px = e.touches[0].pageX - rect.left;
-    let py = e.touches[0].pageY - rect.top;
+    let px = coordinates.x;
+    let py = coordinates.y;
     //console.log(px);
 
     //var message = "Touch move" + px + " " + py;
@@ -228,4 +233,45 @@ myCanvasArea.canvas.ontouchmove = function(e){
 
     myCanvasArea.draw(px, py);
     
+}
+
+//Get the location of the touch
+getLocationOnCanvas = function(e){
+
+    let coordinates = {
+        x: 0,
+        y: 0
+    };
+
+    /*console.log(e.pointerType);
+    console.log(e.type);*/
+
+    /*switch(e.pointerType){
+        case 'touch':
+            if(e.type == 'touchmove'){
+                coordinates.x = e.touches[0].pageX - e.target.offsetLeft;
+                coordinates.y = e.touches[0].pageY - e.target.offsetTop;
+            }else{
+                coordinates.x = e.pageX - e.target.offsetLeft;
+                coordinates.y = e.pageY - e.target.offsetTop;
+            }
+            break;
+        default:
+            coordinates.x = e.pageX - e.target.offsetLeft;
+            coordinates.y = e.pageY - e.target.offsetTop;
+            break;
+    }*/
+
+    switch(e.type){
+        case 'touchmove':
+            coordinates.x = e.touches[0].pageX - e.target.offsetLeft;
+            coordinates.y = e.touches[0].pageY - e.target.offsetTop;
+            break;
+        default:
+            coordinates.x = e.pageX - e.target.offsetLeft;
+            coordinates.y = e.pageY - e.target.offsetTop;
+            break;
+    }
+
+    return coordinates;
 }
