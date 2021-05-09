@@ -11,6 +11,10 @@ var btnRedBucket = document.getElementById("btnRedBucket");
 
 var btnBomb = document.getElementById("btnBomb");
 
+var btnUndo = document.getElementById("btnUndo");
+
+var btnRedo = document.getElementById("btnRedo");
+
 var btnPreviousFrame = document.getElementById("btnPreviousFrame");
 
 var btnNextFrame = document.getElementById("btnNextFrame");
@@ -84,6 +88,38 @@ btnRedBucket.onclick = function(){
 
 btnBomb.onclick = function(){
     myCanvasArea.clearCanvas();
+    addRedo(getCanvasData());
+}
+
+btnUndo.onclick = function(){
+    console.log("Undo button");
+
+    //If it is the first step, don't do anything
+    if(redoPointer == 0){
+        return false;
+    }
+
+    //Show previous frame
+    redoPointer--;
+    ctx.putImageData(redoFramesList[redoPointer], 0, 0);
+
+    console.log("Pointer: ");
+    console.log(redoPointer);
+
+    console.log(redoFramesList);
+}
+
+btnRedo.onclick = function(){
+    console.log("Redo button");
+
+    //If it is the last frame, don't do anything
+    if(redoPointer == (redoFramesList.length - 1)){
+        return false;
+    }
+
+    //Show previous frame
+    redoPointer++;
+    ctx.putImageData(redoFramesList[redoPointer], 0, 0);
 }
 
 btnPreviousFrame.onclick = function(){
@@ -104,6 +140,9 @@ btnPreviousFrame.onclick = function(){
 
     //Update frame before new one
     topCanvas.showPrevious();
+
+    //Clear redo list
+    clearRedo();
 }
 
 btnNextFrame.onclick = function(){
@@ -124,6 +163,9 @@ btnNextFrame.onclick = function(){
 
     //Update frame before new one
     topCanvas.showPrevious();
+
+    //Clear redo list
+    clearRedo();
 }
 
 btnNewFrame.onclick = function(){
@@ -136,6 +178,8 @@ btnNewFrame.onclick = function(){
 
     //Update frame before new one
     topCanvas.showPrevious();
+
+    clearRedo();
 }
 
 btnCopyFrame.onclick = function(){
@@ -148,6 +192,8 @@ btnPasteFrame.onclick = function(){
     if(frameClipboard == null)
         return
     ctx.putImageData(frameClipboard, 0, 0);
+
+    addRedo(getCanvasData());
 }
 
 btnDeleteFrame.onclick = function(){
@@ -163,6 +209,8 @@ btnDeleteFrame.onclick = function(){
 
     //Update frame before new one
     topCanvas.showPrevious();
+
+    clearRedo();
 }
 
 btnGenerate.onclick = function(){

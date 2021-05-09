@@ -42,6 +42,7 @@ myCanvasArea.draw = function(px, py){
         case drawingCanvasTools.BUCKET:
             this.bucketFill(px, py, this.colourSelected);
             this.isDrawing = false;
+            addRedo(getCanvasData());
             break;
     }
 }
@@ -189,8 +190,15 @@ myCanvasArea.canvas.onpointerdown = function(e) {
     myCanvasArea.isDrawing = false;
 }*/
 myCanvasArea.canvas.onpointerup = function(e){
-    //console.log("Pointer up!");
+    console.log("Pointer up!");
     myCanvasArea.isDrawing = false;
+
+    switch(myCanvasArea.toolSelected){
+        case drawingCanvasTools.BRUSH:
+        case drawingCanvasTools.ERASER:
+            addRedo(getCanvasData());
+            break;
+    }
 }
 
 myCanvasArea.canvas.onmouseout = function(e){

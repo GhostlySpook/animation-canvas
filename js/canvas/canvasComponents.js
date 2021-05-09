@@ -41,6 +41,7 @@ function startCanvas(){
   ctx.lineWidth = 10;
 
   framesList.push(ctx.getImageData(0, 0, myCanvasArea.canvas.width, myCanvasArea.canvas.height));
+  clearRedo();
   txtFrames.update();
 
   include('js/canvas/canvasData.js');

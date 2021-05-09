@@ -47,6 +47,19 @@ body{
     width: 50%;
   }
 
+  #redoContainer{
+    width: 100%;
+    padding-top:10%;
+    padding-left: 7%;
+  }
+
+  #redoContainer .toolButton{
+    width: 40%;
+    left: 0;
+    padding: 0;
+    display: inline;
+  }
+
   .toolButton.last{
     bottom: 50px;
     position:absolute;
