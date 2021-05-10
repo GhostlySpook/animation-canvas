@@ -20,3 +20,5 @@ var imgBtnDeleteFrame = loadImage("src/images/btnDeleteFrame.png");
 var imgBtnUndo = loadImage("src/images/btnUndo.png");
 var imgBtnRedo = loadImage("src/images/btnRedo.png");
 var imgBtnGenerate = loadImage("src/images/btnGenerate.png");
+
+var imgBtnSettings = loadImage("src/images/btnSettings.png");
