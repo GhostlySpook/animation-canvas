@@ -214,7 +214,7 @@ btnGenerate.onclick = function(){
     console.log("Finished Set repeat");
     console.log(Date.now());
 
-    encoder.setDelay(500);
+    encoder.setDelay(prompt('Type milliseconds for each frame. 500 can be a good start'));
     console.log("Finished Set delay");
     console.log(Date.now());
 
