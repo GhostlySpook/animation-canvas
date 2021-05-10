@@ -73,6 +73,17 @@ body{
     display: block;
   }
 
+#settingsMenu{
+  background: lightblue;
+  display: none;
+  position: absolute;
+  left: 10%;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  z-index: 3;
+}
+
 canvas {
     resize: none;
     display: block;
@@ -90,6 +101,6 @@ canvas {
 .top{
   background-color: transparent;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.1;
   z-index: 1;
 }

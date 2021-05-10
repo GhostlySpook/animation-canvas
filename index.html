@@ -22,8 +22,6 @@
                 <input type="image" src="src/images/btnUndo.png" class="toolButton" id="btnUndo"/>
                 <input type="image" src="src/images/btnRedo.png" class="toolButton" id="btnRedo"/>
             </div>
-            <input type="image" src="src/images/btnSettings.png" class="toolButton" id="btnSettings"/>
-
             <input type="image" src="src/images/btnPreviousFrame.png" class="toolButton last" id="btnPreviousFrame"/>
             <!--Pen size-->
             <div>
@@ -39,6 +37,7 @@
             <input type="image" src="src/images/btnPasteFrame.png" class="toolButton" id="btnPasteFrame"/>
             <input type="image" src="src/images/btnDeleteFrame.png" class="toolButton" id="btnDeleteFrame"/>
             <input type="image" src="src/images/btnGenerate.png" class="toolButton" id="btnGenerate"/>
+            <input type="image" src="src/images/btnSettings.png" class="toolButton" id="btnSettings"/>
             <p id="txtFrames">--/--</p>
 
             <input type="image" src="src/images/btnNextFrame.png" class="toolButton last" id="btnNextFrame"/>
@@ -46,6 +45,14 @@
             <div>
                 <!--To be done-->
             </div>  
+        </div>
+        <!--Settings Menu, normally not displayed-->
+        <div id="settingsMenu">
+            <p>Settings!</p>
+            <p>Toggle See-Through</p>
+            <input type="checkbox" id="cboxSeeThrough">
+            <p>See-Through transparency</p>
+            <input type="range" id="rangeSeeThrough" min="0.1" max="1" step="0.1">
         </div>
     </body>
 </html>

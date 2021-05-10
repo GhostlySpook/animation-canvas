@@ -2,6 +2,10 @@ var topCanvas = myCanvasArea.topCanvas;
 
 topCanvas.isShown = true;
 
+topCanvas.clearCanvas = function(){
+    topCtx.clearRect(0, 0, this.width, this.height);
+}
+
 topCanvas.showPrevious = function(){
     if(this.isShown && framePointer != 0){
         topCtx.putImageData(framesList[(framePointer - 1)], 0, 0);

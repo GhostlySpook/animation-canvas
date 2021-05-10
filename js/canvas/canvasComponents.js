@@ -44,6 +44,9 @@ function startCanvas(){
   clearRedo();
   txtFrames.update();
 
+  //Start elements config
+  initElements();
+
   include('js/canvas/canvasData.js');
   include('js/canvas/topCanvas.js');
 }

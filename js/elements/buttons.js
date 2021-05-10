@@ -15,8 +15,6 @@ var btnUndo = document.getElementById("btnUndo");
 
 var btnRedo = document.getElementById("btnRedo");
 
-var btnSettings = document.getElementById("btnSettings");
-
 var btnPreviousFrame = document.getElementById("btnPreviousFrame");
 
 var btnNextFrame = document.getElementById("btnNextFrame");
@@ -30,6 +28,8 @@ var btnPasteFrame = document.getElementById("btnPasteFrame");
 var btnDeleteFrame = document.getElementById("btnDeleteFrame");
 
 var btnGenerate = document.getElementById("btnGenerate");
+
+var btnSettings = document.getElementById("btnSettings");
 
 //Define customized behaviour for components
 btnBlackPencil.onclick = function(){
@@ -240,4 +240,16 @@ btnGenerate.onclick = function(){
     console.log(Date.now());
     
     encoder.download("download.gif");
+}
+
+btnSettings.onclick = function(){
+    if(settingsMenu.isDisplayed){
+        settingsMenu.style.display = "none";
+    }
+    else{
+        //settingsMenu.style.display = "block";
+        settingsMenu.show();
+    }
+
+    settingsMenu.isDisplayed = !(settingsMenu.isDisplayed);
 }
