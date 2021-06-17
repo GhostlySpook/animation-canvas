@@ -204,19 +204,21 @@ btnDeleteFrame.onclick = function(){
 }
 
 btnGenerate.onclick = function(){
+
+    //Verify fps field isn't empty or canceled
+    var fps = prompt('Type seconds for each frame. 60 can be a good start');
+    if(fps == "" || fps == null)
+    return;
+
+    var delay = 1/fps;
+
     saveFrame(getCanvasData());
 
     var encoder = new GIFEncoder();
-    console.log("Finished Initiliazing encoder");
-    console.log(Date.now());
 
     encoder.setRepeat(0);
-    console.log("Finished Set repeat");
-    console.log(Date.now());
 
-    encoder.setDelay(prompt('Type milliseconds for each frame. 500 can be a good start'));
-    console.log("Finished Set delay");
-    console.log(Date.now());
+    encoder.setDelay(delay);
 
     encoder.start();
     console.log("Finished start");

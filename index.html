@@ -9,7 +9,9 @@
         <script type="text/javascript" src="js/gifjs/b64.js"></script>
         <script src="js/index.js"></script>
     </head>
+    
     <body onload="startCanvas()">
+
         <!--Left Sidebar!-->
         <div class="sidebar left">
             <input type="image" src="src/images/btnBlackPencil.png" class="toolButton" id="btnBlackPencil"/>
@@ -28,24 +30,28 @@
                 <!--To be done-->
             </div>  
         </div>
-        <canvas id = "topCanvas" class="top"></canvas>
+
+        <!--Canvas areas-->
+        <canvas id = "topCanvas" class="bottom"></canvas>
         <canvas id = "myCanvasArea"></canvas>
+
         <!--Right Sidebar-->
         <div class="sidebar right">
-            <input type="image" src="src/images/btnNewFrame.png" class="toolButton" id="btnNewFrame"/>
-            <input type="image" src="src/images/btnCopyFrame.png" class="toolButton" id="btnCopyFrame"/>
-            <input type="image" src="src/images/btnPasteFrame.png" class="toolButton" id="btnPasteFrame"/>
-            <input type="image" src="src/images/btnDeleteFrame.png" class="toolButton" id="btnDeleteFrame"/>
-            <input type="image" src="src/images/btnGenerate.png" class="toolButton" id="btnGenerate"/>
-            <input type="image" src="src/images/btnSettings.png" class="toolButton" id="btnSettings"/>
+            <input type="image" src="src/images/btnNewFrame.png" class="toolButton right" id="btnNewFrame"/>
+            <input type="image" src="src/images/btnCopyFrame.png" class="toolButton right" id="btnCopyFrame"/>
+            <input type="image" src="src/images/btnPasteFrame.png" class="toolButton right" id="btnPasteFrame"/>
+            <input type="image" src="src/images/btnDeleteFrame.png" class="toolButton right" id="btnDeleteFrame"/>
+            <input type="image" src="src/images/btnGenerate.png" class="toolButton right" id="btnGenerate"/>
+            <input type="image" src="src/images/btnSettings.png" class="toolButton right" id="btnSettings"/>
             <p id="txtFrames">--/--</p>
 
-            <input type="image" src="src/images/btnNextFrame.png" class="toolButton last" id="btnNextFrame"/>
+            <input type="image" src="src/images/btnNextFrame.png" class="toolButton last right" id="btnNextFrame"/>
             <!--Pen size-->
             <div>
                 <!--To be done-->
             </div>  
         </div>
+        
         <!--Settings Menu, normally not displayed-->
         <div id="settingsMenu">
             <p>Settings!</p>
