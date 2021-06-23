@@ -203,6 +203,7 @@ myCanvasArea.canvas.onpointerout = function(e){
 
 myCanvasArea.canvas.onpointermove = function(e){
     //console.log("Pointer move!");
+    e.preventDefault();
     let coordinates = getLocationOnCanvas(e);
 
     let px = coordinates.x;
@@ -244,6 +245,7 @@ myCanvasArea.canvas.ontouchend = function(e){
 
 myCanvasArea.canvas.ontouchcancel = function(e){
     console.log("Touch cancel!");
+    e.preventDefault();
 
     if(myCanvasArea.isDrawing){
 
