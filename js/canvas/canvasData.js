@@ -187,6 +187,7 @@ myCanvasArea.canvas.onpointerdown = function(e) {
 
 myCanvasArea.canvas.onpointerout = function(e){
     console.log("Pointer out!");
+    e.preventDefault();
 
     if(myCanvasArea.isDrawing){
         
