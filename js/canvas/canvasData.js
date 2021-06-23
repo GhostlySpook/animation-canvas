@@ -188,19 +188,7 @@ myCanvasArea.canvas.onpointerdown = function(e) {
 
 myCanvasArea.canvas.onpointerout = function(e){
     console.log("Pointer out!");
-    e.preventDefault();
-
-    if(myCanvasArea.isDrawing){
-        
-        switch(myCanvasArea.toolSelected){
-            case drawingCanvasTools.BRUSH:
-            case drawingCanvasTools.ERASER:
-                addRedo(getCanvasData());
-                break;
-        }
-    }
-
-    myCanvasArea.isDrawing = false;
+    finishStroke(e);
 }
 
 myCanvasArea.canvas.onpointermove = function(e){
@@ -230,24 +218,15 @@ myCanvasArea.canvas.ontouchmove = function(e){
 
 myCanvasArea.canvas.ontouchend = function(e){
     console.log("Touch end!");
-    e.preventDefault();
-
-    if(myCanvasArea.isDrawing){
-
-        switch(myCanvasArea.toolSelected){
-            case drawingCanvasTools.BRUSH:
-                ctx.endStr
-            case drawingCanvasTools.ERASER:
-                addRedo(getCanvasData());
-                break;
-        }
-    }
-
-    myCanvasArea.isDrawing = false;
+    finishStroke(e);
 }
 
 myCanvasArea.canvas.ontouchcancel = function(e){
     console.log("Touch cancel!");
+    finishStroke(e);
+}
+
+finishStroke = function(e){
     e.preventDefault();
 
     if(myCanvasArea.isDrawing){
