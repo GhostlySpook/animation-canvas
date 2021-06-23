@@ -191,17 +191,33 @@ myCanvasArea.canvas.onpointerdown = function(e) {
 }*/
 myCanvasArea.canvas.onpointerup = function(e){
     console.log("Pointer up!");
-    myCanvasArea.isDrawing = false;
 
-    switch(myCanvasArea.toolSelected){
-        case drawingCanvasTools.BRUSH:
-        case drawingCanvasTools.ERASER:
-            addRedo(getCanvasData());
-            break;
+    if(myCanvasArea.isDrawing){
+
+        switch(myCanvasArea.toolSelected){
+            case drawingCanvasTools.BRUSH:
+            case drawingCanvasTools.ERASER:
+                addRedo(getCanvasData());
+                break;
+        }
     }
+
+    myCanvasArea.isDrawing = false;
 }
 
 myCanvasArea.canvas.onmouseout = function(e){
+    console.log("Pointer out!");
+
+    if(myCanvasArea.isDrawing){
+        
+        switch(myCanvasArea.toolSelected){
+            case drawingCanvasTools.BRUSH:
+            case drawingCanvasTools.ERASER:
+                addRedo(getCanvasData());
+                break;
+        }
+    }
+
     myCanvasArea.isDrawing = false;
 }
 

@@ -1,6 +1,6 @@
 var myCanvasArea = {
   canvas: document.getElementById("myCanvasArea"),
-  topCanvas: document.getElementById("topCanvas"),
+  topCanvas: document.getElementById("bottomCanvas"),
   start: function () {
 
     //Define size
@@ -49,5 +49,5 @@ function startCanvas(){
   initElements();
 
   include('js/canvas/canvasData.js');
-  include('js/canvas/topCanvas.js');
+  include('js/canvas/bottomCanvas.js');
 }
