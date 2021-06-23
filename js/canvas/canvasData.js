@@ -156,6 +156,7 @@ myCanvasArea.clearCanvas = function(){
 
 //Events handling
 myCanvasArea.canvas.onpointerdown = function(e) {
+    e.preventDefault()
     let coordinates = getLocationOnCanvas(e);
 
     let px = coordinates.x;
@@ -217,6 +218,7 @@ myCanvasArea.canvas.onpointermove = function(e){
 }
 
 myCanvasArea.canvas.ontouchmove = function(e){
+    e.preventDefault()
     let coordinates = getLocationOnCanvas(e);
 
     let px = coordinates.x;
