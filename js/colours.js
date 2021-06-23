@@ -1,8 +1,14 @@
 //Constants refering to hex codes for colours
 const hexColour = {
     BLACK: "#000000",
+    WHITE: "#ffffff",
     RED: "#ff0000",
-    WHITE: "#ffffff"
+    ORANGE: "#ffaa00",
+    YELLOW: "#ffff00",
+    GREEN: "#00a400",
+    BLUE: "#0000c7",
+    INDIGO: "#4b0082",
+    PURPLE: "#6a006b"
 }
 
 //Returns an object containing the RGB from a hex colour value
