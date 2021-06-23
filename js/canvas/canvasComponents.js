@@ -1,6 +1,8 @@
 var myCanvasArea = {
   canvas: document.getElementById("myCanvasArea"),
   topCanvas: document.getElementById("bottomCanvas"),
+  //svgBackground: document.getElementById("svgBackground"),
+  //backgroundDiv:document.getElementById("backgroundDiv"),
   start: function () {
 
     //Define size
@@ -12,6 +14,17 @@ var myCanvasArea = {
     this.canvas.height = this.canvas.clientHeight;*/
     this.topCanvas.width = this.canvas.width;
     this.topCanvas.height = this.canvas.height;
+
+    var svgBackground = document.getElementById("svgBackground");
+    svgBackground.style.width = this.canvas.width;
+    svgBackground.style.height = this.canvas.height;
+
+    var rectBackground = document.getElementById("rectBackground");
+    rectBackground.style.width = svgBackground.style.width;
+    rectBackground.style.height = svgBackground.style.height;
+
+    //this.backgroundDiv.style.width = this.canvas.width + "px";
+    //this.backgroundDiv.style.height = this.canvas.height + "px";
 
     this.context = this.canvas.getContext("2d");
     this.topContext = this.topCanvas.getContext("2d");
