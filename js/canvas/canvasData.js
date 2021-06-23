@@ -155,25 +155,7 @@ myCanvasArea.clearCanvas = function(){
 }
 
 //Events handling
-/*myCanvasArea.canvas.onmousedown = function(e) {
-    var rect = e.target.getBoundingClientRect();
-
-    let px = e.pageX - rect.left;
-    let py = e.pageY - rect.top;
-    
-    ctx.beginPath();
-    ctx.moveTo(px, py);
-    myCanvasArea.draw(px, py);
-    myCanvasArea.isDrawing = true;
-
-}*/
 myCanvasArea.canvas.onpointerdown = function(e) {
-    //console.log("Pointer down!");
-    /*var rect = e.target.getBoundingClientRect();
-    console.log(rect);
-
-    let px = e.pageX - rect.left;
-    let py = e.pageY - rect.top;*/
     let coordinates = getLocationOnCanvas(e);
 
     let px = coordinates.x;
@@ -186,16 +168,14 @@ myCanvasArea.canvas.onpointerdown = function(e) {
 
 }
 
-/*myCanvasArea.canvas.onmouseup = function(e){
-    myCanvasArea.isDrawing = false;
-}*/
-myCanvasArea.canvas.onpointerup = function(e){
+/*myCanvasArea.canvas.onpointerup = function(e){
     console.log("Pointer up!");
 
     if(myCanvasArea.isDrawing){
 
         switch(myCanvasArea.toolSelected){
             case drawingCanvasTools.BRUSH:
+                ctx.endStr
             case drawingCanvasTools.ERASER:
                 addRedo(getCanvasData());
                 break;
@@ -203,9 +183,9 @@ myCanvasArea.canvas.onpointerup = function(e){
     }
 
     myCanvasArea.isDrawing = false;
-}
+}*/
 
-myCanvasArea.canvas.onmouseout = function(e){
+myCanvasArea.canvas.onpointerout = function(e){
     console.log("Pointer out!");
 
     if(myCanvasArea.isDrawing){
@@ -220,17 +200,6 @@ myCanvasArea.canvas.onmouseout = function(e){
 
     myCanvasArea.isDrawing = false;
 }
-
-/*myCanvasArea.canvas.onmousemove = function(e){
-    var rect = e.target.getBoundingClientRect();
-
-    let px = e.pageX - rect.left;
-    let py = e.pageY - rect.top;
-
-    if(myCanvasArea.isDrawing){
-        myCanvasArea.draw(px, py);
-    }
-}*/
 
 myCanvasArea.canvas.onpointermove = function(e){
     //console.log("Pointer move!");
@@ -250,13 +219,26 @@ myCanvasArea.canvas.ontouchmove = function(e){
 
     let px = coordinates.x;
     let py = coordinates.y;
-    //console.log(px);
-
-    //var message = "Touch move" + px + " " + py;
-    //console.log(message);
 
     myCanvasArea.draw(px, py);
     
+}
+
+myCanvasArea.canvas.ontouchend = function(e){
+    console.log("Touch end!");
+
+    if(myCanvasArea.isDrawing){
+
+        switch(myCanvasArea.toolSelected){
+            case drawingCanvasTools.BRUSH:
+                ctx.endStr
+            case drawingCanvasTools.ERASER:
+                addRedo(getCanvasData());
+                break;
+        }
+    }
+
+    myCanvasArea.isDrawing = false;
 }
 
 //Get the location of the touch
@@ -266,25 +248,6 @@ getLocationOnCanvas = function(e){
         x: 0,
         y: 0
     };
-
-    /*console.log(e.pointerType);
-    console.log(e.type);*/
-
-    /*switch(e.pointerType){
-        case 'touch':
-            if(e.type == 'touchmove'){
-                coordinates.x = e.touches[0].pageX - e.target.offsetLeft;
-                coordinates.y = e.touches[0].pageY - e.target.offsetTop;
-            }else{
-                coordinates.x = e.pageX - e.target.offsetLeft;
-                coordinates.y = e.pageY - e.target.offsetTop;
-            }
-            break;
-        default:
-            coordinates.x = e.pageX - e.target.offsetLeft;
-            coordinates.y = e.pageY - e.target.offsetTop;
-            break;
-    }*/
 
     switch(e.type){
         case 'touchmove':
