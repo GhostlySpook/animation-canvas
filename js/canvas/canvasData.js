@@ -241,6 +241,23 @@ myCanvasArea.canvas.ontouchend = function(e){
     myCanvasArea.isDrawing = false;
 }
 
+myCanvasArea.canvas.ontouchcancel = function(e){
+    console.log("Touch cancel!");
+
+    if(myCanvasArea.isDrawing){
+
+        switch(myCanvasArea.toolSelected){
+            case drawingCanvasTools.BRUSH:
+                ctx.endStr
+            case drawingCanvasTools.ERASER:
+                addRedo(getCanvasData());
+                break;
+        }
+    }
+
+    myCanvasArea.isDrawing = false;
+}
+
 //Get the location of the touch
 getLocationOnCanvas = function(e){
 
