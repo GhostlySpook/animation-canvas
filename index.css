@@ -102,7 +102,7 @@ canvas {
     padding: 0;
     cursor: crosshair;
     z-index: 2;
-    overscroll-behavior: contain;
+    touch-action: none;
 }
 
 .bottom{
