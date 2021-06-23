@@ -169,10 +169,11 @@ myCanvasArea.canvas.onpointerdown = function(e) {
 
 }
 
-/*myCanvasArea.canvas.onpointerup = function(e){
+myCanvasArea.canvas.onpointerup = function(e){
     console.log("Pointer up!");
+    finishStroke(e);
 
-    if(myCanvasArea.isDrawing){
+    /*if(myCanvasArea.isDrawing){
 
         switch(myCanvasArea.toolSelected){
             case drawingCanvasTools.BRUSH:
@@ -183,8 +184,8 @@ myCanvasArea.canvas.onpointerdown = function(e) {
         }
     }
 
-    myCanvasArea.isDrawing = false;
-}*/
+    myCanvasArea.isDrawing = false;*/
+}
 
 myCanvasArea.canvas.onpointerout = function(e){
     console.log("Pointer out!");
