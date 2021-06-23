@@ -226,6 +226,7 @@ myCanvasArea.canvas.ontouchmove = function(e){
 
 myCanvasArea.canvas.ontouchend = function(e){
     console.log("Touch end!");
+    e.preventDefault();
 
     if(myCanvasArea.isDrawing){
 
