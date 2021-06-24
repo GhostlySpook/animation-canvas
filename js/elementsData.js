@@ -10,11 +10,13 @@ drawCanvas.addComponent();*/
 
 include("js/elements/buttons.js");
 include("js/elements/settingsMenu.js");
+include("js/elements/colourMenu.js");
 
 var txtFrames = document.getElementById("txtFrames");
 
 initElements = function(){
     settingsMenu.init();
+    btnColourContainer.init();
 }
 
 txtFrames.update = function(){

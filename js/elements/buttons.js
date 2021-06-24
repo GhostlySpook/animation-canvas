@@ -1,13 +1,13 @@
 //Define components to appear and add make them to appear
 var btnBlackPencil = document.getElementById("btnBlackPencil");
 
-var btnRedPencil = document.getElementById("btnRedPencil");
+//var btnRedPencil = document.getElementById("btnRedPencil");
 
 var btnEraser = document.getElementById("btnEraser");
 
 var btnBlackBucket = document.getElementById("btnBlackBucket");
 
-var btnRedBucket = document.getElementById("btnRedBucket");
+//var btnRedBucket = document.getElementById("btnRedBucket");
 
 var btnBomb = document.getElementById("btnBomb");
 
@@ -41,9 +41,11 @@ btnBlackPencil.onclick = function(){
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.lineWidth = myCanvasArea.brushRadius;
+
+    showEraser();
 }
 
-btnRedPencil.onclick = function(){
+/*btnRedPencil.onclick = function(){
     console.log("Red Pencil selected");
     myCanvasArea.toolSelected = drawingCanvasTools.BRUSH;
     myCanvasArea.colourSelected = hexColour.RED;
@@ -52,7 +54,7 @@ btnRedPencil.onclick = function(){
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.lineWidth = myCanvasArea.brushRadius;
-}
+}*/
 
 btnEraser.onclick = function(){
     console.log("Eraser selected");
@@ -62,23 +64,32 @@ btnEraser.onclick = function(){
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.lineWidth = myCanvasArea.eraserRadius * 2;
+
+    btnEraser.style.display = "none";
+    btnBomb.style.display = "block";
+
+    showBomb();
 }
 
 btnBlackBucket.onclick = function(){
     myCanvasArea.toolSelected = drawingCanvasTools.BUCKET;
     myCanvasArea.colourSelected = hexColour.BLACK;
     console.log("Black Bucket selected");
+
+    showEraser();
 }
 
-btnRedBucket.onclick = function(){
+/*btnRedBucket.onclick = function(){
     myCanvasArea.toolSelected = drawingCanvasTools.BUCKET;
     myCanvasArea.colourSelected = hexColour.RED;
     console.log("Red Bucket selected");
-}
+}*/
 
 btnBomb.onclick = function(){
     myCanvasArea.clearCanvas();
     addRedo(getCanvasData());
+
+    showEraser();
 }
 
 btnUndo.onclick = function(){
@@ -254,4 +265,14 @@ btnSettings.onclick = function(){
     }
 
     settingsMenu.isDisplayed = !(settingsMenu.isDisplayed);
+}
+
+showEraser = function(){
+    btnEraser.style.display = "block";
+    btnBomb.style.display = "none";
+}
+
+showBomb = function(){
+    btnEraser.style.display = "none";
+    btnBomb.style.display = "block";
 }
