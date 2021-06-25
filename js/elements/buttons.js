@@ -11,6 +11,8 @@ var btnBlackBucket = document.getElementById("btnBlackBucket");
 
 var btnBomb = document.getElementById("btnBomb");
 
+var btnColour = document.getElementById("btnColour");
+
 var btnUndo = document.getElementById("btnUndo");
 
 var btnRedo = document.getElementById("btnRedo");
@@ -30,6 +32,16 @@ var btnDeleteFrame = document.getElementById("btnDeleteFrame");
 var btnGenerate = document.getElementById("btnGenerate");
 
 var btnSettings = document.getElementById("btnSettings");
+
+showEraser = function(){
+    btnEraser.style.display = "block";
+    btnBomb.style.display = "none";
+}
+
+showBomb = function(){
+    btnEraser.style.display = "none";
+    btnBomb.style.display = "block";
+}
 
 //Define customized behaviour for components
 btnBlackPencil.onclick = function(){
@@ -91,6 +103,11 @@ btnBomb.onclick = function(){
 
     showEraser();
 }
+
+btnColour.addEventListener("click", function(){
+    console.log("Clicked");
+    colourMenu.toggle();
+});
 
 btnUndo.onclick = function(){
     console.log("Undo button");
@@ -267,12 +284,3 @@ btnSettings.onclick = function(){
     settingsMenu.isDisplayed = !(settingsMenu.isDisplayed);
 }
 
-showEraser = function(){
-    btnEraser.style.display = "block";
-    btnBomb.style.display = "none";
-}
-
-showBomb = function(){
-    btnEraser.style.display = "none";
-    btnBomb.style.display = "block";
-}

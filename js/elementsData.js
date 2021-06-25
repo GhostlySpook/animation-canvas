@@ -16,6 +16,7 @@ var txtFrames = document.getElementById("txtFrames");
 
 initElements = function(){
     settingsMenu.init();
+    colourMenuInit();
     btnColourContainer.init();
 }
 
