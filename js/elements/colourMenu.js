@@ -16,18 +16,46 @@ btnColourContainer.init = function(){
 
 //Fill the colour container with colours
 colourMenu.init = function(){
+    colourMenu.style.display="block";
+
+    let btnWidth = (parseInt(colourMenu.clientWidth) / Object.keys(hexColour).length);
+    let btnHeight = colourMenu.clientHeight;
+
+    //console.log(btnWidth);
+    //console.log(btnHeight);
+
+    colourMenu.style.display="none";
+
     for(c in hexColour){
         //Create svg to be added
         let buttonSvg = document.createElement("svg");
+        buttonSvg.classList.add("svgBtnColour");
 
-        //Create rectangle, add it and give it colour
-        let rect = document.createElement("rect");
+        //Give width and height to button
+        buttonSvg.style.width = btnWidth + "px";
+        buttonSvg.style.height = btnHeight + "px";
+        
+        //Give colour
+        buttonSvg.style.background = hexColour[c];
+        buttonSvg.colour = hexColour[c];
 
-        rect.setAttribute("style", "fill: " + c + ";");
+        //Assign the event for a click
+        buttonSvg.addEventListener("click", function(e){
+            //Get the colour to use now
+            let color = e.target.colour;
 
-        buttonSvg.appendChild(rect);
+            //Apply the colour
+            myCanvasArea.colourSelected = color;
+            ctx.strokeStyle = color;
+
+            btnColourContainer.style.background = color;
+
+            //Hide the menu
+            colourMenu.hide();
+        });
+
+        //Add the button
         colourMenu.appendChild(buttonSvg);
-        console.log(c);
     }
 }
 
@@ -41,4 +69,14 @@ colourMenu.toggle = function(){
     }
 
     colourMenu.isDisplayed = !(colourMenu.isDisplayed);
+}
+
+colourMenu.show = function(){
+    colourMenu.isDisplayed = true;
+    this.style.display = "block";
+}
+
+colourMenu.hide = function(){
+    colourMenu.isDisplayed = false;
+    this.style.display = "none";
 }

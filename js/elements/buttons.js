@@ -11,7 +11,7 @@ var btnBlackBucket = document.getElementById("btnBlackBucket");
 
 var btnBomb = document.getElementById("btnBomb");
 
-var btnColour = document.getElementById("btnColour");
+var btnColour = document.getElementById("btnColourContainer");
 
 var btnUndo = document.getElementById("btnUndo");
 
@@ -47,9 +47,10 @@ showBomb = function(){
 btnBlackPencil.onclick = function(){
     console.log("Black Pencil selected");
     myCanvasArea.toolSelected = drawingCanvasTools.BRUSH;
-    myCanvasArea.colourSelected = hexColour.BLACK;
+    ctx.strokeStyle = myCanvasArea.colourSelected;
+    //myCanvasArea.colourSelected = hexColour.BLACK;
 
-    ctx.strokeStyle = hexColour.BLACK;
+    //ctx.strokeStyle = hexColour.BLACK;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.lineWidth = myCanvasArea.brushRadius;
@@ -72,7 +73,7 @@ btnEraser.onclick = function(){
     console.log("Eraser selected");
     myCanvasArea.toolSelected = drawingCanvasTools.ERASER;
 
-    ctx.strokeStyle = myCanvasArea.backgroundColour;
+    //ctx.strokeStyle = myCanvasArea.backgroundColour;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.lineWidth = myCanvasArea.eraserRadius * 2;
@@ -85,7 +86,7 @@ btnEraser.onclick = function(){
 
 btnBlackBucket.onclick = function(){
     myCanvasArea.toolSelected = drawingCanvasTools.BUCKET;
-    myCanvasArea.colourSelected = hexColour.BLACK;
+    //myCanvasArea.colourSelected = hexColour.BLACK;
     console.log("Black Bucket selected");
 
     showEraser();
@@ -106,6 +107,7 @@ btnBomb.onclick = function(){
 
 btnColour.addEventListener("click", function(){
     console.log("Clicked");
+    showEraser();
     colourMenu.toggle();
 });
 

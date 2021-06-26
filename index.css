@@ -116,8 +116,20 @@ body{
   z-index: 3;
 }
 
-#rectBtnColour{
+.svgBtnColour{
+  width: 0;
+  height: 0;
+  display:inline-block;
+  background: gray;
+}
 
+.rectBtnColour{
+  position:relative;
+  display:block;
+  width:100%;
+  height:100%;
+  fill: gray;
+  z-index: 5;
 }
 
 /*///////////////////////////////////////////////////////*/
