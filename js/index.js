@@ -27,4 +27,5 @@ window.onbeforeunload = function (e) {
     include('js/colours.js');
     include ('js/canvas/animation.js');
     include('js/canvas/canvasComponents.js');
+    include('js/canvas/shortcuts.js');
     include ('js/elementsData.js');

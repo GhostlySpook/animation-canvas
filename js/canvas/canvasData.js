@@ -14,8 +14,10 @@ myCanvasArea.backgroundColour = hexColour.WHITE;
 myCanvasArea.brushRadius = 10;
 myCanvasArea.eraserRadius = 10;
 
-myCanvasArea.toolSelected = null;
-myCanvasArea.colourSelected = null;
+myCanvasArea.toolSelected = drawingCanvasTools.BRUSH;
+myCanvasArea.colourSelected = hexColour.BLACK;
+ctx.lineCap = "round";
+ctx.lineJoin = "round";
 
 myCanvasArea.isDrawing = false;
 
@@ -51,7 +53,7 @@ myCanvasArea.draw = function(px, py){
 myCanvasArea.bucketFill = function(x, y, colour){
 
     //1. Get the pixel of the background pixel
-    console.log("Step one");
+    //console.log("Step one");
     let pixelData = ctx.getImageData(x, y, 1, 1);
     let canvasData = ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
 
@@ -114,16 +116,16 @@ myCanvasArea.bucketFill = function(x, y, colour){
     }
 
     //4. Filling loop
-    console.log("Step five");
+    //console.log("Step five");
     let isSameColour = (backData.r == fillData.r && backData.g == fillData.g && backData.b == fillData.b && backData.a == fillData.a)
 
     if((!(inside(s.x,s.y))) || isSameColour){
-        console.log("Already done");
+        //console.log("Already done");
         return
     }
 
     // 5. Get first seed
-    console.log("Step six");
+    //console.log("Step six");
     queue.push(s);
 
     while(queue.length > 0 && queue.length < 5000){
@@ -144,7 +146,7 @@ myCanvasArea.bucketFill = function(x, y, colour){
         scan(lx, (x-1), (y+1));
         scan(lx, (x-1), (y-1));
     }
-    console.log("Step seven");
+    //console.log("Step seven");
     ctx.putImageData(canvasData, 0, 0);
 }
 
@@ -170,7 +172,7 @@ myCanvasArea.canvas.onpointerdown = function(e) {
 }
 
 myCanvasArea.canvas.onpointerup = function(e){
-    console.log("Pointer up!");
+    //console.log("Pointer up!");
     finishStroke(e);
 
     /*if(myCanvasArea.isDrawing){
@@ -188,7 +190,7 @@ myCanvasArea.canvas.onpointerup = function(e){
 }
 
 myCanvasArea.canvas.onpointerout = function(e){
-    console.log("Pointer out!");
+    //console.log("Pointer out!");
     finishStroke(e);
 }
 
@@ -218,12 +220,12 @@ myCanvasArea.canvas.ontouchmove = function(e){
 }
 
 myCanvasArea.canvas.ontouchend = function(e){
-    console.log("Touch end!");
+    //console.log("Touch end!");
     finishStroke(e);
 }
 
 myCanvasArea.canvas.ontouchcancel = function(e){
-    console.log("Touch cancel!");
+    //console.log("Touch cancel!");
     finishStroke(e);
 }
 

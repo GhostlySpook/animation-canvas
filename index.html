@@ -20,6 +20,7 @@
             <input type="image" src="src/images/btnEraser.png" class="toolButton" id="btnEraser"/>
             <input type="image" src="src/images/btnBomb.png" class="toolButton" id="btnBomb" style="display: none"/>
             <!--input type="image" src="src/images/btnRedBucket.png" class="toolButton" id="btnRedBucket"/-->
+
             <div class="toolButton" id="btnColourContainer">
                 <!--svg id="btnColour">
                     <rect id="rectBtnColour"></rect>
@@ -28,6 +29,7 @@
             <div id="colourMenu">
                 
             </div>
+            
             <div id="redoContainer">
                 <input type="image" src="src/images/btnUndo.png" class="toolButton" id="btnUndo"/>
                 <input type="image" src="src/images/btnRedo.png" class="toolButton" id="btnRedo"/>
@@ -36,8 +38,8 @@
         </div>
 
         <!--Canvas areas-->
-        <svg id="svgBackground" class="canvasArea">
-            <rect id="rectBackground" class="background"></rect>
+        <svg id="svgBackground" class="canvasArea background">
+            <rect id="rectBackground"></rect>
         </svg>
         <canvas id = "bottomCanvas" class="canvasArea bottom"></canvas>
         <canvas id = "myCanvasArea" class="canvasArea"></canvas>
