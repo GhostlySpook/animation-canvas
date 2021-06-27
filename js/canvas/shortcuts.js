@@ -4,12 +4,15 @@
 document.addEventListener("keydown", function(e){
     switch(e.key){
         case "b":
+        case "B":
             btnBlackPencil.onclick();
             break;
         case "f":
+        case "F":
             btnBlackBucket.onclick();
             break;
         case "e":
+        case "E":
             if(btnEraser.style.display == "block"){
                 //console.log("Erase");
                 btnEraser.onclick();
@@ -20,11 +23,13 @@ document.addEventListener("keydown", function(e){
             }
             break;
         case "z":
+        case "Z":
             if(e.ctrlKey){
                 btnUndo.onclick();
             }
             break;
         case "y":
+        case "Y":
             if(e.ctrlKey){
                 btnRedo.onclick();
             }

@@ -1,11 +1,15 @@
 //Constants refering to hex codes for colours
 const hexColour = {
     BLACK: "#000000",
+    GRAY: "#808080",
     WHITE: "#ffffff",
+    PINK: "#ffaacc",
     RED: "#ff0000",
+    BROWN: "#964b00",
     ORANGE: "#ffaa00",
     YELLOW: "#ffff00",
     GREEN: "#00a400",
+    LIGHTBLUE: "#86c5da",
     BLUE: "#0000c7",
     INDIGO: "#4b0082",
     PURPLE: "#6a006b"
