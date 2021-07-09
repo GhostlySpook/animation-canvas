@@ -107,10 +107,14 @@ btnBomb.onclick = function(){
     showEraser();
 }
 
-btnColour.addEventListener("click", function(){
+btnColourClick = () =>{
     console.log("Clicked");
     showEraser();
     colourMenu.toggle();
+}
+
+btnColour.addEventListener("click", function(){
+    btnColourClick();
 });
 
 btnUndo.onclick = function(){

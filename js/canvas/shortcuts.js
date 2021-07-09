@@ -7,6 +7,10 @@ document.addEventListener("keydown", function(e){
         case "B":
             btnBlackPencil.onclick();
             break;
+        case "c":
+        case "C":
+            btnColourClick();
+            break;
         case "f":
         case "F":
             btnBlackBucket.onclick();

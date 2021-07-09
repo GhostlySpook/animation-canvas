@@ -60,9 +60,9 @@ body{
   }
 
   #redoContainer{
-    width: 100%;
+    width: 90%;
     padding-top:10%;
-    padding-left: 7%;
+    padding-left: 5%;
   }
 
   #redoContainer .toolButton{
