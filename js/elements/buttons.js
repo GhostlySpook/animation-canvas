@@ -102,6 +102,7 @@ btnBlackBucket.onclick = function(){
 btnBomb.onclick = function(){
     myCanvasArea.clearCanvas();
     addRedo(getCanvasData());
+    btnBlackPencil.onclick();
 
     showEraser();
 }
