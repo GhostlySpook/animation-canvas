@@ -175,6 +175,8 @@ body{
 .background{
   fill:white;
   background-color: white;
+  height: 100%;
+  width: 86%;
   z-index: 1;
 }
 
