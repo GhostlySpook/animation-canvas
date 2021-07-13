@@ -11,6 +11,7 @@ drawCanvas.addComponent();*/
 include("js/elements/buttons.js");
 include("js/elements/settingsMenu.js");
 include("js/elements/colourMenu.js");
+include("js/elements/pencilMenu.js");
 
 var txtFrames = document.getElementById("txtFrames");
 

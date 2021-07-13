@@ -21,6 +21,18 @@ window.onbeforeunload = function (e) {
     // For Safari
     return 'Sure?';
 };
+
+window.onclick = function(e){
+    //If pencil menu is displayed, hide
+    if(e.target != btnPencilMenu && e.target != pencilMenu && e.target != rangeSize){
+        console.log("It is displayed");
+        pencilMenu.hide();
+    }
+
+    if(e.target != btnColour){
+        colourMenu.hide();
+    }
+}
     
 /* Include Many js files */
     include('js/resources.js')

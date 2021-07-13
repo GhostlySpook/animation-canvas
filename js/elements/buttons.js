@@ -7,6 +7,8 @@ var btnEraser = document.getElementById("btnEraser");
 
 var btnBlackBucket = document.getElementById("btnBlackBucket");
 
+var btnPencilMenu = document.getElementById("btnPencilMenu");
+
 //var btnRedBucket = document.getElementById("btnRedBucket");
 
 var btnBomb = document.getElementById("btnBomb");
@@ -33,6 +35,16 @@ var btnGenerate = document.getElementById("btnGenerate");
 
 var btnSettings = document.getElementById("btnSettings");
 
+showPencil = function(){
+    btnPencilMenu.style.display = "none";
+    btnBlackPencil.style.display = "block";
+}
+
+showBtnPencilMenu = function(){
+    btnPencilMenu.style.display = "block";
+    btnBlackPencil.style.display = "none";
+}
+
 showEraser = function(){
     btnEraser.style.display = "block";
     btnBomb.style.display = "none";
@@ -55,19 +67,15 @@ btnBlackPencil.onclick = function(){
     ctx.lineJoin = "round";
     ctx.lineWidth = myCanvasArea.brushRadius;
 
+    showBtnPencilMenu();
+    pencilMenu.hide();
+    
     showEraser();
 }
 
-/*btnRedPencil.onclick = function(){
-    console.log("Red Pencil selected");
-    myCanvasArea.toolSelected = drawingCanvasTools.BRUSH;
-    myCanvasArea.colourSelected = hexColour.RED;
-
-    ctx.strokeStyle = hexColour.RED;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-    ctx.lineWidth = myCanvasArea.brushRadius;
-}*/
+btnPencilMenu.onclick = function(){
+    pencilMenu.toggle();
+}
 
 btnEraser.style.display = "block";
 btnEraser.onclick = function(){
@@ -82,6 +90,7 @@ btnEraser.onclick = function(){
     /*btnEraser.style.display = "none";
     btnBomb.style.display = "block";*/
 
+    showPencil();
     showBomb();
 }
 
@@ -91,6 +100,7 @@ btnBlackBucket.onclick = function(){
     //console.log("Black Bucket selected");
 
     showEraser();
+    showPencil();
 }
 
 /*btnRedBucket.onclick = function(){
@@ -105,6 +115,7 @@ btnBomb.onclick = function(){
     btnBlackPencil.onclick();
 
     showEraser();
+    showPencil();
 }
 
 btnColourClick = () =>{

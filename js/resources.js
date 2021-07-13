@@ -5,6 +5,7 @@ function loadImage(source){
 }
 
 var imgBtnBlackPencil = loadImage("src/images/btnBlackPencil.png");
+var imgBtnPencilMenu = loadImage("src/images/btnPencilMenu.png")
 var imgBtnRedPencil = loadImage("src/images/btnRedPencil.png");
 var imgBtnEraser = loadImage("src/images/btnEraser.png");
 var imgBtnBlackBucket = loadImage("src/images/btnBlackBucket.png");

@@ -85,7 +85,28 @@ body{
     display: block;
   }*/
 
-/*COLOUR MENU*/
+/*SIZE MENU////////////////////////////////////////////////////////*/
+
+#pencilMenu{
+  background: rgb(98, 101, 102);
+  border-style: solid;
+  border-color: #818181;
+  display: none;
+  position: fixed;
+  left: 10%;
+  top: 2%;
+  width: 20%;
+  height: 3%;
+  z-index: 3;
+}
+
+#rangeSize{
+  width: 100%;
+}
+
+/*////////////////////////////////////////////////////////*/
+
+/*COLOUR MENU/////////////////////////////////////////////*/
 #colourContainer{
   background: lightblue;
   display: none;
@@ -136,7 +157,7 @@ body{
   z-index: 5;
 }
 
-/*///////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////*/
 
 #settingsMenu{
   background: lightblue;
