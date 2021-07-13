@@ -15,25 +15,25 @@ settingsMenu.show = function(){
     this.style.display = "block";
 
     //If it is shown
-    cboxSeeThrough.checked = topCanvas.isShown;
+    cboxSeeThrough.checked = bottomCanvas.isShown;
 
     //Its opacity
-    rangeSeeThrough.value = window.getComputedStyle(topCanvas).getPropertyValue("opacity");
+    rangeSeeThrough.value = window.getComputedStyle(bottomCanvas).getPropertyValue("opacity");
 }
 
 cboxSeeThrough.onclick = function(){
-    topCanvas.isShown = cboxSeeThrough.checked;
+    bottomCanvas.isShown = cboxSeeThrough.checked;
 
     //If the canvas isn't shown, clear it
-    if(!topCanvas.isShown){
-        topCanvas.clearCanvas();
+    if(!bottomCanvas.isShown){
+        bottomCanvas.clearCanvas();
     }
     //If the canvas is shown, make it appear again
     else{
-        topCanvas.showPrevious();
+        bottomCanvas.showPrevious();
     }
 }
 
 rangeSeeThrough.onchange = function(){
-    topCanvas.style.opacity = rangeSeeThrough.value;
+    bottomCanvas.style.opacity = rangeSeeThrough.value;
 }

@@ -1,27 +1,27 @@
-var topCanvas = myCanvasArea.topCanvas;
+var bottomCanvas = myCanvasArea.bottomCanvas;
 
-topCanvas.isShown = true;
+bottomCanvas.isShown = true;
 
-topCanvas.clearCanvas = function(){
+bottomCanvas.clearCanvas = function(){
     topCtx.clearRect(0, 0, this.width, this.height);
 }
 
-topCanvas.showPrevious = function(){
+bottomCanvas.showPrevious = function(){
     if(this.isShown && framePointer != 0){
         topCtx.putImageData(framesList[(framePointer - 1)], 0, 0);
     }
     else{
-        topCtx.clearRect(0, 0, topCanvas.width, topCanvas.height);
+        topCtx.clearRect(0, 0, bottomCanvas.width, bottomCanvas.height);
     }
 }
 
-topCanvas.setOpacity = function(op){
+bottomCanvas.setOpacity = function(op){
     if(0 <= op && op <= 1){
-        topCanvas.style.opacity = op;
+        bottomCanvas.style.opacity = op;
     }
 }
 
-topCanvas.toggle = function(op){
+bottomCanvas.toggle = function(op){
     if(op == undefined){
         this.isShown = !(this.isShown);
     }

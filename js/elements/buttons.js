@@ -181,7 +181,7 @@ btnPreviousFrame.onclick = function(){
     txtFrames.update();
 
     //Update frame before new one
-    topCanvas.showPrevious();
+    bottomCanvas.showPrevious();
 
     //Clear redo list
     clearRedo();
@@ -204,7 +204,7 @@ btnNextFrame.onclick = function(){
     txtFrames.update();
 
     //Update frame before new one
-    topCanvas.showPrevious();
+    bottomCanvas.showPrevious();
 
     //Clear redo list
     clearRedo();
@@ -219,7 +219,7 @@ btnNewFrame.onclick = function(){
     txtFrames.update();
 
     //Update frame before new one
-    topCanvas.showPrevious();
+    bottomCanvas.showPrevious();
 
     clearRedo();
 }
@@ -250,7 +250,7 @@ btnDeleteFrame.onclick = function(){
     //console.log("Delete Frame Button selected");
 
     //Update frame before new one
-    topCanvas.showPrevious();
+    bottomCanvas.showPrevious();
 
     clearRedo();
 }

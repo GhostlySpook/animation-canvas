@@ -1,6 +1,6 @@
 var myCanvasArea = {
   canvas: document.getElementById("myCanvasArea"),
-  topCanvas: document.getElementById("bottomCanvas"),
+  bottomCanvas: document.getElementById("bottomCanvas"),
   //svgBackground: document.getElementById("svgBackground"),
   //backgroundDiv:document.getElementById("backgroundDiv"),
   start: function () {
@@ -12,8 +12,8 @@ var myCanvasArea = {
     this.canvas.height = window.innerHeight;
     /*this.canvas.width = this.canvas.clientWidth;
     this.canvas.height = this.canvas.clientHeight;*/
-    this.topCanvas.width = this.canvas.width;
-    this.topCanvas.height = this.canvas.height;
+    this.bottomCanvas.width = this.canvas.width;
+    this.bottomCanvas.height = this.canvas.height;
 
     var svgBackground = document.getElementById("svgBackground");
     svgBackground.style.width = this.canvas.width;
@@ -27,11 +27,11 @@ var myCanvasArea = {
     //this.backgroundDiv.style.height = this.canvas.height + "px";
 
     this.context = this.canvas.getContext("2d");
-    this.topContext = this.topCanvas.getContext("2d");
+    this.topContext = this.bottomCanvas.getContext("2d");
 
     this.context.fillStyle = "#ffffff";
     //this.context.fillRect(0,0,this.canvas.width,this.canvas.height);
-    this.frameNo = 0;
+    //this.frameNo = 0;
   },
   //Stops the game
   stop: function () {
