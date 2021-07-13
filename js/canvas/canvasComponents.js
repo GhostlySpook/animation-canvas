@@ -15,14 +15,6 @@ var myCanvasArea = {
     this.bottomCanvas.width = this.canvas.width;
     this.bottomCanvas.height = this.canvas.height;
 
-    var svgBackground = document.getElementById("svgBackground");
-    svgBackground.style.width = this.canvas.width;
-    svgBackground.style.height = this.canvas.height;
-
-    var rectBackground = document.getElementById("rectBackground");
-    rectBackground.style.width = svgBackground.style.width;
-    rectBackground.style.height = svgBackground.style.height;
-
     //this.backgroundDiv.style.width = this.canvas.width + "px";
     //this.backgroundDiv.style.height = this.canvas.height + "px";
 
@@ -34,9 +26,9 @@ var myCanvasArea = {
     //this.frameNo = 0;
   },
   //Stops the game
-  stop: function () {
+  /*stop: function () {
     clearInterval(this.interval);
-  },
+  },*/
   //Cleans the canvas    
   clear: function () {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);

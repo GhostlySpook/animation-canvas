@@ -1,10 +1,15 @@
 var btnColourContainer = document.getElementById("btnColourContainer");
 var colourMenu = document.getElementById("colourMenu");
+var svgBackground = document.getElementById("svgBackground");
+var rectBackground = document.getElementById("rectBackground");
+
 colourMenu.isDisplayed = false;
 
 colourMenuInit = function(){
     btnColourContainer.init();
     colourMenu.init();
+    svgBackground.init();
+    rectBackground.init();
 }
 
 //Initializes the colour button
@@ -57,6 +62,16 @@ colourMenu.init = function(){
         //Add the button
         colourMenu.appendChild(buttonSvg);
     }
+}
+
+svgBackground.init = function(){
+    svgBackground.style.width = myCanvasArea.canvas.width;
+    svgBackground.style.height = myCanvasArea.canvas.height;
+}
+
+rectBackground.init = function(){
+    rectBackground.style.width = svgBackground.style.width;
+    rectBackground.style.height = svgBackground.style.height;
 }
 
 colourMenu.toggle = function(){
