@@ -236,7 +236,7 @@ finishStroke = function(e){
 
         switch(myCanvasArea.toolSelected){
             case drawingCanvasTools.BRUSH:
-                ctx.endStr
+                //ctx.endStr
             case drawingCanvasTools.ERASER:
                 addRedo(getCanvasData());
                 break;

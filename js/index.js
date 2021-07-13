@@ -25,10 +25,11 @@ window.onbeforeunload = function (e) {
 window.onclick = function(e){
     //If pencil menu is displayed, hide
     if(e.target != btnPencilMenu && e.target != pencilMenu && e.target != rangeSize){
-        console.log("It is displayed");
+        //console.log("It is displayed");
         pencilMenu.hide();
     }
 
+    //If colour menu is displayed, hide
     if(e.target != btnColour){
         colourMenu.hide();
     }

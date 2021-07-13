@@ -42,8 +42,10 @@ function frameBackgroundColoured(framePointer){
 
 //Add data to the redo list and clear the ones that were after
 function addRedo(data){
+    console.clear();
+
     console.log("Added redo");
-    console.log(data);
+    //console.log(data);
 
     /*redoPointer++;
     console.log(redoPointer);
@@ -62,8 +64,11 @@ function addRedo(data){
 
     console.log(redoFramesList);*/
     let length = redoFramesList.length;
+    console.log("Start length");
+    console.log(length);
 
-    redoPointer++;
+    console.log("Start pointer");
+    console.log(redoPointer);
 
     if((redoPointer + 1) == length){
         // If it is the last, do nothing
@@ -77,11 +82,18 @@ function addRedo(data){
         redoFramesList = redoFramesList.splice(redoPointer, howMany, data);*/
 
         
-        redoFramesList = redoFramesList.slice(0, redoPointer);
+        redoFramesList = redoFramesList.slice(0, redoPointer + 1);
         //redoFramesList.push(data);
     }
 
     redoFramesList.push(data);
+    redoPointer++;
+
+    console.log("End length");
+    console.log(redoFramesList.length);
+
+    console.log("End pointer");
+    console.log(redoPointer);
 
     /*console.log("Pointer: ");
     console.log(redoPointer);

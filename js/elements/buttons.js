@@ -144,6 +144,8 @@ btnUndo.onclick = function(){
     console.log(redoPointer);
 
     console.log(redoFramesList);*/
+    console.log("Redo Pointer: ");
+    console.log(redoPointer);
 }
 
 btnRedo.onclick = function(){
@@ -157,6 +159,9 @@ btnRedo.onclick = function(){
     //Show previous frame
     redoPointer++;
     ctx.putImageData(redoFramesList[redoPointer], 0, 0);
+
+    console.log("Redo Pointer: ");
+    console.log(redoPointer);
 }
 
 btnPreviousFrame.onclick = function(){

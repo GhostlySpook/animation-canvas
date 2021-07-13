@@ -60,7 +60,7 @@ colourMenu.init = function(){
 }
 
 colourMenu.toggle = function(){
-    console.log("Toggle")
+    //console.log("Toggle")
     if(colourMenu.isDisplayed){
         this.style.display = "none";
     }

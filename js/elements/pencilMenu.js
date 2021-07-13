@@ -2,7 +2,10 @@ var pencilMenu = document.getElementById("pencilMenu");
 var rangeSize = document.getElementById("rangeSize");
 
 rangeSize.onchange = function(){
-    ctx.lineWidth = rangeSize.value;
+    value = rangeSize.value;
+
+    ctx.lineWidth = value;
+    myCanvasArea.brushRadius = value;
 }
 
 pencilMenu.isDisplayed = false;
