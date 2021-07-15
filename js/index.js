@@ -22,7 +22,7 @@ window.onbeforeunload = function (e) {
     return 'Sure?';
 };
 
-window.onclick = function(e){
+window.onpointerdown = function(e){
     //If pencil menu is displayed, hide
     if(e.target != btnPencilMenu && e.target != pencilMenu && e.target != rangeSize){
         //console.log("It is displayed");

@@ -1,6 +1,8 @@
 var myCanvasArea = {
   canvas: document.getElementById("myCanvasArea"),
   bottomCanvas: document.getElementById("bottomCanvas"),
+  svgBackground: document.getElementById("svgBackground"),
+  rectBackground: document.getElementById("rectBackground"),
   //svgBackground: document.getElementById("svgBackground"),
   //backgroundDiv:document.getElementById("backgroundDiv"),
   start: function () {
@@ -14,6 +16,12 @@ var myCanvasArea = {
     this.canvas.height = this.canvas.clientHeight;*/
     this.bottomCanvas.width = this.canvas.width;
     this.bottomCanvas.height = this.canvas.height;
+
+    this.svgBackground.style.width = this.canvas.width;
+    this.svgBackground.style.height = this.canvas.height;
+
+    this.rectBackground.style.width = svgBackground.style.width;
+    this.rectBackground.style.height = svgBackground.style.height;
 
     //this.backgroundDiv.style.width = this.canvas.width + "px";
     //this.backgroundDiv.style.height = this.canvas.height + "px";
@@ -30,9 +38,9 @@ var myCanvasArea = {
     clearInterval(this.interval);
   },*/
   //Cleans the canvas    
-  clear: function () {
+  /*clear: function () {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-  }
+  }*/
 }
 
 var ctx = undefined;
