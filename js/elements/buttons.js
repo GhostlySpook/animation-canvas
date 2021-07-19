@@ -210,7 +210,7 @@ btnRedo.onclick = function(){
     clearRedo();
 }*/
 
-/*btnNewFrame.onclick = function(){
+btnNewFrame.onclick = function(){
     //console.log("New Frame Button selected");
     saveFrame(getCanvasData());
     framePointer++;
@@ -255,7 +255,7 @@ btnDeleteFrame.onclick = function(){
     clearRedo();
 }
 
-btnGenerate.onclick = function(){
+/*btnGenerate.onclick = function(){
 
     //Verify fps field isn't empty or canceled
     var fps = prompt('Type seconds for each frame. 60 can be a good start');
