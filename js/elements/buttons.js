@@ -164,7 +164,7 @@ btnRedo.onclick = function(){
     console.log(redoPointer);
 }
 
-btnPreviousFrame.onclick = function(){
+/*btnPreviousFrame.onclick = function(){
     //console.log("Previous Frame Button selected");
 
     //If it is the first frame, don't do anything
@@ -185,9 +185,9 @@ btnPreviousFrame.onclick = function(){
 
     //Clear redo list
     clearRedo();
-}
+}*/
 
-btnNextFrame.onclick = function(){
+/*btnNextFrame.onclick = function(){
     //console.log("Next Frame Button selected");
 
     //If it is the last frame, don't do anything
@@ -208,9 +208,9 @@ btnNextFrame.onclick = function(){
 
     //Clear redo list
     clearRedo();
-}
+}*/
 
-btnNewFrame.onclick = function(){
+/*btnNewFrame.onclick = function(){
     //console.log("New Frame Button selected");
     saveFrame(getCanvasData());
     framePointer++;
@@ -306,5 +306,4 @@ btnSettings.onclick = function(){
     }
 
     settingsMenu.isDisplayed = !(settingsMenu.isDisplayed);
-}
-
+}*/

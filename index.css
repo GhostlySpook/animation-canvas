@@ -58,6 +58,7 @@ body{
   .toolButton.right {
     margin-left: 10px;
   }
+  
 
   #redoContainer{
     width: 90%;
@@ -84,6 +85,39 @@ body{
     color: #818181;
     display: block;
   }*/
+
+/*BOTTOM BAR//////////////////////////////////////////////////////*/
+.bottomBar{
+  width: 100%;
+  height: 12%;
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+  background-color: #111; /* Black */
+}
+
+.bottomContainers{
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+.divFrameOptions{
+  width: 15%;
+}
+
+.frameOption{
+  width: 48%;
+  height: 49%;
+}
+
+.divFrameVisualizer{
+  width: 60%;
+}
+
+.divFrameCreation{
+  width: 24%;
+}
 
 /*SIZE MENU////////////////////////////////////////////////////////*/
 
@@ -157,7 +191,7 @@ body{
   z-index: 5;
 }
 
-/*////////////////////////////////////////////////////////*/
+/*SETTINGS////////////////////////////////////////////////////////*/
 
 #settingsMenu{
   background: lightblue;
@@ -197,7 +231,7 @@ body{
   fill:white;
   background-color: white;
   height: 100%;
-  width: 86%;
+  width: 93%;
   z-index: 1;
 }
 
