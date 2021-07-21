@@ -18,11 +18,14 @@ function updateFrameVisualizer(){
     let length = framesList.length;
 
     for(let pointer = 0; pointer < length; pointer++){
+        console.log(pointer);
         addInFrameVisualizer(pointer);
     }
 }
 
+//Adds a frame to the end of the visualizer
 function addInFrameVisualizer(pointer){
+
     //Create div for frame
     let divFrame = document.createElement("div");
     divFrame.classList.add("divFrame");
@@ -72,8 +75,25 @@ function addInFrameVisualizer(pointer){
     divFrame.appendChild(divFrameContainer);
     divFrame.appendChild(divFrameTime);
 
+
+    //Create frame object
+    let frameObject = {
+        //This is the pointer of the frame
+        position: pointer,
+
+        //This is the div of the frame
+        divFrame: divFrame,
+
+        //This is the small image element of the frame
+        image: image,
+
+        //This is the input to be registered for the frame
+        inputMs: speedInput
+    }
+
+
     //Append this to the end of the frame
-    visualizerList.push(divFrame);
+    visualizerList.push(frameObject);
 
     //Add to the visualizer div
     divFrameVisualizer.appendChild(divFrame);

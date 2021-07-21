@@ -89,7 +89,7 @@ body{
 /*BOTTOM BAR//////////////////////////////////////////////////////*/
 .bottomBar{
   width: 100%;
-  height: 15%;
+  height: 17%;
   position: fixed;
   bottom: 0;
   z-index: 5;
@@ -115,15 +115,16 @@ body{
 /*Frame Visualizer*/
 #divFrameVisualizer{
   width: 60%;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  /*overflow-x: scroll;*/
+  overflow-y: auto;
 }
 
 .divFrame{
+  float: left;
   width: 150px;
   top: 0;
-  height: 100%; 
-  display: block;
+  height: 90%; 
+  display: inline;
   border: gray;
   border-style: solid;
 }
@@ -139,27 +140,30 @@ body{
 
 .divFrameContainer{
   top: 0;
-  height: 68%;
+  height: 60%;
   text-align: center;
 }
 
 .divFrameContainer img{
   background-color: white;
-  height: 100%;
+  height: 90%;
 }
 
 .divFrameTime{
   height: 20%;
   display: inline-block;
+  text-align: center;
 }
 
 .divFrameTime input{
-  width: 50%;
-  height: 50%;
+  width: 30%;
+  height: 60%;
 }
 
 .divFrameTime p{
   width: 30%;
+  /*text-align: right;*/
+  display: inline;
 }
 
 /* Chrome, Safari, Edge, Opera */

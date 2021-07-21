@@ -216,11 +216,12 @@ btnNewFrame.onclick = function(){
     framePointer++;
     myCanvasArea.clearCanvas();
     framesList.splice(framePointer, 0, getCanvasData());
-    txtFrames.update();
+    //txtFrames.update();
 
-    //Update frame before new one
+    //Update the frame displayed behind the canvas
     bottomCanvas.showPrevious();
 
+    updateFrameVisualizer();
     clearRedo();
 }
 
@@ -235,6 +236,7 @@ btnPasteFrame.onclick = function(){
         return
     ctx.putImageData(frameClipboard, 0, 0);
 
+    updateFrameVisualizer();
     addRedo(getCanvasData());
 }
 
@@ -246,12 +248,13 @@ btnDeleteFrame.onclick = function(){
     if(framePointer > 0)
         framePointer--;
     ctx.putImageData(framesList[framePointer], 0, 0);
-    txtFrames.update();
+    //txtFrames.update();
     //console.log("Delete Frame Button selected");
 
     //Update frame before new one
     bottomCanvas.showPrevious();
 
+    updateFrameVisualizer();
     clearRedo();
 }
 
