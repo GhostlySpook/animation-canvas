@@ -42,7 +42,7 @@ function frameBackgroundColoured(framePointer){
 
 //Add data to the redo list and clear the ones that were after
 function addRedo(data){
-    console.clear();
+    //console.clear();
     
     let length = redoFramesList.length;
 

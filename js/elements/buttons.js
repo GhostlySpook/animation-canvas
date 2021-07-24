@@ -19,9 +19,9 @@ var btnUndo = document.getElementById("btnUndo");
 
 var btnRedo = document.getElementById("btnRedo");
 
-var btnPreviousFrame = document.getElementById("btnPreviousFrame");
+//var btnPreviousFrame = document.getElementById("btnPreviousFrame");
 
-var btnNextFrame = document.getElementById("btnNextFrame");
+//var btnNextFrame = document.getElementById("btnNextFrame");
 
 var btnNewFrame = document.getElementById("btnNewFrame");
 

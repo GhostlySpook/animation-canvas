@@ -27,7 +27,7 @@ var myCanvasArea = {
     //this.backgroundDiv.style.height = this.canvas.height + "px";
 
     this.context = this.canvas.getContext("2d");
-    this.topContext = this.bottomCanvas.getContext("2d");
+    this.bottomContext = this.bottomCanvas.getContext("2d");
 
     this.context.fillStyle = "#ffffff";
     //this.context.fillRect(0,0,this.canvas.width,this.canvas.height);
@@ -44,12 +44,12 @@ var myCanvasArea = {
 }
 
 var ctx = undefined;
-var topCtx = undefined;
+var bottomCtx = undefined;
 
 function startCanvas(){
   myCanvasArea.start();
   ctx = myCanvasArea.context;
-  topCtx = myCanvasArea.topContext;
+  bottomCtx = myCanvasArea.bottomContext;
 
   //Starting canvas config
   ctx.lineWidth = 10;
