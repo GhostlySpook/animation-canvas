@@ -2,7 +2,16 @@ var divFrameVisualizer = document.getElementById("divFrameVisualizer");
 var conversionCanvas = document.createElement("canvas");
 var conversionContext = conversionCanvas.getContext("2d");
 
-//var visualizerList = [];
+var visualizerList = [];
+
+visualizerList.updateNumbers = (start = 0) =>{
+    let length = visualizerList.length;
+
+    for(let i = start; i < length; i++){
+        visualizerList[i].pNumber.textContent = i+1;
+    }
+}
+
 
 function frameVisualizerInit(){
     updateFrameVisualizer();
@@ -88,6 +97,7 @@ function createDivFrameObject(pointer){
     let frameObject = {
         //This is the pointer of the frame
         position: pointer,
+        pNumber: pNumber,
 
         //This is the div of the frame
         //divFrame: divFrame,
@@ -201,4 +211,9 @@ function addInFrameVisualizer(pointer){
     //Add to the visualizer div
     //divFrameVisualizer.appendChild(divFrame);
     divFrameVisualizer.appendChild(frame);
+}
+
+//Insert a frame to the frame visualizer after the one selected
+function insertFrameVisualizer(pointer){
+    
 }
