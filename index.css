@@ -300,3 +300,8 @@ input[type=number] {
 }
 
 /*////////////////////////////////////////////////////////*/
+
+/*General*/
+.selected{
+  border-color: red;
+}
