@@ -4,21 +4,41 @@ var conversionContext = conversionCanvas.getContext("2d");
 
 var visualizerList = [];
 
-visualizerList.updateNumbers = (start = 0) =>{
-    let length = visualizerList.length;
-
-    for(let i = start; i < length; i++){
-        visualizerList[i].pNumber.textContent = i+1;
-    }
-}
-
-
 function frameVisualizerInit(){
     updateFrameVisualizer();
     
     //Make the conversion canvas have the same size as the canvas used for drawing
     conversionCanvas.width = myCanvasArea.canvas.width;
     conversionCanvas.height = myCanvasArea.canvas.height;
+}
+
+updateVisualizerNumbers = function(start = 0){
+    //console.log("Start", start);
+    let length = visualizerList.length;
+    //console.log("Length:", length);
+
+    for(let i = start; i < length; i++){
+        let frameObject = visualizerList[i].frameObject;
+
+        frameObject.pNumber.textContent = (i+1);
+        frameObject.position = (i);
+    }
+}
+
+updateVisualizerImage = function(pointer){
+    //console.log("Pointer", pointer);
+    //console.log(visualizerList);
+
+    //conversionContext.putImageData(getCanvasData(), 0, 0);
+    if(framePointer == pointer){
+        conversionContext.putImageData(getCanvasData(), 0, 0);
+    }
+    else{
+        conversionContext.putImageData(framesList[pointer], 0, 0);
+    }
+    
+    visualizerList[pointer].frameObject.image.src = conversionCanvas.toDataURL("image/png");//"https://cdn.discordapp.com/attachments/109146132239613952/868722425410510858/E4Xds_AUYAMlSUM.jpg";
+    //console.log("Updated image");
 }
 
 function clearFrameVisualizer(){
@@ -31,7 +51,7 @@ function updateFrameVisualizer(){
     let length = framesList.length;
 
     for(let pointer = 0; pointer < length; pointer++){
-        console.log(pointer);
+        //console.log(pointer);
         addInFrameVisualizer(pointer);
     }
 }
@@ -100,7 +120,7 @@ function createDivFrameObject(pointer){
         pNumber: pNumber,
 
         //This is the div of the frame
-        //divFrame: divFrame,
+        divFrame: divFrame,
 
         //This is the small image element of the frame
         image: image,
@@ -113,17 +133,18 @@ function createDivFrameObject(pointer){
 
     //Add event to div. Changing the current frame to the selected one
     divFrame.addEventListener("click", () =>{
-        console.log("Changed frame");
+        //console.log("Changed frame");
         //Save the frame before changing
         saveFrame(getCanvasData());
 
         //Update the pointer for the framesList
         framePointer = divFrame.frameObject.position;
-        console.log(framePointer);
+        //console.log(framePointer);
         
         //Draw the new images
         ctx.putImageData(framesList[framePointer], 0, 0);
         bottomCanvas.showPrevious();
+        selectInFrameVisualizer(framePointer);
     });
 
     //divFrame.frameObject = frameObject;
@@ -210,10 +231,60 @@ function addInFrameVisualizer(pointer){
 
     //Add to the visualizer div
     //divFrameVisualizer.appendChild(divFrame);
+    //console.log("VisualizerList in addInFrame: ", visualizerList);
+
     divFrameVisualizer.appendChild(frame);
 }
 
-//Insert a frame to the frame visualizer after the one selected
-function insertFrameVisualizer(pointer){
+//Insert a frame to the frame visualizer in the position selected
+function insertInFrameVisualizer(pointer){
+    //console.log("Pointer", pointer - 1);
+
+    let newFrame = createDivFrameObject(pointer);
+
+    //console.log("VisualizerList in insertInFrame: ", visualizerList);
+    //console.log("VisualizerList in insertInFrame would be after splice: ", visualizerList.splice((pointer - 1), 0, newFrame));
+    visualizerList.splice((pointer - 1), 0, newFrame);
+    //visualizerList = visualizerList.splice((pointer - 1), 0, newFrame);
+    //console.log("VisualizerList in insertInFrame after splice: ", visualizerList);
+
+    //console.log("Before insert", visualizerList);
+    divFrameVisualizer.insertBefore(newFrame, visualizerList[(pointer)]);
+    //visualizerList[(pointer)].insertAdjacentElement("afterend", newFrame);
+
+    updateVisualizerNumbers(pointer - 1);
+    updateVisualizerImage(pointer-1)
+    updateVisualizerImage(pointer);
+
+    selectInFrameVisualizer(pointer);
+    //console.log(visualizerList);
+}
+
+//Delete a frame in the visualizer
+function deleteInFrameVisualizer(pointer){
+    //Remove the frame from the document
+    visualizerList[pointer].remove();
+
+    //Remove the frame from the list
+    visualizerList.splice(pointer, 1);
+
+    //Update the numbers
+    updateVisualizerNumbers(pointer);
+
+    //Update image
+    updateVisualizerImage(pointer);
+
+    console.log("Pointer", pointer);
+    selectInFrameVisualizer(pointer);
+}
+
+//Unselect the current frame and select the next frame
+function selectInFrameVisualizer(pointer){
+    let length = visualizerList.length;
     
+    for(let i = 0; i < length; i++){
+        visualizerList[i].classList.remove("selected");
+    }
+
+    visualizerList[pointer].classList.add("selected");
 }

@@ -54,8 +54,11 @@ function startCanvas(){
   //Starting canvas config
   ctx.lineWidth = 10;
 
+  //Frames configuration
   framesList.push(ctx.getImageData(0, 0, myCanvasArea.canvas.width, myCanvasArea.canvas.height));
   clearRedo();
+
+  selectToolButton(btnBlackPencil);
   //txtFrames.update();
 
   //Start elements config

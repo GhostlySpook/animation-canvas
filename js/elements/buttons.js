@@ -136,6 +136,7 @@ btnBlackBucket.onclick = function(){
 btnBomb.onclick = function(){
     myCanvasArea.clearCanvas();
     addRedo(getCanvasData());
+    updateVisualizerImage(framePointer);
     btnBlackPencil.onclick();
 
     showEraser();
@@ -243,10 +244,13 @@ btnNewFrame.onclick = function(){
     framesList.splice(framePointer, 0, getCanvasData());
     //txtFrames.update();
 
+    //Update frame visualizer
+    insertInFrameVisualizer(framePointer);
+
     //Update the frame displayed behind the canvas
     bottomCanvas.showPrevious();
 
-    updateFrameVisualizer();
+    //updateFrameVisualizer();
     clearRedo();
 }
 
@@ -262,6 +266,7 @@ btnPasteFrame.onclick = function(){
     ctx.putImageData(frameClipboard, 0, 0);
 
     updateFrameVisualizer();
+    updateVisualizerImage(framePointer);
     addRedo(getCanvasData());
 }
 
@@ -279,7 +284,7 @@ btnDeleteFrame.onclick = function(){
     //Update frame before new one
     bottomCanvas.showPrevious();
 
-    updateFrameVisualizer();
+    deleteInFrameVisualizer(framePointer);
     clearRedo();
 }
 

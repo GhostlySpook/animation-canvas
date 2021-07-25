@@ -44,6 +44,7 @@ myCanvasArea.draw = function(px, py){
         case drawingCanvasTools.BUCKET:
             this.bucketFill(px, py, this.colourSelected);
             this.isDrawing = false;
+            updateVisualizerImage(framePointer);
             addRedo(getCanvasData());
             break;
     }
@@ -239,6 +240,7 @@ finishStroke = function(e){
                 //ctx.endStr
             case drawingCanvasTools.ERASER:
                 addRedo(getCanvasData());
+                updateVisualizerImage(framePointer);
                 break;
         }
     }
