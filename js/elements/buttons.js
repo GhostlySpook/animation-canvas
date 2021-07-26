@@ -272,6 +272,8 @@ btnPasteFrame.onclick = function(){
 
 btnDeleteFrame.onclick = function(){
     myCanvasArea.clearCanvas();
+    updateVisualizerImage(framePointer);
+    
     if(framesList.length == 1)
         return
     framesList.splice(framePointer, 1);

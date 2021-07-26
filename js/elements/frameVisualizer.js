@@ -5,11 +5,12 @@ var conversionContext = conversionCanvas.getContext("2d");
 var visualizerList = [];
 
 function frameVisualizerInit(){
-    updateFrameVisualizer();
-    
     //Make the conversion canvas have the same size as the canvas used for drawing
     conversionCanvas.width = myCanvasArea.canvas.width;
     conversionCanvas.height = myCanvasArea.canvas.height;
+
+    updateFrameVisualizer();
+    selectInFrameVisualizer(framePointer);
 }
 
 updateVisualizerNumbers = function(start = 0){

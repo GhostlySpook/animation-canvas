@@ -9,6 +9,10 @@ body{
     background-color:gray;
 }
 
+p{
+  color: white;
+}
+
 /*Sidebar related
 //
 /*/
@@ -61,7 +65,7 @@ body{
   
 
   #redoContainer{
-    width: 90%;
+    width: 85%;
     padding-top:10%;
     padding-left: 5%;
   }
@@ -104,24 +108,25 @@ body{
 
 /*Frame Creation*/
 .divFrameOptions{
-  width: 15%;
+  width: 10%;
 }
 
 .frameOption{
-  width: 48%;
-  height: 49%;
+  width: 47%;
+  height: 46%;
 }
 
 /*Frame Visualizer*/
 #divFrameVisualizer{
-  width: 60%;
+  width: 69%;
   /*overflow-x: scroll;*/
   overflow-y: auto;
 }
 
 .divFrame{
   float: left;
-  width: 150px;
+  /*width: 150px;´*/
+  width: 18.5%;
   top: 0;
   height: 90%; 
   display: inline;
@@ -180,7 +185,7 @@ input[type=number] {
 
 /*Frame Creation*/
 .divFrameCreation{
-  width: 24.4%;
+  width: 19%;
 }
 
 .divFrameCreationHalf{
@@ -189,19 +194,24 @@ input[type=number] {
 
 .playButton{
   float:left;
-  width: 15%;
+  width: 20%;
   height: 100%;
 }
 
 .fpsContainer{
   float:left;
-  width: 70%;
+  width: 60%;
   height: 100%;
+  text-align: center;
+}
+
+.fpsContainer input{
+  width: 50%;
 }
 
 .settingsButton{
   float:left;
-  width: 15%;
+  width: 20%;
   height: 100%; 
 }
 
