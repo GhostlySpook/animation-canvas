@@ -180,7 +180,34 @@ input[type=number] {
 
 /*Frame Creation*/
 .divFrameCreation{
-  width: 24%;
+  width: 24.4%;
+}
+
+.divFrameCreationHalf{
+  height: 49%;
+}
+
+.playButton{
+  float:left;
+  width: 15%;
+  height: 100%;
+}
+
+.fpsContainer{
+  float:left;
+  width: 70%;
+  height: 100%;
+}
+
+.settingsButton{
+  float:left;
+  width: 15%;
+  height: 100%; 
+}
+
+.generateButton{
+  height: 100%;
+  width: 100%;
 }
 
 /*SIZE MENU////////////////////////////////////////////////////////*/
