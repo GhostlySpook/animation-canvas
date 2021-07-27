@@ -166,6 +166,7 @@ p{
 }
 
 .divFrameTime p{
+  padding-left: 2px;
   width: 30%;
   /*text-align: right;*/
   display: inline;
@@ -202,11 +203,21 @@ input[type=number] {
   float:left;
   width: 60%;
   height: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 .fpsContainer input{
-  width: 50%;
+  margin-left: 10%;
+  margin-top: 2%;
+  width: 30%;
+  height: 30%;
+  display: inline;
+}
+
+.fpsContainer p{
+  display: inline;
+  height:30%;
+  margin-left: 5px;
 }
 
 .settingsButton{
@@ -303,6 +314,10 @@ input[type=number] {
   width: 80%;
   height: 100%;
   z-index: 3;
+}
+
+#settingsMenu p{
+  color: black;
 }
 
 /*DRAWING AREA//////////////////////////////////////////*/

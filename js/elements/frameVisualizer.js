@@ -1,6 +1,7 @@
 var divFrameVisualizer = document.getElementById("divFrameVisualizer");
 var conversionCanvas = document.createElement("canvas");
 var conversionContext = conversionCanvas.getContext("2d");
+var inputFps = document.getElementById("inputFps");
 
 var visualizerList = [];
 
@@ -8,6 +9,8 @@ function frameVisualizerInit(){
     //Make the conversion canvas have the same size as the canvas used for drawing
     conversionCanvas.width = myCanvasArea.canvas.width;
     conversionCanvas.height = myCanvasArea.canvas.height;
+
+    inputFps.value = 1;
 
     updateFrameVisualizer();
     selectInFrameVisualizer(framePointer);
@@ -95,9 +98,10 @@ function createDivFrameObject(pointer){
     //Create the input for the speed
     let speedInput = document.createElement("input");
     speedInput.type = "number";
+    speedInput.value = inputFps.value;
 
     let pMs = document.createElement("p");
-    pMs.textContent = "ms";
+    pMs.textContent = "Frames";
 
     //Create div for speed input
     let divFrameTime = document.createElement("div");
@@ -127,7 +131,7 @@ function createDivFrameObject(pointer){
         image: image,
 
         //This is the input to be registered for the frame
-        inputMs: speedInput
+        inputFrames: speedInput
     }
 
     divFrame.frameObject = frameObject;
@@ -222,7 +226,7 @@ function addInFrameVisualizer(pointer){
         image: image,
 
         //This is the input to be registered for the frame
-        inputMs: speedInput
+        inputFrames: speedInput
     }*/
     let frame = createDivFrameObject(pointer);
 

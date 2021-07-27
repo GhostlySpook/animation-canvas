@@ -33,6 +33,10 @@ var btnDeleteFrame = document.getElementById("btnDeleteFrame");
 
 var btnGenerate = document.getElementById("btnGenerate");
 
+var btnPlay = document.getElementById("btnPlay");
+
+var btnStop = document.getElementById("btnStop");
+
 var btnSettings = document.getElementById("btnSettings");
 
 var selectableToolButtons = [
@@ -290,18 +294,18 @@ btnDeleteFrame.onclick = function(){
     clearRedo();
 }
 
-/*btnGenerate.onclick = function(){
+btnGenerate.onclick = function(){
 
     //Verify fps field isn't empty or canceled
-    var fps = prompt('Type seconds for each frame. 60 can be a good start');
+    let fps = prompt('Type seconds for each frame. 60 can be a good start');
     if(fps == "" || fps == null)
     return;
 
-    var delay = 1/fps;
+    let delay = 1/fps;
 
     saveFrame(getCanvasData());
 
-    var encoder = new GIFEncoder();
+    let encoder = new GIFEncoder();
 
     encoder.setRepeat(0);
 
@@ -331,6 +335,22 @@ btnDeleteFrame.onclick = function(){
     encoder.download("download.gif");
 }
 
+btnPlay.onclick = function(){
+    bottomCanvas.clearCanvas();
+    saveFrame(getCanvasData());
+    startPlayInterval();
+    btnStop.style.display = "block";
+    btnPlay.style.display = "none";
+}
+
+btnStop.onclick = function(){
+    clearInterval(playInterval);
+    btnStop.style.display = "none";
+    btnPlay.style.display = "block";
+    ctx.putImageData(framesList[framePointer], 0, 0);
+    bottomCanvas.showPrevious();
+}
+
 btnSettings.onclick = function(){
     if(settingsMenu.isDisplayed){
         settingsMenu.style.display = "none";
@@ -341,4 +361,4 @@ btnSettings.onclick = function(){
     }
 
     settingsMenu.isDisplayed = !(settingsMenu.isDisplayed);
-}*/
+}

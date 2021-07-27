@@ -3,10 +3,26 @@ var frameBackgroundColour = hexColour.WHITE;
 var framesList = [];
 var framePointer = 0;
 
+//Redo related
 var redoFramesList = [];
 var redoPointer = 0;
 
 var frameClipboard = null;
+
+//Speed related
+//var delayFrameList = [];
+var currentFrameDelay = 0;
+//var fps = 0;
+
+//Play related
+var playInterval = null;
+//var playPointer = 0;
+var playLoop = false;
+var playLength = 0;
+
+
+
+//Methods
 
 //Gets the image data from the drawing canvas
 function getCanvasData(){    
@@ -38,8 +54,9 @@ function frameBackgroundColoured(framePointer){
     return frame;
 }
 
+//////////////////////////////////////////////////////////////
 //Redo related functions
-
+//
 //Add data to the redo list and clear the ones that were after
 function addRedo(data){
     //console.clear();
@@ -61,4 +78,43 @@ function clearRedo(){
     redoPointer = 0;
     redoFramesList = [];
     redoFramesList.push(getCanvasData());
+}
+
+/////////////////////////////////////////////////////////////
+//Play related functions
+//
+//
+function getDelayList(){
+    let list = [];
+    for(let i = 0, length = visualizerList.length; i < length; i++){
+        list.push(visualizerList[i].frameObject.inputFrames.value);
+    }
+
+    return list;
+}
+
+function startPlayInterval(){
+    let delayFrameList = getDelayList();
+
+    let playPointer = 0;
+    currentFrameDelay = delayFrameList[playPointer];
+    let delay = 1000/inputFps.value;
+    playLength = delayFrameList.length;
+
+    ctx.putImageData(framesList[playPointer], 0, 0);
+    currentFrameDelay--;
+
+    playInterval = setInterval(() =>{
+        currentFrameDelay--;
+
+        if(currentFrameDelay <= 0){
+            playPointer++;
+            ctx.putImageData(framesList[playPointer], 0, 0);
+            currentFrameDelay = delayFrameList[playPointer];     
+
+            if(playPointer >= playLength - 1){
+                playPointer = -1;
+            }
+        }
+    }, delay);
 }
