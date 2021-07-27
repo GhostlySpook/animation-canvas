@@ -297,11 +297,12 @@ btnDeleteFrame.onclick = function(){
 btnGenerate.onclick = function(){
 
     //Verify fps field isn't empty or canceled
-    let fps = prompt('Type seconds for each frame. 60 can be a good start');
+    /*let fps = prompt('Type seconds for each frame. 60 can be a good start');
     if(fps == "" || fps == null)
-    return;
+    return;*/
 
-    let delay = 1/fps;
+    let delay = 1000/inputFps.value;
+    let delayList = getDelayList();
 
     saveFrame(getCanvasData());
 
@@ -320,12 +321,24 @@ btnGenerate.onclick = function(){
     //console.log(Date.now());
 
     let length = framesList.length;
-    for(let i = 0; i < length; i++){
+    /*for(let i = 0; i < length; i++){
         //encoder.addFrame(framesList[i].data, true);
         let frame = frameBackgroundColoured(i);
-        encoder.addFrame(frame.data, true);
+
+        let done = 0;
+
+        do{
+            encoder.addFrame(frame.data, true);
+            done++;
+        }while(done != delayList[i]);
         //console.log("Finished frame");
         console.log(Date.now());
+    }*/
+
+    for(let i = 0; i < length; i++){
+        encoder.setDelay(delayList[i] * delay);
+        let frame = frameBackgroundColoured(i);
+        encoder.addFrame(frame.data, true);
     }
 
     encoder.finish();
