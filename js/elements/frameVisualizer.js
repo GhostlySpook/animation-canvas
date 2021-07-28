@@ -5,6 +5,16 @@ var inputFps = document.getElementById("inputFps");
 
 var visualizerList = [];
 
+function validateFrameInput(newVal){
+
+    if(newVal == "" || newVal < 1 || newVal > 9999){
+        return 1
+    }
+    else{
+        return newVal;
+    }
+}
+
 function frameVisualizerInit(){
     //Make the conversion canvas have the same size as the canvas used for drawing
     conversionCanvas.width = myCanvasArea.canvas.width;
@@ -107,11 +117,7 @@ function createDivFrameObject(pointer){
 
     //Input validation event
     speedInput.addEventListener("change", () =>{
-        let newVal = speedInput.value;
-
-        if(newVal == "" || newVal < 1 || newVal > 9999){
-            speedInput.value = 1;
-        }
+        speedInput.value = validateFrameInput(speedInput.value);
     });
 
     let pMs = document.createElement("p");
@@ -322,3 +328,8 @@ function getDelayList(){
 
     return list;
 }
+
+//Frame input
+inputFps.onchange = () =>{
+    inputFps.value = validateFrameInput(inputFps.value);
+};
