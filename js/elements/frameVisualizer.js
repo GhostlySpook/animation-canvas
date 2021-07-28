@@ -109,7 +109,7 @@ function createDivFrameObject(pointer){
     speedInput.addEventListener("change", () =>{
         let newVal = speedInput.value;
 
-        if(newVal == "" || newVal < 1){
+        if(newVal == "" || newVal < 1 || newVal > 9999){
             speedInput.value = 1;
         }
     });
