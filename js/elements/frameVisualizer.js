@@ -97,8 +97,22 @@ function createDivFrameObject(pointer){
     //SPEED
     //Create the input for the speed
     let speedInput = document.createElement("input");
+
+    //Input properties
     speedInput.type = "number";
-    speedInput.value = inputFps.value;
+    speedInput.min = 1;
+    speedInput.max = 9999;
+    speedInput.placeholder = 1;
+    speedInput.value = 1;
+
+    //Input validation event
+    speedInput.addEventListener("change", () =>{
+        let newVal = speedInput.value;
+
+        if(newVal == "" || newVal < 1){
+            speedInput.value = 1;
+        }
+    });
 
     let pMs = document.createElement("p");
     pMs.textContent = "Frames";
@@ -292,4 +306,19 @@ function selectInFrameVisualizer(pointer){
     }
 
     visualizerList[pointer].classList.add("selected");
+}
+
+function getDelayList(){
+    let list = [];
+    for(let i = 0, length = visualizerList.length; i < length; i++){
+        let value = visualizerList[i].frameObject.inputFrames.value;
+
+        if(value == "" || value < 1){
+            value = 1;
+        }
+
+        list.push(value);
+    }
+
+    return list;
 }

@@ -84,14 +84,6 @@ function clearRedo(){
 //Play related functions
 //
 //
-function getDelayList(){
-    let list = [];
-    for(let i = 0, length = visualizerList.length; i < length; i++){
-        list.push(visualizerList[i].frameObject.inputFrames.value);
-    }
-
-    return list;
-}
 
 function startPlayInterval(){
     let delayFrameList = getDelayList();
