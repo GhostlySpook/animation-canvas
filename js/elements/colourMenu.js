@@ -17,7 +17,7 @@ btnColourContainer.init = function(){
 colourMenu.init = function(){
     colourMenu.style.display="block";
 
-    let btnWidth = (parseInt(colourMenu.clientWidth) / Object.keys(hexColour).length);
+    let btnWidth = (parseInt(colourMenu.clientWidth) / Object.keys(hexColour).length) - 0.1;
     let btnHeight = colourMenu.clientHeight;
 
     //console.log(btnWidth);
