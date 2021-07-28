@@ -13,7 +13,7 @@
     <body onload="startCanvas()">
 
         <!--Left Sidebar!-->
-        <div class="sidebar left">
+        <div class="sidebar left" id="divSideBar">
             <input type="image" src="src/images/btnBlackPencil.png" class="toolButton" id="btnBlackPencil"/>
             <input type="image" src="src/images/btnPencilMenu.png" class="toolButton" id="btnPencilMenu"  style="display: none"/>
             <div id="pencilMenu">
@@ -56,7 +56,7 @@
         </div-->
 
         <!--Bottom bar-->
-        <div class="bottomBar">
+        <div class="bottomBar" id="divBottomBar">
             <!--Buttons-->
             <div class="divFrameOptions bottomContainers">
                 <input type="image" src="src/images/btnNewFrame.png" class="frameOption" id="btnNewFrame"/>
@@ -73,7 +73,6 @@
                 <div class="divFrameCreationHalf">
                     <!--Play Button-->
                     <input type="image" src="src/images/btnPlay.png" class="playButton" id="btnPlay"/>
-                    <input type="image" src="src/images/btnStop.png" class="playButton" id="btnStop" style="display: none;"/>
 
                     <!--Fps input-->
                     <div class="fpsContainer">
@@ -91,6 +90,9 @@
                 </div>
             </div>
         </div>
+
+        <!--Stop button. Outside of the others div so it could be used-->
+        <input type="image" src="src/images/btnStop.png" id="btnStop"/>
         
         <!--Settings Menu, normally not displayed-->
         <div id="settingsMenu">

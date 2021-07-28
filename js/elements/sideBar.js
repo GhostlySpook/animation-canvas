@@ -1,0 +1,1 @@
+var divSideBar = document.getElementById("divSideBar");

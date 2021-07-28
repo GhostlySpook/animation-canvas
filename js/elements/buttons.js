@@ -349,19 +349,33 @@ btnGenerate.onclick = function(){
 }
 
 btnPlay.onclick = function(){
+    //Clear the displayed canvas
     bottomCanvas.clearCanvas();
     saveFrame(getCanvasData());
+
+    //Start the player
     startPlayInterval();
+
+    //Toggle buttons
     btnStop.style.display = "block";
-    btnPlay.style.display = "none";
+
+    //Hide interactables
+    divBottomBar.style.display = "none";
+    divSideBar.style.display = "none";
+
+    //btnPlay.style.display = "none";
 }
 
 btnStop.onclick = function(){
     clearInterval(playInterval);
-    btnStop.style.display = "none";
-    btnPlay.style.display = "block";
+    //btnPlay.style.display = "block";
     ctx.putImageData(framesList[framePointer], 0, 0);
     bottomCanvas.showPrevious();
+
+    //Show interactables
+    btnStop.style.display = "none";
+    divBottomBar.style.display = "block";
+    divSideBar.style.display = "block";
 }
 
 btnSettings.onclick = function(){

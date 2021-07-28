@@ -1,0 +1,1 @@
+var divBottomBar = document.getElementById("divBottomBar");

@@ -100,13 +100,16 @@ function startPlayInterval(){
         currentFrameDelay--;
 
         if(currentFrameDelay <= 0){
+            
+            if(playPointer >= playLength - 1){
+                playPointer = -1;
+            }
+
             playPointer++;
             ctx.putImageData(framesList[playPointer], 0, 0);
             currentFrameDelay = delayFrameList[playPointer];     
 
-            if(playPointer >= playLength - 1){
-                playPointer = -1;
-            }
+            
         }
     }, delay);
 }
