@@ -10,7 +10,7 @@ colourMenuInit = function(){
 //Initializes the colour button
 btnColourContainer.init = function(){
     //Make the button adjust to the width
-    btnColourContainer.setAttribute("style","width: " + btnColourContainer.clientHeight + "px");
+    btnColourContainer.setAttribute("style","height: " + btnColourContainer.clientWidth + "px");
 }
 
 //Fill the colour container with colours

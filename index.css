@@ -54,7 +54,8 @@ p{
     color: #818181;
     display: block;
     cursor: pointer;
-    height: 10%;
+    /*height: 10%;*/
+    width: 80%;
     border-style: solid;
     border-color: #818181;
   }
@@ -261,6 +262,10 @@ input[type=number] {
 /*////////////////////////////////////////////////////////*/
 
 /*COLOUR MENU/////////////////////////////////////////////*/
+#btnColourContainer{
+  width: 80%;
+}
+
 #colourContainer{
   background: lightblue;
   display: none;
