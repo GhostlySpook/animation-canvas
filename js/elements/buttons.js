@@ -277,11 +277,24 @@ btnPasteFrame.onclick = function(){
     //console.log("Paste Frame Button selected");
     if(frameClipboard == null)
         return
+        
+    saveFrame(getCanvasData());
+    framePointer++;
+    myCanvasArea.clearCanvas();
+    framesList.splice(framePointer, 0, getCanvasData());
+
+
     ctx.putImageData(frameClipboard, 0, 0);
 
     //updateFrameVisualizer();
-    updateVisualizerImage(framePointer);
-    addRedo(getCanvasData());
+    
+    //Update frame visualizer
+    insertInFrameVisualizer(framePointer);
+    //updateVisualizerImage(framePointer);
+
+    //Update the frame displayed behind the canvas
+    bottomCanvas.showPrevious();
+    //addRedo(getCanvasData());
 }
 
 btnDeleteFrame.onclick = function(){
