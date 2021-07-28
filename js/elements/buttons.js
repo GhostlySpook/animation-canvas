@@ -138,6 +138,10 @@ btnBlackBucket.onclick = function(){
 }*/
 
 btnBomb.onclick = function(){
+    if(isPlaying){
+        return;
+    }
+
     myCanvasArea.clearCanvas();
     addRedo(getCanvasData());
     updateVisualizerImage(framePointer);
@@ -159,6 +163,9 @@ btnColour.addEventListener("click", function(){
 });
 
 btnUndo.onclick = function(){
+    if(isPlaying){
+        return;
+    }
     //console.log("Undo button");
 
     //If it is the first step, don't do anything
@@ -179,6 +186,9 @@ btnUndo.onclick = function(){
 }
 
 btnRedo.onclick = function(){
+    if(isPlaying){
+        return;
+    }
     //console.log("Redo button");
 
     //If it is the last frame, don't do anything
@@ -354,6 +364,7 @@ btnPlay.onclick = function(){
     saveFrame(getCanvasData());
 
     //Start the player
+    isPlaying = true;
     startPlayInterval();
 
     //Toggle buttons
@@ -367,6 +378,7 @@ btnPlay.onclick = function(){
 }
 
 btnStop.onclick = function(){
+    isPlaying = false;
     clearInterval(playInterval);
     //btnPlay.style.display = "block";
     ctx.putImageData(framesList[framePointer], 0, 0);

@@ -19,7 +19,7 @@ var playInterval = null;
 //var playPointer = 0;
 var playLoop = false;
 var playLength = 0;
-
+var isPlaying = false;
 
 
 //Methods

@@ -159,6 +159,10 @@ myCanvasArea.clearCanvas = function(){
 
 //Events handling
 myCanvasArea.canvas.onpointerdown = function(e) {
+    if(isPlaying){
+        return;
+    }
+
     e.preventDefault()
     let coordinates = getLocationOnCanvas(e);
 
@@ -231,6 +235,10 @@ myCanvasArea.canvas.ontouchcancel = function(e){
 }
 
 finishStroke = function(e){
+    if(isPlaying){
+        return;
+    }
+
     e.preventDefault();
 
     if(myCanvasArea.isDrawing){
