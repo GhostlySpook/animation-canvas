@@ -279,7 +279,7 @@ btnPasteFrame.onclick = function(){
         return
     ctx.putImageData(frameClipboard, 0, 0);
 
-    updateFrameVisualizer();
+    //updateFrameVisualizer();
     updateVisualizerImage(framePointer);
     addRedo(getCanvasData());
 }

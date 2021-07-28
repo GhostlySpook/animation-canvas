@@ -58,7 +58,8 @@ function startCanvas(){
   framesList.push(ctx.getImageData(0, 0, myCanvasArea.canvas.width, myCanvasArea.canvas.height));
   clearRedo();
 
-  selectToolButton(btnBlackPencil);
+  selectToolButton(btnPencilMenu);
+  showBtnPencilMenu();
   //txtFrames.update();
 
   //Start elements config
