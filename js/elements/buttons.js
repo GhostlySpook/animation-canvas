@@ -318,13 +318,67 @@ btnDeleteFrame.onclick = function(){
 }
 
 btnGenerate.onclick = function(){
+    btnGenerate.style.display = "none";
+
+    let imgWait = document.getElementById("waiting");
+    imgWait.style.display = "inline";
+
+    setTimeout(() => {
+        let delay = 1000/inputFps.value;
+        let delayList = getDelayList();
+
+        saveFrame(getCanvasData());
+
+        let encoder = new GIFEncoder();
+
+        encoder.setRepeat(0);
+
+        encoder.setDelay(delay);
+
+        encoder.start();
+        //console.log("Finished start");
+        //console.log(Date.now());
+
+        encoder.setSize(myCanvasArea.canvas.width, myCanvasArea.canvas.height);
+        //console.log("Finished setting size");
+        //console.log(Date.now());
+
+        let length = framesList.length;
+        /*for(let i = 0; i < length; i++){
+            //encoder.addFrame(framesList[i].data, true);
+            let frame = frameBackgroundColoured(i);
+
+            let done = 0;
+
+            do{
+                encoder.addFrame(frame.data, true);
+                done++;
+            }while(done != delayList[i]);
+            //console.log("Finished frame");
+            console.log(Date.now());
+        }*/
+
+        for(let i = 0; i < length; i++){
+            encoder.setDelay(delayList[i] * delay);
+            let frame = frameBackgroundColoured(i);
+            encoder.addFrame(frame.data, true);
+        }
+
+        encoder.finish();
+        //console.log("Finished finish");
+        //console.log(Date.now());
+        
+        encoder.download("animation.gif");
+        btnGenerate.style.display = "inline";
+        imgWait.style.display = "none";
+    }, 100);
 
     //Verify fps field isn't empty or canceled
     /*let fps = prompt('Type seconds for each frame. 60 can be a good start');
     if(fps == "" || fps == null)
     return;*/
 
-    let delay = 1000/inputFps.value;
+    /*let delay = 1000/inputFps.value;
     let delayList = getDelayList();
 
     saveFrame(getCanvasData());
@@ -358,7 +412,7 @@ btnGenerate.onclick = function(){
         console.log(Date.now());
     }*/
 
-    for(let i = 0; i < length; i++){
+    /*for(let i = 0; i < length; i++){
         encoder.setDelay(delayList[i] * delay);
         let frame = frameBackgroundColoured(i);
         encoder.addFrame(frame.data, true);
@@ -369,6 +423,9 @@ btnGenerate.onclick = function(){
     //console.log(Date.now());
     
     encoder.download("download.gif");
+
+    btnGenerate.style.display = "inline";
+    imgWait.style.display = "none";*/
 }
 
 btnPlay.onclick = function(){
