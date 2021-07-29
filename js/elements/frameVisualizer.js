@@ -24,6 +24,9 @@ function frameVisualizerInit(){
 
     updateFrameVisualizer();
     selectInFrameVisualizer(framePointer);
+
+    //Adapt button width
+    btnStop.setAttribute("style","height: " + btnStop.clientWidth + "px");
 }
 
 updateVisualizerNumbers = function(start = 0){
