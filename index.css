@@ -55,7 +55,7 @@ p{
     display: block;
     cursor: pointer;
     /*height: 10%;*/
-    width: 80%;
+    width: 93%;
     border-style: solid;
     border-color: #818181;
   }
@@ -263,7 +263,7 @@ input[type=number] {
 
 /*COLOUR MENU/////////////////////////////////////////////*/
 #btnColourContainer{
-  width: 80%;
+  width: 93%;
 }
 
 #colourContainer{
