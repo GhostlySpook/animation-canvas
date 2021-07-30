@@ -177,12 +177,15 @@ btnUndo.onclick = function(){
     redoPointer--;
     ctx.putImageData(redoFramesList[redoPointer], 0, 0);
 
+    //Update frame visualizer
+    updateVisualizerImage(framePointer);
+
     /*console.log("Pointer: ");
     console.log(redoPointer);
 
     console.log(redoFramesList);*/
-    console.log("Redo Pointer: ");
-    console.log(redoPointer);
+    /*console.log("Redo Pointer: ");
+    console.log(redoPointer);*/
 }
 
 btnRedo.onclick = function(){
@@ -199,6 +202,9 @@ btnRedo.onclick = function(){
     //Show previous frame
     redoPointer++;
     ctx.putImageData(redoFramesList[redoPointer], 0, 0);
+
+    //Update frame visualizer
+    updateVisualizerImage(framePointer);
 
     console.log("Redo Pointer: ");
     console.log(redoPointer);

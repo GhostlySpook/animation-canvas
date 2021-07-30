@@ -173,6 +173,9 @@ function createDivFrameObject(pointer){
         ctx.putImageData(framesList[framePointer], 0, 0);
         bottomCanvas.showPrevious();
         selectInFrameVisualizer(framePointer);
+
+        //Clear redo list
+        clearRedo();
     });
 
     //divFrame.frameObject = frameObject;
