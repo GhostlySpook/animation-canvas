@@ -44,6 +44,7 @@ myCanvasArea.draw = function(px, py){
         case drawingCanvasTools.BUCKET:
             this.bucketFill(px, py, this.colourSelected);
             this.isDrawing = false;
+            updateVisualizerImage(framePointer);
             addRedo(getCanvasData());
             break;
     }
@@ -158,6 +159,10 @@ myCanvasArea.clearCanvas = function(){
 
 //Events handling
 myCanvasArea.canvas.onpointerdown = function(e) {
+    if(isPlaying){
+        return;
+    }
+
     e.preventDefault()
     let coordinates = getLocationOnCanvas(e);
 
@@ -230,6 +235,10 @@ myCanvasArea.canvas.ontouchcancel = function(e){
 }
 
 finishStroke = function(e){
+    if(isPlaying){
+        return;
+    }
+
     e.preventDefault();
 
     if(myCanvasArea.isDrawing){
@@ -239,6 +248,7 @@ finishStroke = function(e){
                 //ctx.endStr
             case drawingCanvasTools.ERASER:
                 addRedo(getCanvasData());
+                updateVisualizerImage(framePointer);
                 break;
         }
     }

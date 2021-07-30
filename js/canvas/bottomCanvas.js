@@ -3,15 +3,15 @@ var bottomCanvas = myCanvasArea.bottomCanvas;
 bottomCanvas.isShown = true;
 
 bottomCanvas.clearCanvas = function(){
-    topCtx.clearRect(0, 0, this.width, this.height);
+    bottomCtx.clearRect(0, 0, this.width, this.height);
 }
 
 bottomCanvas.showPrevious = function(){
     if(this.isShown && framePointer != 0){
-        topCtx.putImageData(framesList[(framePointer - 1)], 0, 0);
+        bottomCtx.putImageData(framesList[(framePointer - 1)], 0, 0);
     }
     else{
-        topCtx.clearRect(0, 0, bottomCanvas.width, bottomCanvas.height);
+        bottomCtx.clearRect(0, 0, bottomCanvas.width, bottomCanvas.height);
     }
 }
 

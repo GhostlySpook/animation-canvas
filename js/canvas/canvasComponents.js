@@ -8,10 +8,10 @@ var myCanvasArea = {
   start: function () {
 
     //Define size
-    this.canvas.width = window.innerWidth * 0.86;
+    this.canvas.width = window.innerWidth * 0.93;
     //this.canvas.width = window.screen.availWidth * 0.86;
     //this.canvas.height = window.screen.availHeight * 0.858;
-    this.canvas.height = window.innerHeight;
+    this.canvas.height = window.innerHeight * 0.83;
     /*this.canvas.width = this.canvas.clientWidth;
     this.canvas.height = this.canvas.clientHeight;*/
     this.bottomCanvas.width = this.canvas.width;
@@ -27,7 +27,7 @@ var myCanvasArea = {
     //this.backgroundDiv.style.height = this.canvas.height + "px";
 
     this.context = this.canvas.getContext("2d");
-    this.topContext = this.bottomCanvas.getContext("2d");
+    this.bottomContext = this.bottomCanvas.getContext("2d");
 
     this.context.fillStyle = "#ffffff";
     //this.context.fillRect(0,0,this.canvas.width,this.canvas.height);
@@ -44,19 +44,23 @@ var myCanvasArea = {
 }
 
 var ctx = undefined;
-var topCtx = undefined;
+var bottomCtx = undefined;
 
 function startCanvas(){
   myCanvasArea.start();
   ctx = myCanvasArea.context;
-  topCtx = myCanvasArea.topContext;
+  bottomCtx = myCanvasArea.bottomContext;
 
   //Starting canvas config
   ctx.lineWidth = 10;
 
+  //Frames configuration
   framesList.push(ctx.getImageData(0, 0, myCanvasArea.canvas.width, myCanvasArea.canvas.height));
   clearRedo();
-  txtFrames.update();
+
+  selectToolButton(btnPencilMenu);
+  showBtnPencilMenu();
+  //txtFrames.update();
 
   //Start elements config
   initElements();

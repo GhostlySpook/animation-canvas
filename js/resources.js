@@ -6,14 +6,14 @@ function loadImage(source){
 
 var imgBtnBlackPencil = loadImage("src/images/btnBlackPencil.png");
 var imgBtnPencilMenu = loadImage("src/images/btnPencilMenu.png")
-var imgBtnRedPencil = loadImage("src/images/btnRedPencil.png");
+//var imgBtnRedPencil = loadImage("src/images/btnRedPencil.png");
 var imgBtnEraser = loadImage("src/images/btnEraser.png");
 var imgBtnBlackBucket = loadImage("src/images/btnBlackBucket.png");
-var imgBtnRedBucket = loadImage("src/images/btnRedBucket.png");
+//var imgBtnRedBucket = loadImage("src/images/btnRedBucket.png");
 var imgBtnBomb = loadImage("src/images/btnBomb.png");
 
-var imgBtnPreviousFrame = loadImage("src/images/btnPreviousFrame.png");
-var imgBtnNextFrame = loadImage("src/images/btnNextFrame.png");
+//var imgBtnPreviousFrame = loadImage("src/images/btnPreviousFrame.png");
+//var imgBtnNextFrame = loadImage("src/images/btnNextFrame.png");
 var imgBtnNewFrame = loadImage("src/images/btnNewFrame.png");
 var imgBtnCopyFrame = loadImage("src/images/btnCopyFrame.png");
 var imgBtnPasteFrame = loadImage("src/images/btnPasteFrame.png");

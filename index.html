@@ -11,9 +11,33 @@
     </head>
     
     <body onload="startCanvas()">
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+
+        <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyBET_uhQn2uTYTJzRQfYiD7I0TznfyJm7U",
+            authDomain: "ghostly-spook.firebaseapp.com",
+            databaseURL: "https://ghostly-spook.firebaseio.com",
+            projectId: "ghostly-spook",
+            storageBucket: "ghostly-spook.appspot.com",
+            messagingSenderId: "183688551756",
+            appId: "1:183688551756:web:0f8976da018290997743e9",
+            measurementId: "G-ENWM5HH6TC"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const analytics = firebase.analytics();
+        </script>
 
         <!--Left Sidebar!-->
-        <div class="sidebar left">
+        <div class="sidebar left" id="divSideBar">
             <input type="image" src="src/images/btnBlackPencil.png" class="toolButton" id="btnBlackPencil"/>
             <input type="image" src="src/images/btnPencilMenu.png" class="toolButton" id="btnPencilMenu"  style="display: none"/>
             <div id="pencilMenu">
@@ -32,7 +56,7 @@
                 <input type="image" src="src/images/btnRedo.png" class="toolButton" id="btnRedo"/>
             </div>
 
-            <input type="image" src="src/images/btnPreviousFrame.png" class="toolButton last" id="btnPreviousFrame"/>
+            <!--input type="image" src="src/images/btnPreviousFrame.png" class="toolButton last" id="btnPreviousFrame"/-->
         </div>
 
         <!--Canvas areas-->
@@ -43,7 +67,7 @@
         <canvas id = "myCanvasArea" class="canvasArea"></canvas>
 
         <!--Right Sidebar-->
-        <div class="sidebar right">
+        <!--div class="sidebar right">
             <input type="image" src="src/images/btnNewFrame.png" class="toolButton right" id="btnNewFrame"/>
             <input type="image" src="src/images/btnCopyFrame.png" class="toolButton right" id="btnCopyFrame"/>
             <input type="image" src="src/images/btnPasteFrame.png" class="toolButton right" id="btnPasteFrame"/>
@@ -53,11 +77,47 @@
             <p id="txtFrames">--/--</p>
 
             <input type="image" src="src/images/btnNextFrame.png" class="toolButton last right" id="btnNextFrame"/>
-            <!--Pen size-->
-            <div>
-                <!--To be done-->
-            </div>  
+        </div-->
+
+        <!--Bottom bar-->
+        <div class="bottomBar" id="divBottomBar">
+            <!--Buttons-->
+            <div class="divFrameOptions bottomContainers">
+                <input type="image" src="src/images/btnNewFrame.png" class="frameOption" id="btnNewFrame"/>
+                <input type="image" src="src/images/btnDeleteFrame.png" class="frameOption" id="btnDeleteFrame"/>
+                <input type="image" src="src/images/btnCopyFrame.png" class="frameOption" id="btnCopyFrame"/>
+                <input type="image" src="src/images/btnPasteFrame.png" class= "frameOption" id="btnPasteFrame"/>
+            </div>
+
+            <!--Frame visualizer-->
+            <div class="bottomContainers" id="divFrameVisualizer"></div>            
+
+            <!--Animation generation-->
+            <div class="divFrameCreation bottomContainers">
+                <div class="divFrameCreationHalf">
+                    <!--Play Button-->
+                    <input type="image" src="src/images/btnPlay.png" class="playButton" id="btnPlay"/>
+
+                    <!--Fps input-->
+                    <div class="fpsContainer">
+                        <input type="number" id="inputFps" min = "1" max="9999"><span><p>FPS</p></span>
+                        
+                    </div>
+
+                    <!--Settings button-->
+                    <input type="image" src="src/images/btnSettings.png" class="settingsButton" id="btnSettings"/>
+                </div>
+
+                <div class="divFrameCreationHalf">
+                    <!--Generate button-->
+                    <input type="image" src="src/images/btnGenerate.png" class="generateButton" id="btnGenerate"/>
+                    <img id="waiting" src="src/images/menacing.gif" class="generateButton" style="display: none;">
+                </div>
+            </div>
         </div>
+
+        <!--Stop button. Outside of the others div so it could be used-->
+        <input type="image" src="src/images/btnStop.png" id="btnStop"/>
         
         <!--Settings Menu, normally not displayed-->
         <div id="settingsMenu">
@@ -66,6 +126,8 @@
             <input type="checkbox" id="cboxSeeThrough">
             <p>See-Through transparency</p>
             <input type="range" id="rangeSeeThrough" min="0.1" max="1" step="0.1">
+            <br>
+            <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Donate', '#29abe0', 'U6U55DCIJ');kofiwidget2.draw();</script> 
         </div>
 
     </body>

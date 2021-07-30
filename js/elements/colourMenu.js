@@ -10,15 +10,14 @@ colourMenuInit = function(){
 //Initializes the colour button
 btnColourContainer.init = function(){
     //Make the button adjust to the width
-    btnColourContainer.setAttribute("style","width: " + btnColourContainer.clientHeight + "px");
-    
+    btnColourContainer.setAttribute("style","height: " + btnColourContainer.clientWidth + "px");
 }
 
 //Fill the colour container with colours
 colourMenu.init = function(){
     colourMenu.style.display="block";
 
-    let btnWidth = (parseInt(colourMenu.clientWidth) / Object.keys(hexColour).length);
+    let btnWidth = (parseInt(colourMenu.clientWidth) / Object.keys(hexColour).length) - 0.1;
     let btnHeight = colourMenu.clientHeight;
 
     //console.log(btnWidth);
@@ -42,13 +41,13 @@ colourMenu.init = function(){
         //Assign the event for a click
         buttonSvg.addEventListener("click", function(e){
             //Get the colour to use now
-            let color = e.target.colour;
+            let colour = e.target.colour;
 
             //Apply the colour
-            myCanvasArea.colourSelected = color;
-            ctx.strokeStyle = color;
+            myCanvasArea.colourSelected = colour;
+            ctx.strokeStyle = colour;
 
-            btnColourContainer.style.background = color;
+            btnColourContainer.style.background = colour;
 
             //Hide the menu
             colourMenu.hide();
@@ -60,7 +59,7 @@ colourMenu.init = function(){
 }
 
 colourMenu.toggle = function(){
-    //console.log("Toggle")
+    console.log("Toggle")
     if(colourMenu.isDisplayed){
         this.style.display = "none";
     }

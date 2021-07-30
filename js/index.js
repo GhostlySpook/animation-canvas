@@ -30,7 +30,7 @@ window.onpointerdown = function(e){
     }
 
     //If colour menu is displayed, hide
-    if(e.target != btnColour){
+    if(!(e.target.classList.contains("svgBtnColour"))){
         colourMenu.hide();
     }
 }

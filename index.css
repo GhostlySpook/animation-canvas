@@ -9,6 +9,10 @@ body{
     background-color:gray;
 }
 
+p{
+  color: white;
+}
+
 /*Sidebar related
 //
 /*/
@@ -50,7 +54,8 @@ body{
     color: #818181;
     display: block;
     cursor: pointer;
-    height: 10%;
+    /*height: 10%;*/
+    width: 93%;
     border-style: solid;
     border-color: #818181;
   }
@@ -58,9 +63,10 @@ body{
   .toolButton.right {
     margin-left: 10px;
   }
+  
 
   #redoContainer{
-    width: 90%;
+    width: 85%;
     padding-top:10%;
     padding-left: 5%;
   }
@@ -85,6 +91,156 @@ body{
     display: block;
   }*/
 
+/*BOTTOM BAR//////////////////////////////////////////////////////*/
+.bottomBar{
+  width: 100%;
+  height: 17%;
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+  background-color: #111; /* Black */
+}
+
+.bottomContainers{
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+/*Frame Creation*/
+.divFrameOptions{
+  width: 10%;
+}
+
+.frameOption{
+  width: 46%;
+  height: 46%;
+}
+
+/*Frame Visualizer*/
+#divFrameVisualizer{
+  width: 69%;
+  /*overflow-x: scroll;*/
+  overflow-y: auto;
+}
+
+.divFrame{
+  float: left;
+  /*width: 150px;´*/
+  width: 18.5%;
+  top: 0;
+  height: 90%; 
+  display: inline;
+  border: gray;
+  border-style: solid;
+}
+
+.divFrame p{
+  color: white;
+  text-align: left;
+}
+
+.divNumber{
+  height: 10%;
+}
+
+.divFrameContainer{
+  top: 0;
+  height: 60%;
+  text-align: center;
+}
+
+.divFrameContainer img{
+  background-color: white;
+  height: 90%;
+}
+
+.divFrameTime{
+  height: 20%;
+  display: inline-block;
+  text-align: center;
+}
+
+.divFrameTime input{
+  width: 30%;
+  height: 60%;
+}
+
+.divFrameTime p{
+  padding-left: 2px;
+  width: 30%;
+  /*text-align: right;*/
+  display: inline;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/*Frame Creation*/
+.divFrameCreation{
+  width: 19%;
+}
+
+.divFrameCreationHalf{
+  height: 49%;
+}
+
+.playButton{
+  float:left;
+  width: 20%;
+  height: 100%;
+}
+
+#btnStop{
+  position: fixed;
+  /*width: 17%;*/
+  height: 17%;
+  bottom:0;
+  right:0;
+  z-index: 1;
+}
+
+.fpsContainer{
+  float:left;
+  width: 60%;
+  height: 100%;
+  text-align: left;
+}
+
+.fpsContainer input{
+  margin-left: 10%;
+  margin-top: 2%;
+  width: 30%;
+  height: 30%;
+  display: inline;
+}
+
+.fpsContainer p{
+  display: inline;
+  height:30%;
+  margin-left: 5px;
+}
+
+.settingsButton{
+  float:left;
+  width: 20%;
+  height: 100%; 
+}
+
+.generateButton{
+  height: 100%;
+  width: 100%;
+}
+
 /*SIZE MENU////////////////////////////////////////////////////////*/
 
 #pencilMenu{
@@ -107,6 +263,10 @@ body{
 /*////////////////////////////////////////////////////////*/
 
 /*COLOUR MENU/////////////////////////////////////////////*/
+#btnColourContainer{
+  width: 93%;
+}
+
 #colourContainer{
   background: lightblue;
   display: none;
@@ -157,7 +317,7 @@ body{
   z-index: 5;
 }
 
-/*////////////////////////////////////////////////////////*/
+/*SETTINGS////////////////////////////////////////////////////////*/
 
 #settingsMenu{
   background: lightblue;
@@ -168,6 +328,10 @@ body{
   width: 80%;
   height: 100%;
   z-index: 3;
+}
+
+#settingsMenu p{
+  color: black;
 }
 
 /*DRAWING AREA//////////////////////////////////////////*/
@@ -197,8 +361,13 @@ body{
   fill:white;
   background-color: white;
   height: 100%;
-  width: 86%;
+  width: 93%;
   z-index: 1;
 }
 
 /*////////////////////////////////////////////////////////*/
+
+/*General*/
+.selected{
+  border-color: red;
+}
