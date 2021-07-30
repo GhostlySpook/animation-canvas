@@ -318,6 +318,7 @@ btnDeleteFrame.onclick = function(){
 }
 
 btnGenerate.onclick = function(){
+
     btnGenerate.style.display = "none";
 
     let imgWait = document.getElementById("waiting");
@@ -371,6 +372,8 @@ btnGenerate.onclick = function(){
         encoder.download("animation.gif");
         btnGenerate.style.display = "inline";
         imgWait.style.display = "none";
+
+        analytics.logEvent("animation_generated");
     }, 100);
 
     //Verify fps field isn't empty or canceled
