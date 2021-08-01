@@ -8,7 +8,7 @@ var myCanvasArea = {
   start: function () {
 
     //Define size
-    this.canvas.width = window.innerWidth * 0.93;
+    this.canvas.width = window.innerWidth * 0.95;
     //this.canvas.width = window.screen.availWidth * 0.86;
     //this.canvas.height = window.screen.availHeight * 0.858;
     this.canvas.height = window.innerHeight * 0.83;
