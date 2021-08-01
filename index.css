@@ -19,7 +19,7 @@ p{
 
 .sidebar{
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 7%; /* Set the width of the sidebar */
+  width: 5%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 4; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -50,14 +50,15 @@ p{
     margin: 0;
     /*padding-bottom: 1px;*/
     text-decoration: none;
-    font-size: 25px;
+    /*font-size: 25px;*/
     color: #818181;
     display: block;
     cursor: pointer;
     /*height: 10%;*/
-    width: 93%;
+    width: 95%;
     border-style: solid;
     border-color: #818181;
+    border-width: 1px;
   }
 
   .toolButton.right {
@@ -342,7 +343,7 @@ input[type=number] {
   /*background-color: white;*/
   /*height: 100%;
   width: 86%;*/
-  left: 7%;
+  left: 5%;
   margin: 0;
   padding: 0;
   cursor: crosshair;
