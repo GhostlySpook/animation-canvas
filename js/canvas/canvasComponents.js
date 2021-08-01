@@ -65,6 +65,12 @@ function startCanvas(){
   //Start elements config
   initElements();
 
-  include('js/canvas/canvasData.js');
-  include('js/canvas/bottomCanvas.js');
+  includeScript.list = [
+    'js/canvas/canvasData.js',
+    'js/canvas/bottomCanvas.js'
+  ];
+  
+  includeScript.start();
+  /*include('js/canvas/canvasData.js');
+  include('js/canvas/bottomCanvas.js');*/
 }
