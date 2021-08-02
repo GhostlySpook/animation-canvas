@@ -51,8 +51,16 @@ function startCanvas(){
   ctx = myCanvasArea.context;
   bottomCtx = myCanvasArea.bottomContext;
 
+  includeScript.list = [
+    'js/canvas/canvasData.js',
+    'js/canvas/bottomCanvas.js'
+  ];
+  
+  includeScript.start();
+
   //Starting canvas config
   ctx.lineWidth = 10;
+  //console.log(myCanvasArea.brushRadius);
 
   //Frames configuration
   framesList.push(ctx.getImageData(0, 0, myCanvasArea.canvas.width, myCanvasArea.canvas.height));
@@ -64,13 +72,6 @@ function startCanvas(){
 
   //Start elements config
   initElements();
-
-  includeScript.list = [
-    'js/canvas/canvasData.js',
-    'js/canvas/bottomCanvas.js'
-  ];
-  
-  includeScript.start();
   /*include('js/canvas/canvasData.js');
   include('js/canvas/bottomCanvas.js');*/
 }
