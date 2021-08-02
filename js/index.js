@@ -17,8 +17,20 @@ var includeScript = {
         'js/colours.js',
         'js/canvas/animation.js',
         'js/canvas/canvasComponents.js',
+
+        'js/canvas/canvasData.js',
+        'js/canvas/bottomCanvas.js',
+
+        'js/elementsData.js',
+
+        "js/elements/buttons.js",
+        "js/elements/settingsMenu.js",
+        "js/elements/colourMenu.js",
+        "js/elements/pencilMenu.js",
+        "js/elements/sideBar.js",
+        "js/elements/frameVisualizer.js",
+
         'js/canvas/shortcuts.js',
-        'js/elementsData.js'
     ],
 
     include(current){
@@ -41,6 +53,10 @@ var includeScript = {
 
     start(){
         includeScript.include(0);
+    },
+
+    add(added){
+        this.list.splice((current + 1), 0, added);
     }
 }
 
@@ -49,6 +65,35 @@ var includeScript = {
 //var scriptListLength = includeScriptList.length;
 
 includeScript.start();
+
+function main(){
+    ctx = myCanvasArea.context;
+    bottomCtx = myCanvasArea.bottomContext;
+  
+    /*includeScript.list = [
+      'js/canvas/canvasData.js',
+      'js/canvas/bottomCanvas.js'
+    ];
+    
+    includeScript.start();*/
+  
+    //Starting canvas config
+    ctx.lineWidth = 10;
+    //console.log(myCanvasArea.brushRadius);
+  
+    //Frames configuration
+    framesList.push(ctx.getImageData(0, 0, myCanvasArea.canvas.width, myCanvasArea.canvas.height));
+    clearRedo(myCanvasArea.getCanvasArea());
+  
+    selectToolButton(btnPencilMenu);
+    showBtnPencilMenu();
+    //txtFrames.update();
+  
+    //Start elements config
+    initElements();
+    /*include('js/canvas/canvasData.js');
+    include('js/canvas/bottomCanvas.js');*/
+  }
 
 window.onbeforeunload = function (e) {
     e = e || window.event;

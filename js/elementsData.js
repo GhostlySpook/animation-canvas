@@ -7,7 +7,7 @@ include("js/elements/frameVisualizer.js");*/
 
 //var txtFrames = document.getElementById("txtFrames");
 
-includeScript.list = [
+/*includeScript.list = [
     "js/elements/buttons.js",
     "js/elements/settingsMenu.js",
     "js/elements/colourMenu.js",
@@ -16,7 +16,7 @@ includeScript.list = [
     "js/elements/frameVisualizer.js"
 ]
 
-includeScript.start();
+includeScript.start();*/
 
 initElements = function(){
     settingsMenu.init();

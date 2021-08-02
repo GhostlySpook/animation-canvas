@@ -282,3 +282,35 @@ getLocationOnCanvas = function(e){
 
     return coordinates;
 }
+
+/////////////////////////////////////////////////////////////
+//Play related functions
+//
+//
+
+function startPlayInterval(){
+    let delayFrameList = getDelayList();
+
+    let playPointer = 0;
+    currentFrameDelay = delayFrameList[playPointer];
+    let delay = 1000/inputFps.value;
+    playLength = delayFrameList.length;
+
+    ctx.putImageData(framesList[playPointer], 0, 0);
+    currentFrameDelay--;
+
+    playInterval = setInterval(() =>{
+        currentFrameDelay--;
+
+        if(currentFrameDelay <= 0){
+            
+            if(playPointer >= playLength - 1){
+                playPointer = -1;
+            }
+
+            playPointer++;
+            ctx.putImageData(framesList[playPointer], 0, 0);
+            currentFrameDelay = delayFrameList[playPointer];     
+        }
+    }, delay);
+}
