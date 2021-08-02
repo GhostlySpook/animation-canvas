@@ -20,13 +20,6 @@ var includeScript = {
 
         'js/elementsData.js',
 
-        /*"js/elements/buttons.js",
-        "js/elements/settingsMenu.js",
-        "js/elements/colourMenu.js",
-        "js/elements/pencilMenu.js",
-        "js/elements/sideBar.js",
-        "js/elements/frameVisualizer.js",*/
-
         'js/canvas/shortcuts.js',
     ],
 
@@ -68,22 +61,11 @@ var includeScript = {
     }
 }
 
-
-//var currentScript = 0;
-//var scriptListLength = includeScriptList.length;
-
 includeScript.start();
 
 function main(){
     ctx = myCanvasArea.context;
     bottomCtx = myCanvasArea.bottomContext;
-  
-    /*includeScript.list = [
-      'js/canvas/canvasData.js',
-      'js/canvas/bottomCanvas.js'
-    ];
-    
-    includeScript.start();*/
   
     //Starting canvas config
     ctx.lineWidth = 10;
