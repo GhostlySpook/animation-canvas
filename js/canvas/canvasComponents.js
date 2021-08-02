@@ -46,3 +46,7 @@ var myCanvasArea = {
 myCanvasArea.start();
 var ctx = myCanvasArea.context;
 var bottomCtx = myCanvasArea.bottomContext;
+
+includeScript.add([
+  'js/canvas/canvasData.js',
+  'js/canvas/bottomCanvas.js']);
