@@ -18,26 +18,25 @@ var includeScript = {
         'js/canvas/animation.js',
         'js/canvas/canvasComponents.js',
 
-        'js/canvas/canvasData.js',
-        'js/canvas/bottomCanvas.js',
-
         'js/elementsData.js',
 
-        "js/elements/buttons.js",
+        /*"js/elements/buttons.js",
         "js/elements/settingsMenu.js",
         "js/elements/colourMenu.js",
         "js/elements/pencilMenu.js",
         "js/elements/sideBar.js",
-        "js/elements/frameVisualizer.js",
+        "js/elements/frameVisualizer.js",*/
 
         'js/canvas/shortcuts.js',
     ],
 
-    include(current){
+    current: 0,
+
+    include(){
   
         let script  = document.createElement('script');
-        script.src  = includeScript.list[current];
-        script.path = includeScript.list[current];
+        script.src  = includeScript.list[this.current];
+        script.path = includeScript.list[this.current];
         script.type = 'text/javascript';
         script.defer = true;
         
@@ -46,17 +45,26 @@ var includeScript = {
             console.log("Loaded: ", script.path);
     
             //Stop if it is the last script
-            if(current != includeScript.list.length - 1)
-                includeScript.include(current + 1);
+            includeScript.current++;
+            console.log(includeScript.current);
+            console.log(includeScript.list.length);
+            //debugger
+            if(includeScript.current != includeScript.list.length)
+                includeScript.include(includeScript.current);
         }
     },
 
     start(){
-        includeScript.include(0);
+        current = 0;
+        includeScript.include();
     },
 
     add(added){
-        this.list.splice((current + 1), 0, added);
+        let pos = -(this.list.length - this.current) + 1;
+        for(let i = 0; i < added.length; i++){
+            this.list.splice(pos, 0, added[i]);
+        }
+        console.log(this.list);
     }
 }
 
