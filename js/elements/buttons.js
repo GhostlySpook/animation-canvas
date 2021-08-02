@@ -143,7 +143,7 @@ btnBomb.onclick = function(){
     }
 
     myCanvasArea.clearCanvas();
-    addRedo(getCanvasData());
+    addRedo(myCanvasArea.getCanvasArea());
     updateVisualizerImage(framePointer);
     btnBlackPencil.onclick();
 
@@ -219,7 +219,7 @@ btnRedo.onclick = function(){
     }
 
     //Show previous frame
-    saveFrame(getCanvasData());
+    saveFrame(myCanvasArea.getCanvasArea());
     framePointer--;
     ctx.putImageData(framesList[framePointer], 0, 0);
 
@@ -230,7 +230,7 @@ btnRedo.onclick = function(){
     bottomCanvas.showPrevious();
 
     //Clear redo list
-    clearRedo();
+    clearRedo(myCanvasArea.getCanvasArea());
 }*/
 
 /*btnNextFrame.onclick = function(){
@@ -242,7 +242,7 @@ btnRedo.onclick = function(){
     }
 
     //Show next frame
-    saveFrame(getCanvasData());
+    saveFrame(myCanvasArea.getCanvasArea());
     framePointer++;
     ctx.putImageData(framesList[framePointer], 0, 0);
 
@@ -253,15 +253,15 @@ btnRedo.onclick = function(){
     bottomCanvas.showPrevious();
 
     //Clear redo list
-    clearRedo();
+    clearRedo(myCanvasArea.getCanvasArea());
 }*/
 
 btnNewFrame.onclick = function(){
     //console.log("New Frame Button selected");
-    saveFrame(getCanvasData());
+    saveFrame(myCanvasArea.getCanvasArea());
     framePointer++;
     myCanvasArea.clearCanvas();
-    framesList.splice(framePointer, 0, getCanvasData());
+    framesList.splice(framePointer, 0, myCanvasArea.getCanvasArea());
     //txtFrames.update();
 
     //Update frame visualizer
@@ -271,12 +271,12 @@ btnNewFrame.onclick = function(){
     bottomCanvas.showPrevious();
 
     //updateFrameVisualizer();
-    clearRedo();
+    clearRedo(myCanvasArea.getCanvasArea());
 }
 
 btnCopyFrame.onclick = function(){
     //console.log("Copy Frame Button selected");
-    frameClipboard = getCanvasData();
+    frameClipboard = myCanvasArea.getCanvasArea();
 }
 
 btnPasteFrame.onclick = function(){
@@ -284,10 +284,10 @@ btnPasteFrame.onclick = function(){
     if(frameClipboard == null)
         return
         
-    saveFrame(getCanvasData());
+    saveFrame(myCanvasArea.getCanvasArea());
     framePointer++;
     myCanvasArea.clearCanvas();
-    framesList.splice(framePointer, 0, getCanvasData());
+    framesList.splice(framePointer, 0, myCanvasArea.getCanvasArea());
 
 
     ctx.putImageData(frameClipboard, 0, 0);
@@ -300,7 +300,7 @@ btnPasteFrame.onclick = function(){
 
     //Update the frame displayed behind the canvas
     bottomCanvas.showPrevious();
-    //addRedo(getCanvasData());
+    //addRedo(myCanvasArea.getCanvasArea());
 }
 
 btnDeleteFrame.onclick = function(){
@@ -320,7 +320,7 @@ btnDeleteFrame.onclick = function(){
     bottomCanvas.showPrevious();
 
     deleteInFrameVisualizer(framePointer);
-    clearRedo();
+    clearRedo(myCanvasArea.getCanvasArea());
 }
 
 btnGenerate.onclick = function(){
@@ -334,7 +334,7 @@ btnGenerate.onclick = function(){
         let delay = 1000/inputFps.value;
         let delayList = getDelayList();
 
-        saveFrame(getCanvasData());
+        saveFrame(myCanvasArea.getCanvasArea());
 
         let encoder = new GIFEncoder();
 
@@ -390,7 +390,7 @@ btnGenerate.onclick = function(){
     /*let delay = 1000/inputFps.value;
     let delayList = getDelayList();
 
-    saveFrame(getCanvasData());
+    saveFrame(myCanvasArea.getCanvasArea());
 
     let encoder = new GIFEncoder();
 
@@ -440,7 +440,7 @@ btnGenerate.onclick = function(){
 btnPlay.onclick = function(){
     //Clear the displayed canvas
     bottomCanvas.clearCanvas();
-    saveFrame(getCanvasData());
+    saveFrame(myCanvasArea.getCanvasArea());
 
     //Start the player
     isPlaying = true;

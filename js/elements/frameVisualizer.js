@@ -46,9 +46,9 @@ updateVisualizerImage = function(pointer){
     //console.log("Pointer", pointer);
     //console.log(visualizerList);
 
-    //conversionContext.putImageData(getCanvasData(), 0, 0);
+    //conversionContext.putImageData(myCanvasArea.getCanvasArea(), 0, 0);
     if(framePointer == pointer){
-        conversionContext.putImageData(getCanvasData(), 0, 0);
+        conversionContext.putImageData(myCanvasArea.getCanvasArea(), 0, 0);
     }
     else{
         conversionContext.putImageData(framesList[pointer], 0, 0);
@@ -163,7 +163,7 @@ function createDivFrameObject(pointer){
     divFrame.addEventListener("click", () =>{
         //console.log("Changed frame");
         //Save the frame before changing
-        saveFrame(getCanvasData());
+        saveFrame(myCanvasArea.getCanvasArea());
 
         //Update the pointer for the framesList
         framePointer = divFrame.frameObject.position;
@@ -175,7 +175,7 @@ function createDivFrameObject(pointer){
         selectInFrameVisualizer(framePointer);
 
         //Clear redo list
-        clearRedo();
+        clearRedo(myCanvasArea.getCanvasArea());
     });
 
     //divFrame.frameObject = frameObject;

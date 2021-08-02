@@ -24,11 +24,6 @@ var isPlaying = false;
 
 //Methods
 
-//Gets the image data from the drawing canvas
-function getCanvasData(){    
-    return ctx.getImageData(0, 0, myCanvasArea.canvas.width, myCanvasArea.canvas.height);
-}
-
 //Saves the frame image inside the list
 function saveFrame(data){
     framesList[framePointer] = data;
@@ -74,10 +69,13 @@ function addRedo(data){
     redoPointer++;
 }
 
-function clearRedo(){
+//Clear the redo list and add another starting one
+function clearRedo(newFrame){
     redoPointer = 0;
     redoFramesList = [];
-    redoFramesList.push(getCanvasData());
+    if(newFrame != null){
+        redoFramesList.push(newFrame);
+    }
 }
 
 /////////////////////////////////////////////////////////////

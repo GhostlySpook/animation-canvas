@@ -45,7 +45,7 @@ myCanvasArea.draw = function(px, py){
             this.bucketFill(px, py, this.colourSelected);
             this.isDrawing = false;
             updateVisualizerImage(framePointer);
-            addRedo(getCanvasData());
+            addRedo(myCanvasArea.getCanvasArea());
             break;
     }
 }
@@ -157,6 +157,11 @@ myCanvasArea.clearCanvas = function(){
     ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);*/
 }
 
+//Gets the image data from the drawing canvas
+myCanvasArea.getCanvasArea = function(){    
+    return ctx.getImageData(0, 0, myCanvasArea.canvas.width, myCanvasArea.canvas.height);
+}
+
 //Events handling
 myCanvasArea.canvas.onpointerdown = function(e) {
     if(isPlaying){
@@ -186,7 +191,7 @@ myCanvasArea.canvas.onpointerup = function(e){
             case drawingCanvasTools.BRUSH:
                 ctx.endStr
             case drawingCanvasTools.ERASER:
-                addRedo(getCanvasData());
+                addRedo(myCanvasArea.getCanvasArea());
                 break;
         }
     }
@@ -247,7 +252,7 @@ finishStroke = function(e){
             case drawingCanvasTools.BRUSH:
                 //ctx.endStr
             case drawingCanvasTools.ERASER:
-                addRedo(getCanvasData());
+                addRedo(myCanvasArea.getCanvasArea());
                 updateVisualizerImage(framePointer);
                 break;
         }
