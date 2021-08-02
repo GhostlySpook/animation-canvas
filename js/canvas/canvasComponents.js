@@ -20,8 +20,8 @@ var myCanvasArea = {
     this.svgBackground.style.width = this.canvas.width;
     this.svgBackground.style.height = this.canvas.height;
 
-    this.rectBackground.style.width = svgBackground.style.width;
-    this.rectBackground.style.height = svgBackground.style.height;
+    //this.rectBackground.style.width = svgBackground.style.width;
+    //this.rectBackground.style.height = svgBackground.style.height;
 
     //this.backgroundDiv.style.width = this.canvas.width + "px";
     //this.backgroundDiv.style.height = this.canvas.height + "px";
