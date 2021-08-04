@@ -438,6 +438,8 @@ btnGenerate.onclick = function(){
 }
 
 btnPlay.onclick = function(){
+    let space = document.getElementById("playSpace");
+
     //Clear the displayed canvas
     bottomCanvas.clearCanvas();
     saveFrame(myCanvasArea.getCanvasArea());
@@ -448,6 +450,7 @@ btnPlay.onclick = function(){
 
     //Toggle buttons
     btnStop.style.display = "block";
+    space.style.display = "block";
 
     //Hide interactables
     divBottomBar.style.display = "none";
@@ -457,11 +460,15 @@ btnPlay.onclick = function(){
 }
 
 btnStop.onclick = function(){
+    let space = document.getElementById("playSpace");
+
     isPlaying = false;
     clearInterval(playInterval);
     //btnPlay.style.display = "block";
     ctx.putImageData(framesList[framePointer], 0, 0);
     bottomCanvas.showPrevious();
+
+    space.style.display = "none";
 
     //Show interactables
     btnStop.style.display = "none";

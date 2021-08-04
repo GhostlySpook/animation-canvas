@@ -117,3 +117,5 @@ window.onpointerdown = function(e){
     include('js/canvas/canvasComponents.js');
     include('js/canvas/shortcuts.js');
     include ('js/elementsData.js');*/
+
+//Copyright (c) 2021 Ghostly Spook

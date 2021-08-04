@@ -368,6 +368,15 @@ input[type=number] {
 
 /*////////////////////////////////////////////////////////*/
 
+/*Ad space!*/
+#playSpace{
+  display: none;
+  position:absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 2;
+}
+
 /*General*/
 .selected{
   border-color: red;
