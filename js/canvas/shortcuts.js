@@ -5,7 +5,10 @@ document.addEventListener("keydown", function(e){
     switch(e.key){
         case "b":
         case "B":
-            btnBlackPencil.onclick();
+            if(btnBlackPencil.style.display == "block")
+                btnBlackPencil.onclick();
+            else if(btnPencilMenu.style.display == "block")
+                btnPencilMenu.onclick();
             break;
         case "c":
         case "C":
@@ -17,15 +20,16 @@ document.addEventListener("keydown", function(e){
             break;
         case "e":
         case "E":
-            btnEraser.onclick();
-            /*if(btnEraser.style.display == "block"){
+            //btnEraser.onclick();
+            //console.log(btnEraser.style.display);
+            if(btnEraser.style.display == "block"){
                 //console.log("Erase");
                 btnEraser.onclick();
             }
-            else if(btnBomb.style.display == "block"){
+            else if(btnEraserMenu.style.display == "block"){
                 //console.log("Bomb");
-                btnBomb.onclick();
-            }*/
+                btnEraserMenu.onclick();
+            }
             break;
         case "z":
         case "Z":

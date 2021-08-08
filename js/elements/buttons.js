@@ -99,6 +99,7 @@ btnBlackPencil.onclick = function(){
     //Make the pencil menu appear
     showBtnPencilMenu();
     pencilMenu.hide();
+    eraserMenu.hide();
     
     //Return the eraser to default
     showEraser();
@@ -118,6 +119,9 @@ btnBlackBucket.onclick = function(){
     selectToolButton(this);
     showEraser();
     showPencil();
+
+    pencilMenu.hide();
+    eraserMenu.hide();
 }
 
 /*btnRedBucket.onclick = function(){
@@ -126,7 +130,7 @@ btnBlackBucket.onclick = function(){
     console.log("Red Bucket selected");
 }*/
 
-//btnEraser.style.display = "block";
+btnEraser.style.display = "block";
 btnEraser.onclick = function(){
     //console.log("Eraser selected");
     myCanvasArea.toolSelected = drawingCanvasTools.ERASER;
@@ -143,6 +147,8 @@ btnEraser.onclick = function(){
 
     showPencil();
     showBtnEraserMenu();
+
+    pencilMenu.hide();
     //showBomb();
 }
 
