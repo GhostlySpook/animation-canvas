@@ -17,14 +17,15 @@ document.addEventListener("keydown", function(e){
             break;
         case "e":
         case "E":
-            if(btnEraser.style.display == "block"){
+            btnEraser.onclick();
+            /*if(btnEraser.style.display == "block"){
                 //console.log("Erase");
                 btnEraser.onclick();
             }
             else if(btnBomb.style.display == "block"){
                 //console.log("Bomb");
                 btnBomb.onclick();
-            }
+            }*/
             break;
         case "z":
         case "Z":

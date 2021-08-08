@@ -1,13 +1,15 @@
 //Define components to appear and add make them to appear
 var btnBlackPencil = document.getElementById("btnBlackPencil");
 
-//var btnRedPencil = document.getElementById("btnRedPencil");
+var btnPencilMenu = document.getElementById("btnPencilMenu");
 
-var btnEraser = document.getElementById("btnEraser");
+//var btnRedPencil = document.getElementById("btnRedPencil");
 
 var btnBlackBucket = document.getElementById("btnBlackBucket");
 
-var btnPencilMenu = document.getElementById("btnPencilMenu");
+var btnEraser = document.getElementById("btnEraser");
+
+var btnEraserMenu = document.getElementById("btnEraserMenu");
 
 //var btnRedBucket = document.getElementById("btnRedBucket");
 
@@ -68,13 +70,19 @@ showBtnPencilMenu = function(){
 
 showEraser = function(){
     btnEraser.style.display = "block";
-    btnBomb.style.display = "none";
+    btnEraserMenu.style.display = "none";
+    //btnBomb.style.display = "none";
 }
 
-showBomb = function(){
+showBtnEraserMenu = function(){    
+    btnEraser.style.display = "none";
+    btnEraserMenu.style.display = "block";
+}
+
+/*showBomb = function(){
     btnEraser.style.display = "none";
     btnBomb.style.display = "block";
-}
+}*/
 
 //Define customized behaviour for components
 btnBlackPencil.onclick = function(){
@@ -102,25 +110,6 @@ btnPencilMenu.onclick = function(){
     pencilMenu.toggle();
 }
 
-btnEraser.style.display = "block";
-btnEraser.onclick = function(){
-    //console.log("Eraser selected");
-    myCanvasArea.toolSelected = drawingCanvasTools.ERASER;
-
-    //ctx.strokeStyle = myCanvasArea.backgroundColour;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-    ctx.lineWidth = myCanvasArea.eraserRadius * 2;
-
-    /*btnEraser.style.display = "none";
-    btnBomb.style.display = "block";*/
-
-    selectToolButton(btnBomb);
-
-    showPencil();
-    showBomb();
-}
-
 btnBlackBucket.onclick = function(){
     myCanvasArea.toolSelected = drawingCanvasTools.BUCKET;
     //myCanvasArea.colourSelected = hexColour.BLACK;
@@ -136,6 +125,30 @@ btnBlackBucket.onclick = function(){
     myCanvasArea.colourSelected = hexColour.RED;
     console.log("Red Bucket selected");
 }*/
+
+//btnEraser.style.display = "block";
+btnEraser.onclick = function(){
+    //console.log("Eraser selected");
+    myCanvasArea.toolSelected = drawingCanvasTools.ERASER;
+
+    //ctx.strokeStyle = myCanvasArea.backgroundColour;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.lineWidth = myCanvasArea.eraserRadius * 2;
+
+    /*btnEraser.style.display = "none";
+    btnBomb.style.display = "block";*/
+
+    selectToolButton(btnEraserMenu);
+
+    showPencil();
+    showBtnEraserMenu();
+    //showBomb();
+}
+
+btnEraserMenu.onclick = function(){
+    eraserMenu.toggle();
+}
 
 btnBomb.onclick = function(){
     if(isPlaying){

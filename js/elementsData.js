@@ -23,6 +23,7 @@ includeScript.add([
     "js/elements/settingsMenu.js",
     "js/elements/colourMenu.js",
     "js/elements/pencilMenu.js",
+    "js/elements/eraserMenu.js",
     "js/elements/sideBar.js",
     "js/elements/frameVisualizer.js"
 ]);

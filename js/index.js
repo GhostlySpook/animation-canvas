@@ -104,6 +104,11 @@ window.onpointerdown = function(e){
         pencilMenu.hide();
     }
 
+    //If eraser menu is displayed, hide
+    if(e.target != btnEraserMenu && e.target != eraserMenu && e.target != rangeEraserSize){
+        eraserMenu.hide();
+    }
+
     //If colour menu is displayed, hide
     if(!(e.target.classList.contains("svgBtnColour"))){
         colourMenu.hide();

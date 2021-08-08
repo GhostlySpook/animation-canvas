@@ -84,6 +84,10 @@ p{
     position:absolute;
   }
 
+  .rangeSidebar{
+    width: 100%;
+  }
+
   /*input {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
@@ -260,6 +264,27 @@ input[type=number] {
 #rangeSize{
   width: 100%;
 }
+
+/*////////////////////////////////////////////////////////*/
+
+/*ERASER MENU////////////////////////////////////////////////////////*/
+
+#eraserMenu{
+  background: rgb(98, 101, 102);
+  border-style: solid;
+  border-color: #818181;
+  display: none;
+  position: fixed;
+  left: 10%;
+  top: 22%;
+  width: 20%;
+  height: 3%;
+  z-index: 3;
+}
+
+/*#rangeSize{
+  width: 100%;
+}*/
 
 /*////////////////////////////////////////////////////////*/
 
