@@ -30,7 +30,7 @@ cboxSeeThrough.onclick = function(){
     }
     //If the canvas is shown, make it appear again
     else{
-        bottomCanvas.showPrevious();
+        bottomCanvas.update();
     }
 }
 

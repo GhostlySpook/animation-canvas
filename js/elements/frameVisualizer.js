@@ -59,6 +59,7 @@ updateVisualizerImage = function(pointer){
 }
 
 updateVisualizerDelay = function(pointer){
+    console.log(delayFrameList);
     visualizerList[pointer].frameObject.inputFrames.value = delayFrameList[pointer];
 }
 
@@ -171,7 +172,7 @@ function createDivFrameObject(pointer){
         
         //Draw the new images
         ctx.putImageData(framesList[framePointer], 0, 0);
-        bottomCanvas.showPrevious();
+        bottomCanvas.update();
         selectInFrameVisualizer(framePointer);
 
         //Clear redo list

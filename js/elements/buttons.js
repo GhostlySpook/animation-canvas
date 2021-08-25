@@ -186,11 +186,15 @@ btnColour.addEventListener("click", function(){
 });
 
 btnOnionPrevious.onclick = function(){
-    
+    bottomCanvas.togglePrevious();
+    bottomCanvas.toggleNext(false);
+    bottomCanvas.update();
 }
 
 btnOnionNext.onclick = function(){
-    
+    bottomCanvas.toggleNext();
+    bottomCanvas.togglePrevious(false);
+    bottomCanvas.update();
 }
 
 btnUndo.onclick = function(){
@@ -258,7 +262,7 @@ btnRedo.onclick = function(){
     txtFrames.update();
 
     //Update frame before new one
-    bottomCanvas.showPrevious();
+    bottomCanvas.update();
 
     //Clear redo list
     clearRedo(myCanvasArea.getCanvasArea());
@@ -281,7 +285,7 @@ btnRedo.onclick = function(){
     txtFrames.update();
 
     //Update frame before new one
-    bottomCanvas.showPrevious();
+    bottomCanvas.update();
 
     //Clear redo list
     clearRedo(myCanvasArea.getCanvasArea());
@@ -299,7 +303,7 @@ btnNewFrame.onclick = function(){
     insertInFrameVisualizer(framePointer);
 
     //Update the frame displayed behind the canvas
-    bottomCanvas.showPrevious();
+    bottomCanvas.update();
 
     //updateFrameVisualizer();
     clearRedo(myCanvasArea.getCanvasArea());
@@ -333,7 +337,7 @@ btnPasteFrame.onclick = function(){
     //updateVisualizerImage(framePointer);
 
     //Update the frame displayed behind the canvas
-    bottomCanvas.showPrevious();
+    bottomCanvas.update();
     //addRedo(myCanvasArea.getCanvasArea());
 }
 
@@ -352,7 +356,7 @@ btnDeleteFrame.onclick = function(){
     //console.log("Delete Frame Button selected");
 
     //Update frame before new one
-    bottomCanvas.showPrevious();
+    bottomCanvas.update();
 
     deleteInFrameVisualizer(framePointer);
 
@@ -503,7 +507,7 @@ btnStop.onclick = function(){
     clearInterval(playInterval);
     //btnPlay.style.display = "block";
     ctx.putImageData(framesList[framePointer], 0, 0);
-    bottomCanvas.showPrevious();
+    bottomCanvas.update();
 
     space.style.display = "none";
 
