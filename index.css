@@ -65,6 +65,14 @@ p{
     margin-left: 10px;
   }
   
+  #btnOnionContainer{
+    width: 100%;
+  }
+
+  .btnOnion{
+    padding-top: 5px;
+    width: 45%;
+  }
 
   #redoContainer{
     width: 85%;

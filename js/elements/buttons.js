@@ -17,6 +17,10 @@ var btnBomb = document.getElementById("btnBomb");
 
 var btnColour = document.getElementById("btnColourContainer");
 
+var btnOnionPrevious = document.getElementById("btnOnionPrevious");
+
+var btnOnionNext = document.getElementById("btnOnionNext");
+
 var btnUndo = document.getElementById("btnUndo");
 
 var btnRedo = document.getElementById("btnRedo");
@@ -180,6 +184,14 @@ btnColourClick = () =>{
 btnColour.addEventListener("click", function(){
     btnColourClick();
 });
+
+btnOnionPrevious.onclick = function(){
+    
+}
+
+btnOnionNext.onclick = function(){
+    
+}
 
 btnUndo.onclick = function(){
     if(isPlaying){
