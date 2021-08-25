@@ -189,12 +189,18 @@ btnOnionPrevious.onclick = function(){
     bottomCanvas.togglePrevious();
     bottomCanvas.toggleNext(false);
     bottomCanvas.update();
+
+    /*btnOnionPrevious.classList.add("selected");
+    btnOnionNext.classList.remove("selected");*/
 }
 
 btnOnionNext.onclick = function(){
     bottomCanvas.toggleNext();
     bottomCanvas.togglePrevious(false);
     bottomCanvas.update();
+
+    /*btnOnionNext.classList.add("selected");
+    btnOnionPrevious.classList.remove("selected");*/
 }
 
 btnUndo.onclick = function(){

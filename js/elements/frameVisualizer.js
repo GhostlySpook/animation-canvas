@@ -59,7 +59,6 @@ updateVisualizerImage = function(pointer){
 }
 
 updateVisualizerDelay = function(pointer){
-    console.log(delayFrameList);
     visualizerList[pointer].frameObject.inputFrames.value = delayFrameList[pointer];
 }
 
