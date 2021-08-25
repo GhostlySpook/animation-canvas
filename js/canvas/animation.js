@@ -10,8 +10,9 @@ var redoPointer = 0;
 var frameClipboard = null;
 
 //Speed related
-//var delayFrameList = [];
+var delayFrameList = [];
 var currentFrameDelay = 0;
+var delayClipboard = 0;
 //var fps = 0;
 
 //Play related

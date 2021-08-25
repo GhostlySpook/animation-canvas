@@ -296,6 +296,7 @@ btnNewFrame.onclick = function(){
 btnCopyFrame.onclick = function(){
     //console.log("Copy Frame Button selected");
     frameClipboard = myCanvasArea.getCanvasArea();
+    delayClipboard = delayFrameList[framePointer];
 }
 
 btnPasteFrame.onclick = function(){
@@ -315,6 +316,8 @@ btnPasteFrame.onclick = function(){
     
     //Update frame visualizer
     insertInFrameVisualizer(framePointer);
+    delayFrameList[framePointer] = delayClipboard;
+    updateVisualizerDelay(framePointer);
     //updateVisualizerImage(framePointer);
 
     //Update the frame displayed behind the canvas
@@ -329,6 +332,7 @@ btnDeleteFrame.onclick = function(){
     if(framesList.length == 1)
         return
     framesList.splice(framePointer, 1);
+    delayFrameList.splice(framePointer, 1);
     if(framePointer > 0)
         framePointer--;
     ctx.putImageData(framesList[framePointer], 0, 0);
@@ -339,6 +343,8 @@ btnDeleteFrame.onclick = function(){
     bottomCanvas.showPrevious();
 
     deleteInFrameVisualizer(framePointer);
+
+
     clearRedo(myCanvasArea.getCanvasArea());
 }
 

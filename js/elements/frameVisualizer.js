@@ -58,6 +58,10 @@ updateVisualizerImage = function(pointer){
     //console.log("Updated image");
 }
 
+updateVisualizerDelay = function(pointer){
+    visualizerList[pointer].frameObject.inputFrames.value = delayFrameList[pointer];
+}
+
 function clearFrameVisualizer(){
     divFrameVisualizer.innerHTML = "";
     visualizerList = [];
@@ -118,11 +122,6 @@ function createDivFrameObject(pointer){
     speedInput.placeholder = 1;
     speedInput.value = 1;
 
-    //Input validation event
-    speedInput.addEventListener("change", () =>{
-        speedInput.value = validateFrameInput(speedInput.value);
-    });
-
     let pMs = document.createElement("p");
     pMs.textContent = "Frames";
 
@@ -158,6 +157,7 @@ function createDivFrameObject(pointer){
     }
 
     divFrame.frameObject = frameObject;
+    divFrame.frameObject.inputFrames.parent = divFrame.frameObject;
 
     //Add event to div. Changing the current frame to the selected one
     divFrame.addEventListener("click", () =>{
@@ -176,6 +176,13 @@ function createDivFrameObject(pointer){
 
         //Clear redo list
         clearRedo(myCanvasArea.getCanvasArea());
+    });
+
+    //Input validation event
+    divFrame.frameObject.inputFrames.addEventListener("change", () =>{
+        divFrame.frameObject.inputFrames.value = validateFrameInput(divFrame.frameObject.inputFrames.value);
+        delayFrameList[divFrame.frameObject.inputFrames.parent.position] = divFrame.frameObject.inputFrames.value;
+        console.log(delayFrameList);
     });
 
     //divFrame.frameObject = frameObject;
@@ -276,6 +283,7 @@ function insertInFrameVisualizer(pointer){
     //console.log("VisualizerList in insertInFrame: ", visualizerList);
     //console.log("VisualizerList in insertInFrame would be after splice: ", visualizerList.splice((pointer - 1), 0, newFrame));
     visualizerList.splice((pointer - 1), 0, newFrame);
+    delayFrameList.splice((pointer), 0, newFrame.frameObject.inputFrames.value);
     //visualizerList = visualizerList.splice((pointer - 1), 0, newFrame);
     //console.log("VisualizerList in insertInFrame after splice: ", visualizerList);
 
@@ -283,9 +291,15 @@ function insertInFrameVisualizer(pointer){
     divFrameVisualizer.insertBefore(newFrame, visualizerList[(pointer)]);
     //visualizerList[(pointer)].insertAdjacentElement("afterend", newFrame);
 
+    console.log(delayFrameList);
+
     updateVisualizerNumbers(pointer - 1);
+    
     updateVisualizerImage(pointer-1)
     updateVisualizerImage(pointer);
+
+    updateVisualizerDelay(pointer-1);
+    updateVisualizerDelay(pointer);
 
     selectInFrameVisualizer(pointer);
     //console.log(visualizerList);
@@ -304,6 +318,9 @@ function deleteInFrameVisualizer(pointer){
 
     //Update image
     updateVisualizerImage(pointer);
+
+    //Update delay
+    updateVisualizerDelay(pointer);
 
     console.log("Pointer", pointer);
     selectInFrameVisualizer(pointer);
